@@ -47,7 +47,7 @@ class Evex extends CI_Controller {
 		
 		$this->session->set_userdata('userdata', $result[0]);
 		
-		echo count($_SESSON['userdata']);
+		echo count($result);
 	}
 	
 	public function sign_up() {
@@ -106,20 +106,54 @@ class Evex extends CI_Controller {
 		$this->load->view('footer');
 	}
 	
+	public function validate_create_event() {
+		$this->form_validation->set_rules('event_name', 'Event Name', 'required');
+		$this->form_validation->set_rules('date', 'Date', 'required');
+		$this->form_validation->set_rules('venue', 'Venue', 'required');
+		$this->form_validation->set_rules('start_time', 'Start Time', 'required');
+		$this->form_validation->set_rules('end_time', 'End Time', 'required');
+		$this->form_validation->set_rules('description', 'Description', 'required');
+		$this->form_validation->set_rules('category', 'Category', 'required');
+
+		if ($this->form_validation->run() == FALSE) {
+			echo validation_errors();
+		} else {
+			echo "1";
+		}
+	}
+	
 	public function create_event() {
+		$this->load->helper('string');
+	
+		$event_name = $this->input->post("event_name");
 		$date = $this->input->post("date");
 		$venue = $this->input->post("venue");
 		$start_time = $this->input->post("start_time");
 		$end_time = $this->input->post("end_time");
 		$description = $this->input->post("description");
+		$category = $this->input->post("category");
+		
+		do {
+			$event_code = strtolower(random_string('alnum', 6));
+			
+			$this->db->select('event_code');
+			$this->db->from('event');
+			$this->db->where('event_code', $event_code);
+			$query = $this->db->get();
+			
+			$result = $query->num_rows();
+		} while($result > 0);
 		
 		$data = array(
-			'username' => $_SESSION['userdata'][0],
+			'username' => $_SESSION['userdata']["username"],
+			'event_code' => $event_code,
+			'event_name' => $event_name,
 			'date' => $date, 
 			'venue' => $venue, 
 			'start_time' => $start_time, 
 			'end_time' => $end_time, 
-			'description' => $description
+			'description' => $description,
+			'category' => $category
 			);
 		
 		$query = $this->db->insert('event', $data);

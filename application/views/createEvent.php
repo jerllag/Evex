@@ -5,6 +5,9 @@
 			</div>
 		</div>
 		
+		<div class="row">
+			<div class="col-lg-offset-2 col-lg-4 error_msg"></div>
+		</div>
 		<form class="form" id="createEventForm">
 		<div class="row" id="content">
 			<div class="col-lg-2"></div>
@@ -17,33 +20,33 @@
 			</div>
 			
 			<div class="col-lg-4">
-				<div class="form group">
-						<label for="name">Name of Event</label>
-						<input type="name" class="form-control" id="name">						
-					</div>
-				<div class="form group">
-					<label for="date">Date</label>
-					<input type="date" class="form-control" id="date">	
+				<div class="form-group">
+					<label for="name">Name of Event</label>
+					<input type="name" class="form-control" name="event_name" id="event_name">						
 				</div>
-				<div class="form group">
+				<div class="form-group">
+					<label for="date">Date</label>
+					<input type="date" class="form-control" name="date" id="date">	
+				</div>
+				<div class="form-group">
 					<label for="venue">Venue</label>
-					<input type="text" class="form-control" id="venue">						
+					<input type="text" class="form-control" name="venue" id="venue">						
 				</div>
 				
 				<label for="time">Time</label>
-					<div class="row">
-						<div class="col-lg-6">
-							<div class="form group">	
-								<input type="time" class="form-control" id="start_time">						
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="form-group">	
+							<input type="time" class="form-control" name="start_time" id="start_time">						
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<form class="form">
+							<div class="form-group">
+								<input type="time" class="form-control" name="end_time" id="end_time">						
 							</div>
-						</div>
-						<div class="col-lg-6">
-							<form class="form">
-								<div class="form group">
-									<input type="time" class="form-control" id="end_time">						
-								</div>
-							</form>
-						</div>
+						</form>
+					</div>
 				</div>
 			</div>
 			<div class="col-lg-2"></div>
@@ -52,9 +55,9 @@
 		<div class="row" id="content">
 			<div class="col-lg-2"></div>
 			<div class="col-lg-8">
-					<div class="form group">
+					<div class="form-group">
 						<label for="category">Category</label>
-						<select class="form-control">
+						<select class="form-control" id="category">
 							<option id="category">
 							Academic
 							</option>
@@ -124,15 +127,23 @@
 	
 	$("#createEventForm").submit(function(e) {
 		e.preventDefault();
-		
+	
+		var event_name = $("#event_name").val();
 		var date = $("#date").val();
 		var venue = $("#venue").val();
 		var start_time = $("#start_time").val();
 		var end_time = $("#end_time").val();
 		var description = $("#description").val();
+		var category = $("#category").val();
 		
-		$.post("<?=base_url("/evex/create_event")?>", {'date': date, 'venue': venue, 'start_time': start_time, 'end_time': end_time, 'description': description, csrf_token_name: Cookies.get("csrf")}, function(data) {
-				alert("Created an Event");
-			});
+		$.post("<?=base_url("/evex/validate_create_event")?>", {'event_name': event_name, 'date': date, 'venue': venue, 'start_time': start_time, 'end_time': end_time, 'description': description, 'category': category, csrf_token_name: Cookies.get("csrf")}, function(data) {
+			if(data != "1") {
+				$('.error_msg').html(data);
+			} else {
+				$.post("<?=base_url("/evex/create_event")?>", {'event_name': event_name, 'date': date, 'venue': venue, 'start_time': start_time, 'end_time': end_time, 'description': description, 'category': category, csrf_token_name: Cookies.get("csrf")}, function(data) {
+					alert("Created an Event");
+				});
+			}
+		});
 	});
 </script>

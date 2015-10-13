@@ -63,10 +63,11 @@
 							<td>
 								<div class="row" id="content">
 									<h4><b>Venue:</b> <?=$event[3]?>
-									<br><b>Time:</b> <?=$event[5]?> - <?=$event[6]?> 
+									<br><b>Time:</b> <?=date("g:i a", strtotime($event[5]))?> - <?=date("g:i a", strtotime($event[6]))?> 
 									<br><b>Description:</b> <?=$event[7]?></h4>
 								</div>
 								<div class="row">
+									<?php if(!isset($_SESSION['userdata'])) { ?>
 									<div class="col-lg-3">
 										<button type="submit" class="btn btn-danger">
 											<span class="glyphicon glyphicon-calendar"></span> RSVP
@@ -80,7 +81,7 @@
 											</a>
 										</button>
 									</div>
-										
+									<?php } else { ?>	
 									<div class="col-lg-5">
 										<button type="submit" class="btn btn-success" disabled>
 											<a href="<?=base_url("/evex/results_view")?>">
@@ -88,6 +89,7 @@
 											</a>
 										</button>
 									</div>
+									<?php } ?>
 								</div>
 							</td>
 						</tr>
