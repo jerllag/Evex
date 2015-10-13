@@ -104,7 +104,7 @@
 									<input type="text" class="form-control" id="criteria">						
 								</div>
 								
-								<br><a href="()addCriteria" style="color: blue">Add Another Criteria</a>
+								<br><br><a href="()addCriteria" style="color: blue">Add Another Criteria</a>
 							</form>
 						</div>
 					</div>

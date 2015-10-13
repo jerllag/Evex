@@ -6,7 +6,8 @@
 		</div>
 		
 		<div class="row">
-			<div class="col-lg-7">
+			<div class="col-lg-2"></div>
+			<div class="col-lg-4">
 				<table class="table table-condensed">
 					<tbody>
 						<tr>
@@ -18,12 +19,13 @@
 										<span class="glyphicon glyphicon-pushpin"></span> Create Your Own Event 
 									</a>
 								</h3>
+								<?php } ?>
 							</center>
 						</tr>
 					</tbody>
 				</table>
 			</div>	
-			<div class="col-lg-4">
+			<div class="col-lg-4" id="content">
 				<div class="form-group">
 					  <div class="input-group">
 						  <div class="input-group-addon"><span class="glyphicon glyphicon-search"></div>
@@ -31,10 +33,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-3"></div>
+			<div class="col-lg-2"></div>
 		</div>
 		<!--end -->
-		<?php } ?>
+		
 	</section>
 	
 	<section class="no-margin" id="section">	
@@ -46,8 +48,8 @@
 				<table class="table table-condensed">
 					<thead>
 						<tr>
-							<th class="col-lg-7"><h3><?=$event[2]?></span></h3>
-							<!--img src="/images/Senpai.jpg" class="img-responsive" size="5%"--></th>
+							<th class="col-lg-7"><h3><?=$event[2]?></span></h3></th>
+							<!--img src="/images/Senpai.jpg" class="img-responsive" size="5%"-->
 							<th class="col-lg-5"><h4><small><b>Date:</b>
 							<i><?php $date= strtotime($event[4]);
 							echo date("F d, Y (l)", $date); ?></i></small></h4></th>
@@ -56,12 +58,14 @@
 					<tbody>
 						<tr>
 							<td>
-								<h4><b>Venue:</b> <?=$event[3]?>
-								<br><b> Date:</b> <?=$event[4]?> 
-								<br><b>Time:</b> <?=$event[5]?> - <?=$event[6]?> 
-								<br><b>Description:</b> <?=$event[7]?></h4>
+								<img src="/images/Senpai.jpg" class="img-responsive" style="width:500px; height:200px">
 							</td>
 							<td>
+								<div class="row" id="content">
+									<h4><b>Venue:</b> <?=$event[3]?>
+									<br><b>Time:</b> <?=$event[5]?> - <?=$event[6]?> 
+									<br><b>Description:</b> <?=$event[7]?></h4>
+								</div>
 								<div class="row">
 									<div class="col-lg-3">
 										<button type="submit" class="btn btn-danger">

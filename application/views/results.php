@@ -7,9 +7,9 @@
 
 	<div class="row" align="center">
 		<div class="col-lg-4, col-sm-4">
-			<div class="third circle"  data-value="0.9" data-size="250" data-thickness="10" data-animation-start-value="0.0" data-reverse="false">
-				<br><span>Creativity</span><strong></strong><br>	
-			</div>
+			<span id="criteria"><div class="third circle"  data-value="0.9" data-size="250" data-thickness="10" data-animation-start-value="0.0" data-reverse="false">
+				<br>Creativity<strong></strong><br>	
+			</div></span>
 		</div>
 		<div class="col-lg-4, col-sm-4">
 			<div class="third circle"  data-value="0.5" data-size="250" data-thickness="10" data-animation-start-value="0.0" data-reverse="false">
@@ -24,7 +24,7 @@
 	
 	</div>
 		
-	<div class="table-responsive" id="content">
+	<div class="table table-condensed" id="content">
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -42,10 +42,10 @@
 			
 			<tbody>
 			<tr class="info">
-				<td class="col-lg-2" align="center">
-					<img src="/evex/images/users/brian.jpg" class="img-circle" width="40%">
+				<td class="col-lg-3" align="center">
+					<img src="/images/users/brian.jpg" class="img-circle img-responsive" width="120px" height="120px">
 				</td>
-				<td class="col-lg-4">
+				<td class="col-lg-3">
 					<h4>Brian B. Caldona </h4>
 					<h5>Expert Global Solutions (Marikina Site) </h5>
 				</td>
@@ -60,7 +60,7 @@
 			<!---remove, replace with loop from retrieving from db, LAYOUT PURPOSES ONLY-->
 			<tr>
 				<td class="col-lg-3" align="center">
-					<img src="/evex/images/users/karen.png" class="img-circle" width="40%">
+					<img src="/images/users/karen.png" class="img-circle img-responsive" width="120px" height="120px">
 				</td>
 				<td class="col-lg-3">
 					<h4>Karen Marie E. Igcasan</h4>
@@ -77,7 +77,7 @@
 			
 			<tr>
 				<td class="col-lg-3" align="center">
-					<img src="/evex/images/users/marnie.jpg" class="img-circle" width="40%">
+					<img src="/images/users/marnie.jpg" class="img-circle img-responsive" width="120px" height="120px">
 				</td>
 				<td class="col-lg-3">
 					<h4>Marnie Bright R. Palapar</h4>
@@ -99,4 +99,4 @@
 
 <!--permanent here, do not remove -->
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="js/circle-progress.js"></script>
+<script src="/js/circle-progress.js"></script>

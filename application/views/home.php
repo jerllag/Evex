@@ -1,6 +1,7 @@
 	<section class="no-margin" id="section">
 		<div class="row" id="section">
 				<div class="col-lg-7" align="center">
+					<!--carousel-->
 					<br><p align="center"><img src="/images/banner.png" class="img-responsive"></p>
 				</div>
 				<div class="col-lg-2"></div>

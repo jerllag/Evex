@@ -1,18 +1,8 @@
 	<section class="no-margin" id="section">
 		<div class="row">
-			<div class="col-lg-3"></div>
-			<div class="col-lg-6" align="center">
-				<img src="/images/alt.jpg" class="img-responsive">
-			</div>
-			<div class="col-lg-3"></div>
-		</div>
-	</section>
-
-	<section class="no-margin" id="section">
-		<div class="row">
 			<h2 align="center"> Sign Up </h2>
-			<div class="col-lg-3"></div>
-			<div class="col-lg-6">
+			<div class="col-lg-4"></div>
+			<div class="col-lg-4">
 				<form role="form" id="signUpForm">
 					<div class="form-group">
 						<label for="username"> Username: </label>
@@ -77,6 +67,7 @@
 					</div>
 				</form>
 			</div>
+			<div class="col-lg-4"></div>
 		</div>
 	</section>
 	
