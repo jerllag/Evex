@@ -1,12 +1,11 @@
 	<section class="no-margin" id="section">
 		<div class="row" id="section">
-				<div class="col-lg-7" align="center">
+				<div class="col-lg-9" align="center">
 					<!--carousel-->
 					<br><p align="center"><img src="/images/banner.png" class="img-responsive"></p>
 				</div>
-				<div class="col-lg-2"></div>
 				<?php if(!isset($_SESSION['userdata'])) { ?>
-				<div class="col-lg-3" align="left">
+				<div class="col-lg-3" align="left" style="background-image: url(/images/res/bg.jpg); repeat: no-repeat; width=100%;">
 					<h2 align="center"><strong>Login<strong></h2>
 						<form role="form" id="logInForm">
 							<div class="form-group">

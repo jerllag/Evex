@@ -1,8 +1,11 @@
 body {
 	font-family: Arial, Verdana, Helvetica;
 }
+
+
+
 #criteria{
-	position                         : absolute;
+  position                         : absolute;
   width                              : 100%;
   height                             : 1;
   z-index                            : 1;
@@ -32,7 +35,7 @@ body {
 	height: 50%;
 }
 
-#content{
+#content, #signUpForm, #logInForm{
 	padding: 20px;
 }
 

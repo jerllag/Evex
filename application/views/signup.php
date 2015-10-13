@@ -3,7 +3,7 @@
 			<h2 align="center"> Sign Up </h2>
 			<div class="col-lg-4"></div>
 			<div class="col-lg-4">
-				<form role="form" id="signUpForm">
+				<form role="form" id="signUpForm" style="background-image: url(/images/res/bg.jpg); repeat: no-repeat; width=100%;">
 					<div class="form-group">
 						<label for="username"> Username: </label>
 						<input type="text" class="form-control" id="username" required>
@@ -61,7 +61,7 @@
 						
 						<div class="row" id="content" align="center">
 							<div class="col-lg-12">
-								<a onclick="javascript: formSubmit()" class="btn btn-info" role="button"><h4>I am an Organizer.</h4></a>
+								<a onclick="javascript: formSubmit()" class="btn btn-primary" role="button"><h4>I am an Organizer.</h4></a>
 							</div>
 						</div>
 					</div>
