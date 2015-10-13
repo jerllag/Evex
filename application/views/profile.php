@@ -5,7 +5,7 @@
 		</div>
 	<div class="col-lg-2"></div>
 	<div class="col-lg-2" align="center">
-		<img class="img-circle" src="images/users/jerome.png">
+		<img class="img-circle" src="/images/users/jerome.png">
 		<h3><button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-edit"></span> Edit</h3></button>
 		<h3><button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-lock"></span> Change Password</h3></button><br><br>
 	</div>
