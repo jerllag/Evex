@@ -1,4 +1,4 @@
-<section class="no-margin" id="section">
+	<section class="no-margin" id="section">
 		<div class="row">
 			<div class="col-lg-12">
 				<h2 align="center">Create Your Event
@@ -88,7 +88,6 @@
 			</div>
 			<div class="col-lg-2"></div>		
 		</div>
-	</div>
 	
 	<!-- modal code -->
 	<div id="insertRow" class="modal fade" role="dialog">

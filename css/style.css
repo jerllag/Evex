@@ -2,6 +2,12 @@ body {
 	font-family: Arial, Verdana, Helvetica;
 }
 
+#footer {
+	background-color: #207dba;
+	color: #ffffff;
+	padding: 20px 20px;
+}
+
 #criteria{
   position                         : absolute;
   width                              : 100%;
@@ -50,15 +56,6 @@ a {
 a:hover {
 	text-decoration: none;
 	color: white;
-}
-
-#footer { 
-   background-color: #207dba;
-   color: #ffffff;
-   padding: 20px 20px;
-   bottom: 0;
-   position: relative;
-
 }
 
 #navBar .font{
