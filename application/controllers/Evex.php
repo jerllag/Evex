@@ -121,7 +121,8 @@ class Evex extends CI_Controller {
 		}
 	
 		$this->load->view('header');
-		$this->load->view('event', $data);
+		$this->load->view('event');
+		$this->load->view('event_list', $data);
 		$this->load->view('footer');
 	}
 	
@@ -182,6 +183,29 @@ class Evex extends CI_Controller {
 			);
 		
 		$query = $this->db->insert('event', $data);
+	}
+	
+	public function search_event() {
+		$event_name = $this->input->post("event_name");
+		
+		$this->db->select('*');
+		$this->db->from('event');
+		if(isset($_SESSION['userdata'])) {
+			$this->db->where('username', $_SESSION['userdata']['username']);
+		}
+		
+		if($event_name != "") {
+			$this->db->like('event_name', $event_name); 
+		}
+		$query = $this->db->get();
+		
+		$data['events'] = array();
+		
+		foreach($query->result_array() as $i=>$line) {
+			$data['events'][$i] = array_values($line);
+		}
+		
+		$this->load->view('event_list', $data);
 	}
 	
 	public function feedback_view() {
