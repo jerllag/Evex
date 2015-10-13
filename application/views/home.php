@@ -1,6 +1,10 @@
 	<section class="no-margin" id="section">
 		<div class="row">
+				<?php if(!isset($_SESSION['userdata'])) { ?>
 				<div class="col-lg-9" align="center" id="spanExtend">
+				<?php } else { ?>
+				<div class="col-lg-12" align="center" id="spanExtend">
+				<?php } ?>
 					  <div id="evexSlide" class="carousel slide" data-ride="carousel">
 						<ol class="carousel-indicators">
 						  <li data-target="#evexSlide" data-slide-to="0" class="active"></li>
