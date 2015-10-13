@@ -46,7 +46,7 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<center><button type="submit" class="btn btn-info" data-dismiss="modal"><h4>Send Feedback</h4></button></center>
+					<center><button type="submit" class="btn btn-info" data-dismiss="modal"><h4>Save</h4></button></center>
 				</div>
 			</div>
 		</div>
