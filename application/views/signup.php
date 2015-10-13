@@ -3,6 +3,9 @@
 			<h2 align="center"> Sign Up </h2>
 			<div class="col-lg-4"></div>
 			<div class="col-lg-4">
+				<div class="row">
+					<div class="col-lg-12 error_msg"></div>
+				</div>
 				<form role="form" id="signUpForm" style="background-image: url(/images/res/bg.jpg); repeat: no-repeat; width=100%;">
 					<div class="form-group">
 						<label for="username"> Username: </label>
@@ -90,8 +93,15 @@
 			var pass = $("#pwd").val();
 			var rpass = $("#rpwd").val();
 			
-			$.post("<?=base_url("/evex/sign_up")?>", {'username': username, 'fname': fname, 'lname': lname, 'birthday': birthday, 'contactNo': contactNo, 'email': email, 'org_name': org_name, 'org_address': org_address, 'pass': pass, 'rpass': rpass, csrf_token_name: Cookies.get("csrf")}, function(data) {
-				alert("Sign Up Successful!!");
+			$.post("<?=base_url("/evex/validate_sign_up")?>", {'username': username, 'fname': fname, 'lname': lname, 'birthday': birthday, 'contact_no': contactNo, 'email': email, 'org_name': org_name, 'org_address': org_address, 'pass': pass, 'rpass': rpass, csrf_token_name: Cookies.get("csrf")}, function(data) {
+				if(data != "1") {
+					$('.error_msg').html(data);
+				} else {
+					$.post("<?=base_url("/evex/sign_up")?>", {'username': username, 'fname': fname, 'lname': lname, 'birthday': birthday, 'contact_no': contactNo, 'email': email, 'org_name': org_name, 'org_address': org_address, 'pass': pass, 'rpass': rpass, csrf_token_name: Cookies.get("csrf")}, function(data) {
+						alert("Sign Up Successful!! An email has been sent to your email address");
+						location.reload(true);
+					});
+				}
 			});
 		});
 	</script>
