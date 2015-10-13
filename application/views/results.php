@@ -7,9 +7,9 @@
 
 	<div class="row" align="center">
 		<div class="col-lg-4, col-sm-4">
-			<span id="criteria"><div class="third circle"  data-value="0.9" data-size="250" data-thickness="10" data-animation-start-value="0.0" data-reverse="false">
-				<br>Creativity<strong></strong><br>	
-			</div></span>
+			<div class="third circle"  data-value="0.5" data-size="250" data-thickness="10" data-animation-start-value="0.0" data-reverse="false">
+				<br><span>Creativity</span><strong></strong><br>	
+			</div>
 		</div>
 		<div class="col-lg-4, col-sm-4">
 			<div class="third circle"  data-value="0.5" data-size="250" data-thickness="10" data-animation-start-value="0.0" data-reverse="false">

@@ -12,7 +12,7 @@
 							<th class="col-lg-5"><h4><small><b>Date:</b>
 							<i><?php $date= strtotime($event[4]);
 							echo date("F d, Y (l)", $date); ?></i></small></h4></th>
-						</tr/
+						</tr>
 					</thead>
 					<tbody>
 						<tr>

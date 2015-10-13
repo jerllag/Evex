@@ -1,9 +1,49 @@
 	<section class="no-margin" id="section">
 		<div class="row">
-			<h2 align="center"> Register </h2>
-			<div class="col-lg-3"></div>
-			<div class="col-lg-6">
-				<form role="form" id="registerForm" style="background-image: url(/images/res/bg.jpg); repeat: no-repeat; width=100%;">
+			<div class="col-lg-12" align="center">
+				<img src="/images/Senpai.jpg" class="img-responsive" width="500px" height="500px">
+				<h2 align="center"> Event Name </h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12" align="center">
+				<h4>Description goes here.Description goes here.Description goes here.Description goes here.Description goes here.</h4>
+			</div>
+			</div>
+			<div class="container" align="center">
+			<div class="row" id="content">
+				<div class="col-lg-2">
+					<select id="date" class="form-control">
+						<option> Date</option>
+					</select>
+				</div>
+				<div class="col-lg-4">
+					Venue
+				</div>
+				<div class="col-lg-3">
+					<div class="row">
+					Time to Time	
+					</div>
+				</div>
+				<div class="col-lg-3">
+					<button class="btn btn-danger" data-toggle="modal" data-target="#registerForm">
+						<span class="glyphicon glyphicon-calendar"></span> RSVP
+					</button>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!---modal for register-->
+	<div id="registerForm" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header" style="background: #1da9d3; color:white; width="">
+					<button type="button" class="close" data-dismiss="modal"> &times; </button>
+					<h4 align="center"> Register for this Event</h4>
+				</div>
+				<div class="modal-body" id="content">
+					<form role="form" id="registerForm">
 					<label for="start_date">Full Name: </label>
 					<div class="row">
 						<div class="col-lg-6">
@@ -30,36 +70,13 @@
 						<label for="email"> Email Address: </label>
 						<input type="email" class="form-control" id="email" required>
 					</div>
-						
-						<div class="row" id="content" align="center">
-							<div class="col-lg-12">
-								<a onclick="javascript: formSubmit()" class="btn btn-info" role="button" data-toggle="modal" data-target="#eventCode"><h4>I am an Attendee.</h4></a>
-							</div>
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
-	</section>
-	
-
-	<!---modal-->
-	<div id="eventCode" class="modal fade" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header" style="background: #1da9d3; color:white; width="">
-					<button type="button" class="close" data-dismiss="modal"> &times; </button>
-					<h4 align="center"> Event Code</h4>
-				</div>
-				<div class="modal-body" id="content">
-					<form class="form">
-						<div class="form group">
-							<input type="text" class="form-control" id="code">						
-						</div>
-					</form>
 				</div>
 				<div class="modal-footer">
-					<center><button type="submit" class="btn btn-info" data-dismiss="modal"><h4>Register</h4></button></center>
+					<center>
+						<button onclick="javascript: formSubmit()" class="btn btn-info" role="button">
+							<h4>I am an Attendee.</h4>
+						</button>
+					</center>
 				</div>
 			</div>
 		</div>
