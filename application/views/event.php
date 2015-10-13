@@ -32,6 +32,11 @@
 						<input type="text" class="form-control" id="search" placeholder="Search Events">
 					</div>
 				</div>
+			
+				<div class="button-group">
+					<button class="btn btn-default"><span class="glyphicon glyphicon-sort-by-alphabet"></span> Sort by Category</button>
+					<button class="btn btn-default"><span class="glyphicon glyphicon-sort-by-order"></span> Sort by No. of Participants</button>
+				</div>
 			</div>
 			<div class="col-lg-2"></div>
 		</div>
