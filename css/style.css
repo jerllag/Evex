@@ -2,8 +2,6 @@ body {
 	font-family: Arial, Verdana, Helvetica;
 }
 
-
-
 #criteria{
   position                         : absolute;
   width                              : 100%;
@@ -27,7 +25,6 @@ body {
   -moz-transition-timing-function    : ease-out;
   -o-transition-timing-function      : ease-out;
   transition-timing-function         : ease-out;
-
 }
 
 #section {
@@ -35,7 +32,13 @@ body {
 	height: 50%;
 }
 
-#content, #signUpForm, #logInForm{
+#logInForm, #signUpForm{
+	padding: 20px;
+	border-style: dashed;
+	border-color: #ffffff;
+}
+
+#content{
 	padding: 20px;
 }
 
@@ -50,7 +53,7 @@ a:hover {
 }
 
 #footer { 
-   background-color: #1da9d3;
+   background-color: #207dba;
    color: #ffffff;
    padding: 20px 20px;
    bottom: 0;
@@ -58,14 +61,4 @@ a:hover {
 
 }
 
-#navBar .font{
-	background-color: #123456;
-	color: #ffffff;
-
-}
-
-#colorHover:hover {
-	background-color: #ffffff;
-	color: #123456;
-}
 

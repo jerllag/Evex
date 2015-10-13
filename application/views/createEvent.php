@@ -82,7 +82,7 @@
 					<h4><span class="glyphicon glyphicon-pencil"></span> Create Criteria</h4>
 				</button>
 			
-				<button onclick="formSubmit()" type="submit" class="btn btn-warning">
+				<button onclick="formSubmit()" type="submit" class="btn btn-success">
 					<h4><span class="glyphicon glyphicon-save"></span> Save</h4>
 				</button>
 			</div>
