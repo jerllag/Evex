@@ -195,4 +195,10 @@ class Evex extends CI_Controller {
 		$this->load->view('results');
 		$this->load->view('footer');
 	}
+	
+	public function register_view() {
+		$this->load->view('header');
+		$this->load->view('register');
+		$this->load->view('footer');
+	}
 }

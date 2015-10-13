@@ -69,9 +69,9 @@
 								<div class="row">
 									<?php if(!isset($_SESSION['userdata'])) { ?>
 									<div class="col-lg-3">
-										<button type="submit" class="btn btn-danger">
+										<a href="<?=base_url("/evex/register_view")?>" type="submit" class="btn btn-danger">
 											<span class="glyphicon glyphicon-calendar"></span> RSVP
-										</button>
+										</a>
 									</div>
 									
 									<div class="col-lg-4">
