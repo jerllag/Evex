@@ -1,47 +1,35 @@
 	<section class="no-margin" id="section">
-		<div class="row" id="section">
-				<div class="col-lg-9" align="center">
-					<!--carousel-->
-					
-					  <div id="myCarousel" class="" data-ride="carousel">
-						<!-- Indicators -->
+		<div class="row">
+				<div class="col-lg-9" align="center" id="spanExtend">
+					  <div id="evexSlide" class="carousel slide" data-ride="carousel">
 						<ol class="carousel-indicators">
-						  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-						  <li data-target="#myCarousel" data-slide-to="1"></li>
-						  <li data-target="#myCarousel" data-slide-to="2"></li>
-						  <li data-target="#myCarousel" data-slide-to="3"></li>
+						  <li data-target="#evexSlide" data-slide-to="0" class="active"></li>
+						  <li data-target="#evexSlide" data-slide-to="1"></li>
+						  <li data-target="#evexSlide" data-slide-to="2"></li>
+						  <li data-target="#evexSlide" data-slide-to="3"></li>
 						</ol>
 
-						<!-- Wrapper for slides -->
 						<div class="carousel-inner" role="listbox">
 						  <div class="item active">
-							<img src="/images/banner.png" alt="Chania" width="460" height="345">
+							<img src="/images/banner.png" class="img-responsive" width="460" height="345">
 						  </div>
 
 						  <div class="item">
-							<img src="/images/banner.png" alt="Chania" width="460" height="345">
+							<img src="/images/res/bg_1.jpg" class="img-responsive" width="460" height="345">
 						  </div>
 						
 						  <div class="item">
-							<img src="/images/banner.png" alt="Flower" width="460" height="345">
+							<img src="/images/res/bg_2.jpg" class="img-responsive" width="460" height="345">
 						  </div>
 
 						  <div class="item">
-							<img src="/images/banner.png" alt="Flower" width="460" height="345">
+							<img src="/images/banner.png" class="img-responsive" width="460" height="345">
 						  </div>
 						</div>
 
-						<!-- Left and right controls -->
-						<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-						  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-						  <span class="sr-only">Previous</span>
-						</a>
-						<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-						  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-						  <span class="sr-only">Next</span>
-						</a>
-					  </div>
-					</div>
+						
+						</div>
+				
 					<br><!--p align="center"><img src="/images/banner.png" class="img-responsive"></p-->
 				</div>
 				
@@ -105,6 +93,7 @@
 	<!--end-->
 	
 	<script>
+		
 		$("#logInForm").submit(function(e) {
 			e.preventDefault();
 			$.post("<?=base_url("/evex/log_in")?>", {'username': $("#studno").val(), 'password': $("#pwd").val(), csrf_token_name: Cookies.get("csrf")}, function(data) {
@@ -113,6 +102,8 @@
 				}
 			});
 		});
+		
+		
 	</script>
 
 	
