@@ -1,6 +1,6 @@
 	<section class="no-margin" id="section">
 		<div class="row">
-			<h2 align="center"> Sign Up </h2>
+			<h2 align="center"> Change Password </h2>
 			<div class="col-lg-4"></div>
 			<div class="col-lg-4">
 				<div class="row">
@@ -8,63 +8,28 @@
 				</div>
 				<form role="form" id="signUpForm" style="background-image: url(/images/res/bg.jpg); repeat: no-repeat; width=100%;">
 					<div class="form-group">
-						<label for="username"> Username: </label>
-						<input type="text" class="form-control" id="username">
-					</div>
-					<label for="start_date">Full Name: </label>
-					<div class="row">
-						<div class="col-lg-6">
-							<div class="form-group">
-								<input type="text"  class="form-control" id="fname" placeholder="Firstname">
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="form-group">
-								<input type="text"  class="form-control" id="lname" placeholder="Lastname">
-							</div>
-						</div>
-					</div>
-				
-					<div class="form-group">
-						<label for="birthday"> Birthday: </label>
-						<input type="date" class="form-control" id="birthday">
-					</div>
-					<div class="form-group">
-						<label for="contactno"> Contact No.: </label>
-						<input type="number" class="form-control" id="contactno">
-					</div>
-					<div class="form-group">
-						<label for="email"> Email Address: </label>
-						<input type="email" class="form-control" id="email">
-					</div>
-					
-					<div class="form-group">
-						<label for="company_name"> Organization Name: </label>
-						<input type="text" class="form-control" id="org_name">
-					</div>
-					<div class="form-group">
-						<label for="company_address"> Organization Address: </label>
-						<input type="text" class="form-control" id="org_address">
+						<label for="username"> Current Password: </label>
+						<input type="text" class="form-control" id="cpwd">
 					</div>
 					
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="form-group">	
-								<label for="password">Password: </label>
-								<input type="password"  class="form-control" id="pwd">
+								<label for="password">New Password: </label>
+								<input type="new_password"  class="form-control" id="npwd">
 							</div>
 						</div>
 						<div class="col-lg-2"></div>	
 						<div class="col-lg-6">
 							<div class="form-group">
-								<label for="password">Confirm Password: </label>
-								<input type="password"  class="form-control" id="rpwd">
+								<label for="re_password">Confirm Password: </label>
+								<input type="re_password"  class="form-control" id="rpwd">
 							</div>
 						</div>
 						
 						<div class="row" id="content" align="center">
 							<div class="col-lg-12">
-								<a onclick="javascript: formSubmit()" class="btn btn-primary" role="button"><h4>I am an Organizer.</h4></a>
+								<a onclick="javascript: formSubmit()" class="btn btn-primary" role="button"><h4>Save Password.</h4></a>
 							</div>
 						</div>
 					</div>
@@ -74,6 +39,13 @@
 		</div>
 	</section>
 	
+	<section class="no-margin" id="section">
+		<div class="row" id="content"></div>
+	</section>
+	<section class="no-margin" id="section">
+		<div class="row" id="content"></div>
+	</section>	
+
 	<script>	
 		function formSubmit() {
 			$("#signUpForm").submit();

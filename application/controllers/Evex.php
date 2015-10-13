@@ -14,6 +14,13 @@ class Evex extends CI_Controller {
 		$this->load->view('footer');
 	}
 	
+	public function changepassword() {
+		$this->load->view('header');
+		$this->load->view('changepassword');
+		$this->load->view('footer');
+	}
+	
+	
 	public function log_in() {
 		$username = $this->input->post("username");
 		$password = $this->input->post("password");
