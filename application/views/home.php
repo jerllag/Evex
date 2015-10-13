@@ -32,7 +32,7 @@
 					<img src="/images/gang_of_four.png" class="img-responsive">
 				</div>
 				<div class="col-lg-8">
-					<p class="lead" align="justify"><strong>The Event Management Expert System</strong>
+					<p class="lead" align="justify"><strong>An Event Evaluator Expert System</strong>
 					<br><small> It is also known as the <i>EVEX</i>. A case study in Introduction to Mobile Application Development (CS 414A3 and CS 414A3L) 
 					and Advanced Mobile Application Development (CS CS 422A4 and CS 422A4L) created by the the developer team, The Gang of Four, composed of: 				
 					
