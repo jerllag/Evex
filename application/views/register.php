@@ -42,18 +42,35 @@
 		</div>
 	</section>
 	
-	<section class="no-margin" id="section" style="background-image: url(/images/res/bg.jpg); repeat: no-repeat; width=100%;">
-		<div class="row">
-			<div class="col-lg-4"></div>
-			<div class="col-lg-4">
-				<div class="form-group" align="center">
-						<label for="eventCode"> Event Code: </label>
-						<input type="text" class="form-control" id="eventCode">
+
+	<!---modal-->
+	<div id="eventCode" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header" style="background: #1da9d3; color:white;">
+					<button type="button" class="close" data-dismiss="modal"> &times; </button>
+					<h4 align="center"> Event Code</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row" id="content">
+						<div class="col-lg-12" id="content">
+							<form class="form">
+								<div class="form group">
+									<label for="criteria" align="center">Enter Event Code:</label>
+									<input type="text" class="form-control" id="code">						
+								</div>
+								
+								<br><br><a href="()addCriteria" style="color: blue">Add Another Criteria</a>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<center><button type="submit" class="btn btn-primary" data-dismiss="modal"><h4>Save Criteria</h4></button></center>
 				</div>
 			</div>
-			<div class="col-lg-4"></div>
 		</div>
-	</section>
+	</div>
 	
 	<script>	
 		function formSubmit() {

@@ -61,4 +61,15 @@ a:hover {
 
 }
 
+#navBar .font{
+	background-color: #123456;
+	color: #ffffff;
+
+}
+
+#colorHover:hover {
+	background-color: #ffffff;
+	color: #123456;
+}
+
 
