@@ -1,7 +1,7 @@
 <section class="no-margin" id="section">
 		<div class="row">
 			<div class="col-lg-12">
-				<h2 align="center"> Event Profile
+				<h2 align="center">Create Your Event
 			</div>
 		</div>
 		
