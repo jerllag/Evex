@@ -7,26 +7,27 @@
 					<div class="col-lg-12 error_msg"></div>
 				</div>
 				<form role="form" id="signUpForm" style="background-image: url(/images/res/bg.jpg); repeat: no-repeat; width=100%;">
+					<?php if(!isset($_SESSION['userdata'])) {?>
 					<div class="form-group">
-						<label for="username"> Current Password: </label>
-						<input type="text" class="form-control" id="cpwd">
+						<label for="email">Email: </label>
+						<input type="email" class="form-control" id="email">
+					</div><?php } ?>
+					
+					<div class="form-group">
+						<label for="current_password">Current Password: </label>
+						<input type="password" class="form-control" id="cpwd">
 					</div>
 					
-					<div class="row">
-						<div class="col-lg-6">
-							<div class="form-group">	
-								<label for="password">New Password: </label>
-								<input type="new_password"  class="form-control" id="npwd">
-							</div>
-						</div>
-						<div class="col-lg-2"></div>	
-						<div class="col-lg-6">
-							<div class="form-group">
-								<label for="re_password">Confirm Password: </label>
-								<input type="re_password"  class="form-control" id="rpwd">
-							</div>
-						</div>
-						
+					<div class="form-group">	
+						<label for="new_password">New Password: </label>
+						<input type="password"  class="form-control" id="npwd">
+					</div>
+				
+					<div class="form-group">
+						<label for="re_password">Confirm Password: </label>
+						<input type="password"  class="form-control" id="rpwd">
+					</div>
+				
 						<div class="row" id="content" align="center">
 							<div class="col-lg-12">
 								<a onclick="javascript: formSubmit()" class="btn btn-primary" role="button"><h4>Save Password.</h4></a>
@@ -42,10 +43,7 @@
 	<section class="no-margin" id="section">
 		<div class="row" id="content"></div>
 	</section>
-	<section class="no-margin" id="section">
-		<div class="row" id="content"></div>
-	</section>	
-
+	
 	<script>	
 		function formSubmit() {
 			$("#signUpForm").submit();
