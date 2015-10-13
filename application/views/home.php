@@ -15,15 +15,15 @@
 
 						<div class="carousel-inner" role="listbox">
 						  <div class="item active">
-							<img src="/images/banner.png" class="img-responsive" width="460" height="345">
+							<img src="/images/banner.png" width="460" height="345">
 						  </div>
 
 						  <div class="item">
-							<img src="/images/res/bg_1.jpg" class="img-responsive" width="460" height="345">
+							<img src="/images/res/bg_1.jpg" width="460" height="345">
 						  </div>
 						
 						  <div class="item">
-							<img src="/images/res/bg_2.jpg" class="img-responsive" width="460" height="345">
+							<img src="/images/res/bg_2.jpg" width="460" height="345">
 						  </div>
 
 						  <div class="item">

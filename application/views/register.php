@@ -3,7 +3,7 @@
 			<h2 align="center"> Register </h2>
 			<div class="col-lg-3"></div>
 			<div class="col-lg-6">
-				<form role="form" id="registerForm">
+				<form role="form" id="registerForm" style="background-image: url(/images/res/bg.jpg); repeat: no-repeat; width=100%;">
 					<label for="start_date">Full Name: </label>
 					<div class="row">
 						<div class="col-lg-6">
@@ -42,16 +42,18 @@
 		</div>
 	</section>
 	
-	<!--section class="no-margin" id="section">
+	<section class="no-margin" id="section" style="background-image: url(/images/res/bg.jpg); repeat: no-repeat; width=100%;">
 		<div class="row">
-			<div class="col-lg-3"></div>
-			<div class="form-group">
-					<label for="eventCode" align="center"> Event Code: </label>
-					<input type="text" class="form-control" id="eventCode">
+			<div class="col-lg-4"></div>
+			<div class="col-lg-4">
+				<div class="form-group" align="center">
+						<label for="eventCode"> Event Code: </label>
+						<input type="text" class="form-control" id="eventCode">
+				</div>
 			</div>
-			<div class="col-lg-3"></div>
+			<div class="col-lg-4"></div>
 		</div>
-	</section-->
+	</section>
 	
 	<script>	
 		function formSubmit() {

@@ -45,7 +45,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="<?=base_url("/evex/index")?>" id="colorHover"><span class="glyphicon glyphicon-home"></span> Home</a></li>
 					<li><a href="<?=base_url("/evex/event")?>" id="colorHover"><span class="glyphicon glyphicon-calendar"></span> Events</a></li>
-					<?php if(!isset($_SESSION['userdata'])) {?><li><a href="<?=base_url("/evex/sign_up_view")?>" id="colorHover"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li><?php } else { ?>
+					<?php if(!isset($_SESSION['userdata'])) {?><li><a href="<?=base_url("/evex/sign_up_view")?>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li><?php } else { ?>
 					<li><a href="<?=base_url("/evex/log_out")?>" id="colorHover"><span class="glyphicon glyphicon-user"></span> Log Out</a></li><?php } ?>
 				</ul>
 			</div>

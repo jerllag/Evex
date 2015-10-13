@@ -32,7 +32,7 @@ body {
 	height: 50%;
 }
 
-#logInForm, #signUpForm{
+#logInForm, #signUpForm, #registerForm{
 	padding: 20px;
 	border-style: dashed;
 	border-color: #ffffff;
