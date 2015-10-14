@@ -50,7 +50,7 @@ footer {
 	height: 50%;
 }
 
-#logInForm, #signUpForm, #registerForm , #changePassword{
+#logInForm, #signUpForm, #changePassword{
 	padding: 20px;
 	border-style: dashed;
 	border-color: #ffffff;
