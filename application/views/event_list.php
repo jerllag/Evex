@@ -30,7 +30,6 @@
 											<span class="glyphicon glyphicon-calendar"></span> RSVP
 										</a>
 									</div>
-									
 									<div class="col-lg-4">
 										<button type="submit" class="btn btn-warning">
 											<a href="<?=base_url("/evex/feedback")?>">
