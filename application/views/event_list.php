@@ -6,7 +6,7 @@
 				<table class="table table-condensed">
 					<thead>
 						<tr>
-							<th class="col-lg-7"><h3><a href="<?=base_url("/evex/register")?>"<?=$event[2]?></a></span></h3></th>
+							<th class="col-lg-7"><h3><a style="color:black;" href="<?=base_url("/evex/register")?>"> <?=$event[2]?></a></span></h3></th>
 							<th class="col-lg-5"><h4><small><b>Date:</b>
 							<i><?php $date= strtotime($event[4]);
 							echo date("F d, Y (l)", $date); ?></i></small></h4></th>
