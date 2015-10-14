@@ -255,7 +255,6 @@ class Evex extends CI_Controller {
 		if ($this->form_validation->run() == FALSE) {
 			echo validation_errors();
 		} else {
-			$this->session->unset_userdata('event_num');
 			echo "1";
 		}
 	}
