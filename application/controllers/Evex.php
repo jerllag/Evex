@@ -198,11 +198,13 @@ class Evex extends CI_Controller {
 	}
 	
 	public function event() {
-		$this->db->select('*');
-		$this->db->from('event');
+		$this->db->select('event_name, description, a.username, fname, lname, org_name');
+		$this->db->from('event a, organizer b');
 		if(isset($_SESSION['userdata'])) {
 			$this->db->where('username', $_SESSION['userdata']['username']);
 		}
+		$this->db->where('a.username=b.username');
+		$this->db->group_by(array("event_name", "description")); 
 		$query = $this->db->get();
 		
 		$data['events'] = array();
@@ -324,9 +326,45 @@ class Evex extends CI_Controller {
 		$this->load->view('footer');
 	}
 	
-	public function register() {
+	public function event_details($username, $event_name) {
+		$this->db->select('date');
+		$this->db->from('event');
+		$this->db->where('username', $username);
+		$this->db->where('event_name', urldecode($event_name));
+		$query = $this->db->get();
+		
+		$data['details'] = $query->result_array();
+		$data['event_name'] = urldecode($event_name);
+		$data['username'] = $username;
+		
+		$this->db->distinct();
+		$this->db->select('description');
+		$this->db->from('event');
+		$this->db->where('username', $username);
+		$this->db->where('event_name', urldecode($event_name));
+		$query = $this->db->get();
+		
+		$data['description'] = $query->result_array();	
+	
 		$this->load->view('header');
-		$this->load->view('register');
+		$this->load->view('event_details', $data);
 		$this->load->view('footer');
+	}
+	
+	public function get_date_details_f() {
+		$username = $this->input->post('username');
+		$event_name = $this->input->post('event_name');
+		$date = $this->input->post('date');
+		
+		$this->db->select('venue, start_time, end_time');
+		$this->db->from('event');
+		$this->db->where('username', $username);
+		$this->db->where('event_name', $event_name);
+		$this->db->where('date', $date);
+		$query = $this->db->get();
+		
+		$data['details'] = $query->result_array();
+		
+		$this->load->view('date_details', $data);
 	}
 }

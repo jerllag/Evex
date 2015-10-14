@@ -2,36 +2,25 @@
 		<div class="row">
 			<div class="col-lg-12" align="center">
 				<img src="/images/Senpai.jpg" class="img-responsive" width="500px" height="500px">
-				<h2 align="center"> Event Name </h2>
+				<h2 align="center"> <?=$event_name?> </h2>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-lg-12" align="center">
-				<h4>Description goes here.Description goes here.Description goes here.Description goes here.Description goes here.</h4>
+				<h4><?=$description[0]['description']?></h4>
 			</div>
 			</div>
 			<div class="container" align="center">
 			<div class="row" id="content">
 				<div class="col-lg-2">
-					<select id="date" class="form-control">
-						<option> Date</option>
-						<option> Date</option>
-						<option> Date</option>
+
+					<select onchange="getDateDetails()" id="date" class="form-control">
+						<?php foreach($details as $date) { ?>
+						<option><?=$date['date']?></option>
+						<?php } ?>
 					</select>
 				</div>
-				<div class="col-lg-4">
-					Venue
-				</div>
-				<div class="col-lg-3">
-					<div class="row">
-					Time to Time	
-					</div>
-				</div>
-				<div class="col-lg-3">
-					<button class="btn btn-danger" data-toggle="modal" data-target="#registerForm">
-						<span class="glyphicon glyphicon-calendar"></span> RSVP
-					</button>
-				</div>
+				<div class="col-lg-10" id="dateDetails"></div>
 			</div>
 		</div>
 	</section>
@@ -85,8 +74,10 @@
 	</div>
 	
 	<script>	
-		function formSubmit() {
-			$("#registerForm").submit();
+		function getDateDetails() {
+			$.post("<?=base_url("/evex/get_date_details_f/")?>", {'date': $('#date').val(), 'username': "<?=$username?>", 'event_name': "<?=$event_name?>", csrf_token_name: Cookies.get("csrf")}, function(data) {
+				$('#dateDetails').html(data);
+			});
 		}
 	
 		$("#registerForm").submit(function(e) {
