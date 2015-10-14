@@ -66,8 +66,7 @@
 <section class="no-margin" id="section">
 	<div class="row">
 		<div class="col-lg-12" align="center">
-			<button type="submit" class="btn btn-primary btn-lg">Send Feedback</button>
+			<button onclick="testing()" class="btn btn-primary btn-lg">Send Feedback</button>
 		</div>
 	</div>
 </section>
-
