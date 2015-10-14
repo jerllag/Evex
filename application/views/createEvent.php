@@ -95,33 +95,45 @@
 			<div class="modal-content">
 				<div class="modal-header" style="background: #1da9d3; color:white;">
 					<button type="button" class="close" data-dismiss="modal"> &times; </button>
-					<h4 align="center"> Add Custom Criteria</h4>
+					<h4 align="center"> Event Criteria</h4>
 				</div>
 				<div class="modal-body">
 					<div class="container-fluid">
 					<div class="row" id="content">
-						<div class="col-lg-12" id="content">
+						<div class="col-lg-11" id="content">
 							<form>
 								<div class="form-group">
-									<label for="criteria">Criteria #1:</label>
-									<input type="text" class="form-control" id="criteria1">
+									<label for="criteria">Criteria #1: Relevance to the Theme</label>
+										
 								</div>
 								<div class="form-group">
-									<label for="criteria">Criteria #1:</label>
-									<input type="text" class="form-control" id="criteria2">						
+									<label for="criteria">Criteria #2: Organization</label>
+											
 								</div>
 								<div class="form-group">
-									<label for="criteria">Criteria #1:</label>
-									<input type="text" class="form-control" id="criteria3">						
+									<label for="criteria">Criteria #3: Utilization of Devices or Visual Aids</label>
+												
 								</div>
 								<div class="form-group">
-									<label for="criteria">Criteria #1:</label>
-									<input type="text" class="form-control" id="criteria4">						
+									<label for="criteria">Criteria #4: Reasonable Time Allotment</label>
+											
 								</div>
 								<div class="form-group">
-									<a href="()addCriteria" style="color: blue">Add Another Criteria</a>
+									<label for="criteria">Criteria #5: Interaction or Audience Rapport</label>
+													
 								</div>
+								<div class="form-group">
+									<label for="criteria">Criteria #6: Venue</label>					
+								</div>
+								<div class="form-group">
+									<a href="()addCriteria" style="color: blue">Add Custom Criteria</a>
+								</div>
+								
+								<!---add custom criteria <input type="text" class="form-control" id="criteria1"-->
 							</form>
+						</div>
+						<div class="col-lg-1" id="content">
+							<button type="button" class="close" data-dismiss="modal"> &times; </button>
 						</div>
 					</div>
 					</div>
