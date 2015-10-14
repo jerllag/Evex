@@ -20,10 +20,13 @@
 					<label for="criteria4"> Comments / Suggestions </label>
 					<textarea rows="3" class="form-control"></textarea>
 				</div>
-				
 			</form>
 		</div>
-	<div class="row" id="content">
+		<div class="col-lg-3"></div>
+</section>
+
+<section class="no-margin" id="section">
+	<div class="row">
 		<div class="col-lg-12" align="center">
 			<button type="submit" class="btn btn-warning" data-toggle="modal" data-target="#eventCode"><h4>Send Feedback</h4></button>
 		</div>

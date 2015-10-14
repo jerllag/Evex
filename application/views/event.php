@@ -4,7 +4,9 @@
 				<h2 align="center"> Events </h2>
 			</div>
 		</div>
-		
+	</section>
+	
+	<section class="no-margin" id="section">
 		<div class="row">
 			<div class="col-lg-2"></div>
 			<div class="col-lg-4">
@@ -25,7 +27,7 @@
 					</tbody>
 				</table>
 			</div>	
-			<div class="col-lg-4" id="content">
+			<div class="col-lg-4">
 				<div class="form-group">
 					<div class="input-group">
 						<div class="input-group-addon"><span class="glyphicon glyphicon-search"></div>
