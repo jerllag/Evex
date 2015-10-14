@@ -5,25 +5,25 @@
 		</div>
 	</div>
 
-	<div class="row" align="center">
+	<div class="row" align="center" id="content">
 		<div class="col-lg-4, col-sm-4">
-			<div class="third circle"  data-value="0.5" data-size="250" data-thickness="10" data-animation-start-value="0.0" data-reverse="false">
+			<div class="third circle"  data-value="0.3" data-size="250" data-thickness="10" data-animation-start-value="0.0" data-reverse="false">
 				<div class="result_description">
-					<span>Creativity</span><strong></strong>	
+					<span>Creativity </span><strong></strong>	
 				</div>
 			</div>
 		</div>
 		<div class="col-lg-4, col-sm-4">
 			<div class="third circle"  data-value="0.5" data-size="250" data-thickness="10" data-animation-start-value="0.0" data-reverse="false">
 				<div class="result_description">
-					<span>Orderliness</span><strong></strong>
+					<span>Orderliness </span><strong></strong>
 				</div>
 			</div>
 		</div>
 		<div class="col-lg-4, col-sm-4">
 			<div class="third circle"  data-value="0.7" data-size="250" data-thickness="10" data-animation-start-value="0.0" data-reverse="false">
 				<div class="result_description">
-					<span>Timeliness</span><strong></strong>
+					<span>Timeliness </span><strong></strong>
 				</div>
 			</div>
 		</div>
