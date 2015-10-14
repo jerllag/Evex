@@ -98,17 +98,32 @@
 					<h4 align="center"> Add Custom Criteria</h4>
 				</div>
 				<div class="modal-body">
+					<div class="container-fluid">
 					<div class="row" id="content">
 						<div class="col-lg-12" id="content">
-							<form class="form">
-								<div class="form group">
+							<form>
+								<div class="form-group">
 									<label for="criteria">Criteria #1:</label>
-									<input type="text" class="form-control" id="criteria">						
+									<input type="text" class="form-control" id="criteria1">
 								</div>
-								
-								<br><br><a href="()addCriteria" style="color: blue">Add Another Criteria</a>
+								<div class="form-group">
+									<label for="criteria">Criteria #1:</label>
+									<input type="text" class="form-control" id="criteria2">						
+								</div>
+								<div class="form-group">
+									<label for="criteria">Criteria #1:</label>
+									<input type="text" class="form-control" id="criteria3">						
+								</div>
+								<div class="form-group">
+									<label for="criteria">Criteria #1:</label>
+									<input type="text" class="form-control" id="criteria4">						
+								</div>
+								<div class="form-group">
+									<a href="()addCriteria" style="color: blue">Add Another Criteria</a>
+								</div>
 							</form>
 						</div>
+					</div>
 					</div>
 				</div>
 				<div class="modal-footer">
