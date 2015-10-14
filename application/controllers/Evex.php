@@ -373,4 +373,38 @@ class Evex extends CI_Controller {
 		$event_num = $this->input->post('event_num');
 		$this->session->set_userdata('event_num', $event_num);
 	}
+	
+	public function register() {
+		$fname = $this->input->post('fname');
+		$lname = $this->input->post('fname');
+		$birthday = $this->input->post('birthday');
+		$contactno = $this->input->post('contactNo');
+		$email = $this->input->post('email');
+		
+		$data = array(
+			'event_num' => $_SESSION['event_num'],
+			'fname' => $fname,
+			'lname' => $lname,
+			'birthday' => $birthday,
+			'contact_num' => $contactno, 
+			'email_address' => $email
+			);
+		
+		$query = $this->db->insert('event_attendee', $data);
+		
+	}
+	
+	public function validate_register() {
+		$this->form_validation->set_rules('fname', 'First Name', 'required');
+		$this->form_validation->set_rules('lname', 'Last Name', 'required');
+		$this->form_validation->set_rules('birthday', 'Birthday', 'required');
+		$this->form_validation->set_rules('contactNo', 'Contact Number', 'required');
+		$this->form_validation->set_rules('email', 'Email Address', 'required');
+
+		if ($this->form_validation->run() == FALSE) {
+			echo validation_errors();
+		} else {
+			echo "1";
+		}
+	}
 }

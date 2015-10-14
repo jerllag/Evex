@@ -38,37 +38,39 @@
 					<h4 align="center"> Register for this Event</h4>
 				</div>
 				<div class="modal-body" id="content">
+					<div class="error_msg"></div>
 					<form role="form" id="registerForm">
-					<label for="start_date">Full Name: </label>
-					<div class="row">
-						<div class="col-lg-6">
-							<div class="form-group">
-								<input type="text"  class="form-control" id="fname" placeholder="Firstname">
+						<label for="start_date">Full Name: </label>
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="form-group">
+									<input type="text"  class="form-control" id="fname" name="fname" placeholder="Firstname">
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="form-group">
+									<input type="text"  class="form-control" id="lname" name="lname" placeholder="Lastname">
+								</div>
 							</div>
 						</div>
-						<div class="col-lg-6">
-							<div class="form-group">
-								<input type="text"  class="form-control" id="lname" placeholder="Lastname">
-							</div>
+					
+						<div class="form-group">
+							<label for="birthday"> Birthday: </label>
+							<input type="date" class="form-control" id="birthday" name="birthday" required>
 						</div>
-					</div>
-				
-					<div class="form-group">
-						<label for="birthday"> Birthday: </label>
-						<input type="date" class="form-control" id="birthday" required>
-					</div>
-					<div class="form-group">
-						<label for="contactno"> Contact No.: </label>
-						<input type="number" class="form-control" id="contactno" required>
-					</div>
-					<div class="form-group">
-						<label for="email"> Email Address: </label>
-						<input type="email" class="form-control" id="email" required>
-					</div>
+						<div class="form-group">
+							<label for="contactno"> Contact No.: </label>
+							<input type="number" class="form-control" id="contactno" name="contactno" required>
+						</div>
+						<div class="form-group">
+							<label for="email"> Email Address: </label>
+							<input type="email" class="form-control" id="email" name="email" required>
+						</div>
+					</form>
 				</div>
 				<div class="modal-footer">
 					<center>
-						<button onclick="javascript: formSubmit()" class="btn btn-info" role="button">
+						<button onclick="javascript: $('#registerForm').submit()" class="btn btn-info" role="button">
 							<h4>I am an Attendee.</h4>
 						</button>
 					</center>
@@ -101,8 +103,15 @@
 			var contactNo = $("#contactno").val();
 			var email = $("#email").val();
 			
-			$.post("<?=base_url("/evex/register")?>", {'fname': fname, 'lname': lname, 'birthday': birthday, 'contactNo': contactNo, 'email': email, csrf_token_name: Cookies.get("csrf")}, function(data) {
-				alert("Register Successful!!");
+			$.post("<?=base_url("/evex/validate_register")?>", {'fname': fname, 'lname': lname, 'birthday': birthday, 'contactNo': contactNo, 'email': email, csrf_token_name: Cookies.get("csrf")}, function(data) {
+				if(data != "1") {
+					$('.error_msg').html(data);
+				} else {
+					$.post("<?=base_url("/evex/register")?>", {'fname': fname, 'lname': lname, 'birthday': birthday, 'contactNo': contactNo, 'email': email, csrf_token_name: Cookies.get("csrf")}, function(data) {
+						alert("Register Successful");
+						location.reload(true);
+					});
+				}
 			});
 		});
 	</script>
