@@ -12,7 +12,7 @@
 		</div>
 		<div class="container" align="center">
 			<div class="row" id="content">
-				<div class="col-lg-2">
+				<div class="col-lg-offset-1 col-lg-2">
 					<div class="row" id="content">
 						<strong>Date</strong>
 					</div>
@@ -24,7 +24,7 @@
 						</select>
 					</div>
 				</div>
-				<div class="col-lg-10" id="dateDetails"></div>
+				<div class="col-lg-9" id="dateDetails"></div>
 			</div>
 		</div>
 	</section>
@@ -81,6 +81,10 @@
 		$(window).load(function() {
 			getDateDetails();
 		});
+		
+		function registerAttendee($event_num) {
+			$.post("<?=base_url("/evex/register_attendee/")?>", {'event_num': $event_num, csrf_token_name: Cookies.get("csrf")}, function() {});
+		}
 	
 		function getDateDetails() {
 			$.post("<?=base_url("/evex/get_date_details_f/")?>", {'date': $('#date').val(), 'username': "<?=$username?>", 'event_name': "<?=$event_name?>", csrf_token_name: Cookies.get("csrf")}, function(data) {

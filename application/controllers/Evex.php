@@ -357,7 +357,7 @@ class Evex extends CI_Controller {
 		$event_name = $this->input->post('event_name');
 		$date = $this->input->post('date');
 		
-		$this->db->select('venue, start_time, end_time');
+		$this->db->select('*');
 		$this->db->from('event');
 		$this->db->where('username', $username);
 		$this->db->where('event_name', $event_name);
@@ -367,5 +367,10 @@ class Evex extends CI_Controller {
 		$data['details'] = $query->result_array();
 		
 		$this->load->view('date_details', $data);
+	}
+	
+	public function register_attendee() {
+		$event_num = $this->input->post('event_num');
+		$this->session->set_userdata('event_num', $event_num);
 	}
 }
