@@ -46,10 +46,6 @@
 		</div>
 	</section>
 	
-	<section class="no-margin" id="section">
-		<div class="row" id="content"></div>
-	</section>
-	
 	<script>	
 		function formSubmit() {
 			$("#changePassword").submit();
