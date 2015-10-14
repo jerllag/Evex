@@ -18,14 +18,9 @@
 					</a>
 				</h3>
 				<?php } ?>
-			</div>	
-<<<<<<< HEAD
-			<div class="col-lg-4">
-				<div class="form-group">
-=======
+			</div>
 			<div class="col-lg-5" id="content">
 				<div class="row form-group">
->>>>>>> origin/editing-branch
 					<div class="input-group">
 						<div class="input-group-addon"><span class="glyphicon glyphicon-search"></div>
 						<input type="text" class="form-control" id="search" placeholder="Search Events">
