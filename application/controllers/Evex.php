@@ -274,10 +274,33 @@ class Evex extends CI_Controller {
 		}
 	}
 	
-	public function create_event() {
+	public function create_event() {	
+		$this->session->set_userdata('criterias', array("Relevance to the Theme", "Organization", "Utilization of Devices or Visual Aids", "Reasonable Time Allotment", "Interaction or Audience Rapport", "Venue"));
+	
 		$this->load->view('header');
 		$this->load->view('createEvent');
 		$this->load->view('footer');
+	}
+	
+	public function default_criterias() {
+		$data['criterias'] = $_SESSION['criterias'];
+		
+		$this->load->view('default_criterias', $data);
+	}
+	
+	public function remove_criteria() {
+		$key = $this->input->post('key');
+		echo $key;
+		$data = $_SESSION['criterias'];
+		unset($data[$key]);
+		$this->session->set_userdata('criterias', array_values($data));
+	}
+	
+	public function event_criteria() {
+		$criterias = $this->input->post('criterias');
+		$event_name = $this->input->post('event_name');
+		
+		var_dump($criterias);
 	}
 	
 	public function validate_create_event() {

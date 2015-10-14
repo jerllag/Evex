@@ -78,7 +78,7 @@
 		<div class="row" id="content" align="right">
 			<div class="col-lg-6"></div>
 			<div class="col-lg-4">
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertRow">
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#criteriaModal">
 					<h4><span class="glyphicon glyphicon-pencil"></span> Create Criteria</h4>
 				</button>
 			
@@ -90,7 +90,7 @@
 		</div>
 	
 	<!-- modal code -->
-	<div id="insertRow" class="modal fade" role="dialog">
+	<div id="criteriaModal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header" style="background: #1da9d3; color:white;">
@@ -101,45 +101,22 @@
 					<div class="container-fluid">
 					<div class="row" id="content">
 						<div class="col-lg-11" id="content">
-							<form>
-								<div class="form-group">
-									<label for="criteria">Criteria #1: Relevance to the Theme</label>
-										
+							<form id="criteriasForm">
+								<div class="default_criterias"></div>
+								<div class="added_criterias"></div>
+								<div class="row form-group">
+									<div class="col-lg-12">
+									<a href="#" onclick="addCriteriaFields()" style="color: blue">Add Custom Criteria</a>
+									</div>
 								</div>
-								<div class="form-group">
-									<label for="criteria">Criteria #2: Organization</label>
-											
-								</div>
-								<div class="form-group">
-									<label for="criteria">Criteria #3: Utilization of Devices or Visual Aids</label>
-												
-								</div>
-								<div class="form-group">
-									<label for="criteria">Criteria #4: Reasonable Time Allotment</label>
-											
-								</div>
-								<div class="form-group">
-									<label for="criteria">Criteria #5: Interaction or Audience Rapport</label>
-													
-								</div>
-								<div class="form-group">
-									<label for="criteria">Criteria #6: Venue</label>					
-								</div>
-								<div class="form-group">
-									<a href="()addCriteria" style="color: blue">Add Custom Criteria</a>
-								</div>
-								
 								<!---add custom criteria <input type="text" class="form-control" id="criteria1"-->
 							</form>
-						</div>
-						<div class="col-lg-1" id="content">
-							<button type="button" class="close" data-dismiss="modal"> &times; </button>
 						</div>
 					</div>
 					</div>
 				</div>
 				<div class="modal-footer">
-					<center><button type="submit" class="btn btn-primary" data-dismiss="modal"><h4>Save Criteria</h4></button></center>
+					<center><button onclick="submitCriterias()" class="btn btn-primary" data-dismiss="modal"><h4>Save Criteria</h4></button></center>
 				</div>
 			</div>
 		</div>
@@ -147,6 +124,35 @@
 </section>
 
 <script>
+	var criterias_array = [];
+	
+	$(window).load(function() {
+		getCriterias();
+	});
+	
+	function addCriteriaFields() {
+		$('.added_criterias').append('<div class="row form-group"><div class="col-lg-11"><input type="text" class="criteria form-control" /></div><div class="col-lg-1"><a onclick="removeCriteria()" class="close"> &times; </a></div></div>')
+	}
+	
+	function submitCriterias() {
+		var criterias = document.getElementsByClassName('criteria');
+		for(var i = 0; i < criterias.length; i++) {
+			criterias_array.push(criterias[i]);
+		}
+	}
+
+	function getCriterias() {
+		$.get("<?=base_url("/evex/default_criterias")?>", function($data) {
+			$('.default_criterias').html($data);
+		});
+	}
+	
+	function removeCriteria(key) {
+		$.post("<?=base_url("/evex/remove_criteria")?>", {'key': key, csrf_token_name: Cookies.get("csrf")}, function(data) {
+			getCriterias();
+		});
+	}
+
 	function formSubmit() {
 		$("#createEventForm").submit();
 	}
@@ -162,14 +168,16 @@
 		var description = $("#description").val();
 		var category = $("#category").val();
 		
-		$.post("<?=base_url("/evex/validate_create_event")?>", {'event_name': event_name, 'date': date, 'venue': venue, 'start_time': start_time, 'end_time': end_time, 'description': description, 'category': category, csrf_token_name: Cookies.get("csrf")}, function(data) {
+		/*$.post("<?=base_url("/evex/validate_create_event")?>", {'event_name': event_name, 'date': date, 'venue': venue, 'start_time': start_time, 'end_time': end_time, 'description': description, 'category': category, csrf_token_name: Cookies.get("csrf")}, function(data) {
 			if(data != "1") {
 				$('.error_msg').html(data);
-			} else {
-				$.post("<?=base_url("/evex/create_event_f")?>", {'event_name': event_name, 'date': date, 'venue': venue, 'start_time': start_time, 'end_time': end_time, 'description': description, 'category': category, csrf_token_name: Cookies.get("csrf")}, function(data) {
-					alert("Created an Event");
-				});
-			}
-		});
+			} else {*/
+				//$.post("<?=base_url("/evex/create_event_f")?>", {'event_name': event_name, 'date': date, 'venue': venue, 'start_time': start_time, 'end_time': end_time, 'description': description, 'category': category, csrf_token_name: Cookies.get("csrf")}, function(data) {
+					$.post("<?=base_url("/evex/event_criteria")?>", {'criterias': "a", 'event_name': event_name, csrf_token_name: Cookies.get("csrf")}, function(data) {
+						alert("Created an Event");
+					});
+				//});
+			/*}
+		});*/
 	});
 </script>
