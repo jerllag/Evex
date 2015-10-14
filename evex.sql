@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2015 at 03:37 PM
+-- Generation Time: Oct 14, 2015 at 04:55 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.5.28
 
@@ -104,8 +104,9 @@ INSERT INTO `event_attendee` (`event_num`, `fname`, `lname`, `birthday`, `contac
 --
 
 CREATE TABLE IF NOT EXISTS `event_criteria` (
-  `event_code` varchar(10) NOT NULL,
-  `criteria` varchar(20) NOT NULL
+  `event_num` int(11) NOT NULL,
+  `criteria` varchar(20) NOT NULL,
+  `score` decimal(2,2) NOT NULL DEFAULT '0.00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -165,7 +166,7 @@ ALTER TABLE `event_attendee`
 -- Indexes for table `event_criteria`
 --
 ALTER TABLE `event_criteria`
-  ADD PRIMARY KEY (`event_code`,`criteria`);
+  ADD PRIMARY KEY (`event_num`,`criteria`);
 
 --
 -- Indexes for table `organizer`

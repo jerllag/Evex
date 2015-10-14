@@ -66,7 +66,8 @@
 <section class="no-margin" id="section">
 	<div class="row">
 		<div class="col-lg-12" align="center">
-			<button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#eventCode"><h4>Send Feedback</h4></button>
+			<button type="submit" class="btn btn-primary btn-lg">Send Feedback</button>
 		</div>
 	</div>
 </section>
+
