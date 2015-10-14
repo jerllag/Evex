@@ -78,7 +78,11 @@
 						alert("An email has been sent to your email address");
 						<?php } else { ?>
 						alert("Password Change successfully");
-						window.location = "<?=base_url("/evex")?>";
+						<?php if(!isset($_SESSION['forgotPasswordEmail'])) {?>
+							window.location = "<?=base_url("/evex/profile")?>";
+						<?php } else { ?>
+							window.location = "<?=base_url("/evex")?>";
+						<?php } ?>
 						<?php } ?>
 					});
 				}
