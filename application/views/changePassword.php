@@ -30,13 +30,17 @@
 					</div>
 				
 					<div class="form-group">
-						<label for="re_password">Confirm Password: </label>
+						<label for="re_password">Confirm New Password: </label>
 						<input type="password"  class="form-control" id="rpwd">
 					</div>
 					<?php } ?>
 						<div class="row" id="content" align="center">
 							<div class="col-lg-12">
-								<a onclick="javascript: formSubmit()" class="btn btn-primary" role="button"><h4>Save Password</h4></a>
+								<?php if(!isset($_SESSION['userdata'])) {?>
+									<a onclick="javascript: formSubmit()" class="btn btn-primary" role="button"><h4>Reset Password</h4></a>
+								<?php } else { ?>
+									<a onclick="javascript: formSubmit()" class="btn btn-primary" role="button"><h4>Save Password</h4></a>
+								<?php } ?>
 							</div>
 						</div>
 					</div>
