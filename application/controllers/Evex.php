@@ -199,9 +199,9 @@ class Evex extends CI_Controller {
 	
 	public function event() {
 		$this->db->select('event_name, description, a.username, fname, lname, org_name');
-		$this->db->from('event a, organizer b');
+		$this->db->from('event as a, organizer as b');
 		if(isset($_SESSION['userdata'])) {
-			$this->db->where('username', $_SESSION['userdata']['username']);
+			$this->db->where('a.username', $_SESSION['userdata']['username']);
 		}
 		$this->db->where('a.username=b.username');
 		$this->db->group_by(array("event_name", "description")); 
