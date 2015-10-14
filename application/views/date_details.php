@@ -1,5 +1,13 @@
+<div class="row" id="content">
+	<div class="col-lg-4">
+		<strong>Venue</strong>
+	</div>
+	<div class="col-lg-3">
+		<strong>Time</strong>
+	</div>
+</div>
 <?php foreach($details as $detail) { ?>
-<div class="row">
+<div class="row" id="content">
 	<div class="col-lg-4">
 		<?=$detail['venue']?>
 	</div>

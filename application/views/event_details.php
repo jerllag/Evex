@@ -9,16 +9,20 @@
 			<div class="col-lg-12" align="center">
 				<h4><?=$description[0]['description']?></h4>
 			</div>
-			</div>
-			<div class="container" align="center">
+		</div>
+		<div class="container" align="center">
 			<div class="row" id="content">
 				<div class="col-lg-2">
-
-					<select onchange="getDateDetails()" id="date" class="form-control">
-						<?php foreach($details as $date) { ?>
-						<option><?=$date['date']?></option>
-						<?php } ?>
-					</select>
+					<div class="row" id="content">
+						<strong>Date</strong>
+					</div>
+					<div class="row" id="content">
+						<select onchange="getDateDetails()" id="date" class="form-control">
+							<?php foreach($details as $date) { ?>
+							<option><?=$date['date']?></option>
+							<?php } ?>
+						</select>
+					</div>
 				</div>
 				<div class="col-lg-10" id="dateDetails"></div>
 			</div>
@@ -74,6 +78,10 @@
 	</div>
 	
 	<script>	
+		$(window).load(function() {
+			getDateDetails();
+		});
+	
 		function getDateDetails() {
 			$.post("<?=base_url("/evex/get_date_details_f/")?>", {'date': $('#date').val(), 'username': "<?=$username?>", 'event_name': "<?=$event_name?>", csrf_token_name: Cookies.get("csrf")}, function(data) {
 				$('#dateDetails').html(data);

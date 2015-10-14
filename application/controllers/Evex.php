@@ -327,6 +327,7 @@ class Evex extends CI_Controller {
 	}
 	
 	public function event_details($username, $event_name) {
+		$this->db->distinct();
 		$this->db->select('date');
 		$this->db->from('event');
 		$this->db->where('username', $username);
