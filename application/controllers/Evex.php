@@ -227,7 +227,7 @@ class Evex extends CI_Controller {
 	}
 	
 	public function event() {
-		$this->db->select('event_name, description, a.username, fname, lname, org_name');
+		$this->db->select('event_num, event_name, description, a.username, fname, lname, org_name');
 		$this->db->from('event as a, organizer as b');
 		if(isset($_SESSION['userdata'])) {
 			$this->db->where('a.username', $_SESSION['userdata']['username']);
@@ -246,6 +246,33 @@ class Evex extends CI_Controller {
 		$this->load->view('event');
 		$this->load->view('event_list', $data);
 		$this->load->view('footer');
+	}
+	
+	public function validate_event_code() {		
+		$this->form_validation->set_rules('event_code', 'Event Code', 'required|callback_check_event_code');
+		$this->form_validation->set_rules('email', 'Email Address', 'required|callback_check_email');
+		
+		if ($this->form_validation->run() == FALSE) {
+			echo validation_errors();
+		} else {
+			$this->session->unset_userdata('event_num');
+			echo "1";
+		}
+	}
+	
+	public function check_event_code($event_code) {
+		$this->db->select('event_code');
+		$this->db->from('event');
+		$this->db->where('event_code', $event_code);
+		$this->db->where('event_num', $_SESSION['event_num']);
+		$query = $this->db->get();
+		
+		if ($query->num_rows() == 1) {
+			return TRUE;
+		} else {
+			$this->form_validation->set_message('check_event_code', 'Invalid event code');
+			return FALSE;
+		}
 	}
 	
 	public function create_event() {
@@ -398,7 +425,7 @@ class Evex extends CI_Controller {
 		$this->load->view('date_details', $data);
 	}
 	
-	public function register_attendee() {
+	public function add_event_num() {
 		$event_num = $this->input->post('event_num');
 		$this->session->set_userdata('event_num', $event_num);
 	}

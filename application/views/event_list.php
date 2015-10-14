@@ -5,9 +5,9 @@
 				<table class="table table-condensed">
 					<thead>
 						<tr>
-							<th class="col-lg-7"><h3><a style="color:black;" href="<?=base_url("/evex/event_details/".$event[2]."/".$event[0])?>"> <?=$event[0]?></a></span></h3></th>
+							<th class="col-lg-7"><h3><a style="color:black;" href="<?=base_url("/evex/event_details/".$event[3]."/".$event[1])?>"> <?=$event[1]?></a></span></h3></th>
 							<!--<th class="col-lg-5"><h4><small><b>Date:</b>
-							<i><?php $date= strtotime($event[4]);
+							<i><?php $date= strtotime($event[5]);
 							echo date("F d, Y (l)", $date); ?></i></small></h4></th>-->
 						</tr>
 					</thead>
@@ -18,24 +18,24 @@
 							</td>
 							<td>
 								<div class="row" id="content">
-									<!--<h4><b>Venue:</b> <?=$event[3]?>
-									<br><b>Time:</b> <?=date("g:i a", strtotime($event[5]))?> - <?=date("g:i a", strtotime($event[6]))?> -->
-									<h4><b>Created by:</b> <?=$event[3]?> <?=$event[4]?> from <?=$event[5]?>
-									<br><b>Description:</b> <?=$event[1]?></h4>
+									<!--<h4><b>Venue:</b> <?=$event[4]?>
+									<br><b>Time:</b> <?=date("g:i a", strtotime($event[6]))?> - <?=date("g:i a", strtotime($event[7]))?> -->
+									<h4><b>Created by:</b> <?=$event[4]?> <?=$event[5]?> from <?=$event[6]?>
+									<br><b>Description:</b> <?=$event[2]?></h4>
 								</div>
 								<div class="row">
 									<?php if(!isset($_SESSION['userdata'])) { ?>
 									<div class="col-lg-3">
-										<a href="<?=base_url("/evex/event_details/".$event[2]."/".$event[0])?>" type="submit" class="btn btn-danger">
+										<a href="<?=base_url("/evex/event_details/".$event[3]."/".$event[4])?>" type="submit" class="btn btn-danger">
 											<span class="glyphicon glyphicon-calendar"></span> RSVP
 										</a>
 									</div>
 									<div class="col-lg-4">
-										<button type="submit" class="btn btn-warning">
-											<a href="<?=base_url("/evex/feedback")?>">
+										<a onclick="giveFeedback(<?=$event['0']?>)" data-toggle="modal" data-target="#eventCode">
+											<button type="submit" class="btn btn-warning">
 												<span class="glyphicon glyphicon-comment"></span> Feedback
-											</a>
-										</button>
+											</button>
+										</a>
 									</div>
 									<?php } else { ?>	
 									<div class="col-lg-5">
