@@ -14,7 +14,7 @@
 					<tbody>
 						<tr>
 							<td>
-								<img src="/images/Senpai.jpg" class="img-responsive" style="width:500px; height:200px">
+								<img src="/images/Senpai.jpg" class="img-responsive" style="width:600px; height:300px">
 							</td>
 							<td>
 								<div class="row" id="content">
