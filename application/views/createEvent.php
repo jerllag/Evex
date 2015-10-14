@@ -139,7 +139,7 @@
 			if(data != "1") {
 				$('.error_msg').html(data);
 			} else {
-				$.post("<?=base_url("/evex/create_event")?>", {'event_name': event_name, 'date': date, 'venue': venue, 'start_time': start_time, 'end_time': end_time, 'description': description, 'category': category, csrf_token_name: Cookies.get("csrf")}, function(data) {
+				$.post("<?=base_url("/evex/create_event_f")?>", {'event_name': event_name, 'date': date, 'venue': venue, 'start_time': start_time, 'end_time': end_time, 'description': description, 'category': category, csrf_token_name: Cookies.get("csrf")}, function(data) {
 					alert("Created an Event");
 				});
 			}

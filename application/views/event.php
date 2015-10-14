@@ -15,7 +15,7 @@
 								<img src="/images/event.png" class="img-responsive" size="40%">
 								<?php if(isset($_SESSION['userdata'])) { ?> <!--admin only-->
 								<h3>
-									<a href="<?=base_url("/evex/create_event_view")?>" class="btn btn-info">
+									<a href="<?=base_url("/evex/create_event")?>" class="btn btn-info">
 										<span class="glyphicon glyphicon-pushpin"></span> Create Your Own Event 
 									</a>
 								</h3>
@@ -46,7 +46,7 @@
 		
 	<script>
 		$("#search").keyup(function(){
-			$.post("<?=base_url("/evex/search_event")?>",{'event_name': $('#search').val(), csrf_token_name: Cookies.get("csrf")}, function(data) {
+			$.post("<?=base_url("/evex/search_event_f")?>",{'event_name': $('#search').val(), csrf_token_name: Cookies.get("csrf")}, function(data) {
 				$('#eventList').html(data);
 			});
 		});

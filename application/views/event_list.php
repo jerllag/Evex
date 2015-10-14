@@ -28,14 +28,14 @@
 								<div class="row">
 									<?php if(!isset($_SESSION['userdata'])) { ?>
 									<div class="col-lg-3">
-										<a href="<?=base_url("/evex/register_view")?>" type="submit" class="btn btn-danger">
+										<a href="<?=base_url("/evex/register")?>" type="submit" class="btn btn-danger">
 											<span class="glyphicon glyphicon-calendar"></span> RSVP
 										</a>
 									</div>
 									
 									<div class="col-lg-4">
 										<button type="submit" class="btn btn-warning">
-											<a href="<?=base_url("/evex/feedback_view")?>">
+											<a href="<?=base_url("/evex/feedback")?>">
 												<span class="glyphicon glyphicon-comment"></span> Feedback
 											</a>
 										</button>
@@ -43,7 +43,7 @@
 									<?php } else { ?>	
 									<div class="col-lg-5">
 										<button type="submit" class="btn btn-success" disabled>
-											<a href="<?=base_url("/evex/results_view")?>">
+											<a href="<?=base_url("/evex/results")?>">
 												<span class="glyphicon glyphicon-stats"></span> View Results
 											</a>
 										</button>

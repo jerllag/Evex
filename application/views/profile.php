@@ -7,7 +7,7 @@
 	<div class="col-lg-2" align="center">
 		<img class="img-circle" src="/images/users/jerome.png">
 		<h3><button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-edit"></span> Edit</h3></button>
-		<h3><a type="submit" href="<?=base_url("/evex/changepassword")?>" class="btn btn-danger"><span class="glyphicon glyphicon-lock"></span> Change Password</h3></a><br><br>
+		<h3><a type="submit" href="<?=base_url("/evex/change_password")?>" class="btn btn-danger"><span class="glyphicon glyphicon-lock"></span> Change Password</h3></a><br><br>
 	</div>
 	<div class="col-lg-6">
 		<table class="table table-default">
@@ -20,27 +20,27 @@
 			<tbody align="left">
 				<tr>
 					<td class="col-lg-2">Full Name: </td>
-					<td class="col-lg-4"></td>
+					<td class="col-lg-4"><?=$_SESSION['userdata']['fname']." ".$_SESSION['userdata']['lname']?></td>
 				</tr>
 				<tr>
 					<td class="col-lg-2">Birthday </td>
-					<td class="col-lg-4"></td>
+					<td class="col-lg-4"><?=$_SESSION['userdata']['birthday']?></td>
 				</tr>
 				<tr>
 					<td class="col-lg-2">Contact no.: </td>
-					<td class="col-lg-4"></td>
+					<td class="col-lg-4"><?=$_SESSION['userdata']['contact_num']?></td>
 				</tr>
 				<tr>
 					<td class="col-lg-2">Email Address: </td>
-					<td class="col-lg-4"></td>
+					<td class="col-lg-4"><?=$_SESSION['userdata']['email_address']?></td>
 				</tr>
 				<tr>
 					<td class="col-lg-2">Organization Name: </td>
-					<td class="col-lg-4"></td>
+					<td class="col-lg-4"><?=$_SESSION['userdata']['org_name']?></td>
 				</tr>
 				<tr>
-					<td class="col-lg-2">Address: </td>
-					<td class="col-lg-4"></td>
+					<td class="col-lg-2">Organization Address: </td>
+					<td class="col-lg-4"><?=$_SESSION['userdata']['org_address']?></td>
 				</tr>
 			</tbody>
 		</table>
@@ -53,10 +53,11 @@
 				</tr> 
 			</thead>
 			<tbody align="left">
+				<?php foreach($events as $event) { ?>
 				<tr>
-					<td class="col-lg-2">Event Name </td>
-					<td class="col-lg-4"></td>
+					<td class="col-lg-2"><?=$event['event_name']?></td>
 				</tr>
+				<?php } ?>
 			</tbody>
 		</table>
 		

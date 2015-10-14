@@ -97,7 +97,7 @@
 				if(data != "1") {
 					$('.error_msg').html(data);
 				} else {
-					$.post("<?=base_url("/evex/sign_up")?>", {'username': username, 'fname': fname, 'lname': lname, 'birthday': birthday, 'contact_no': contactNo, 'email': email, 'org_name': org_name, 'org_address': org_address, 'pass': pass, 'rpass': rpass, csrf_token_name: Cookies.get("csrf")}, function(data) {
+					$.post("<?=base_url("/evex/sign_up_f")?>", {'username': username, 'fname': fname, 'lname': lname, 'birthday': birthday, 'contact_no': contactNo, 'email': email, 'org_name': org_name, 'org_address': org_address, 'pass': pass, 'rpass': rpass, csrf_token_name: Cookies.get("csrf")}, function(data) {
 						alert("Sign Up Successful!! An email has been sent to your email address");
 						location.reload(true);
 					});

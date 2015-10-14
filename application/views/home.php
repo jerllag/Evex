@@ -46,7 +46,7 @@
 								<input type="text" class="form-control" id="studno">
 								<label for="pwd">Password:</label>
 								<input type="password" class="form-control" id="pwd">
-								<a href="<?=base_url("/evex/changepassword")?>" style="color: #207dba">Forgot your password? </a>
+								<a href="<?=base_url("/evex/change_password")?>" style="color: #207dba">Forgot your password? </a>
 							</div>
 							<div class="checkbox">
 								<label><input type="checkbox"> Remember me</lable>

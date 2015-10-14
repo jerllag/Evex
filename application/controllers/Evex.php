@@ -8,19 +8,6 @@ class Evex extends CI_Controller {
 		$this->load->view('footer');
 	}
 	
-	public function profile_view() {
-		$this->load->view('header');
-		$this->load->view('profile');
-		$this->load->view('footer');
-	}
-	
-	public function changepassword() {
-		$this->load->view('header');
-		$this->load->view('changepassword');
-		$this->load->view('footer');
-	}
-	
-	
 	public function log_in() {
 		$username = $this->input->post("username");
 		$password = $this->input->post("password");
@@ -39,12 +26,85 @@ class Evex extends CI_Controller {
 		echo count($result);
 	}
 	
+	public function change_password() {
+		$this->load->view('header');
+		$this->load->view('changepassword');
+		$this->load->view('footer');
+	}
+	
+	public function validate_change_password() {
+		if (!isset($_SESSION['userdata'])) {
+			$this->form_validation->set_rules('email', 'Email Address', 'required|valid_email|callback_check_email');
+		} else {
+			if(!isset($_SESSION['forgotPasswordEmail'])) {
+				$this->form_validation->set_rules('curpass', 'Current Password', 'required|callback_check_password['.$_SESSION['userdata']['email'].']');
+			}
+			$this->form_validation->set_rules('npass', 'New Password', 'required|min_length[6]|max_length[12]|matches[rpass]');
+			$this->form_validation->set_rules('rpass', 'Confirm Password', 'required');
+		}
+		
+		if ($this->form_validation->run() == FALSE) {
+			echo validation_errors();
+		} else {
+			echo "1";
+		}
+	}
+	
+	public function change_password_f() {
+		if (!isset($_SESSION['userdata'])) {
+			$email = $this->input->post('email');
+			
+			$this->session->set_userdata('forgotPasswordEmail', $email);
+			
+			$this->send_encrypted_email($email, "forgot_password");
+		} else {
+			$npass = $this->input->post('npass');
+			
+			$this->db->where('email_address', $_SESSION['userdata']['email_address']);
+			$this->db->update('organizer', array('password' => $npass));
+			
+			if(isset($_SESSION['forgotPasswordEmail'])) {
+				$this->session->sess_destroy();
+			}
+		}
+	}
+	
+	public function check_email($email) {
+		$this->db->select('email_address');
+		$this->db->from('organizer');
+		$this->db->where('email_address', $email);
+		$query = $this->db->get();
+		
+		if ($query->num_rows() == 1) {
+			return TRUE;
+		} else {
+			$this->form_validation->set_message('check_email', 'Email Address not found');
+			return FALSE;
+		}
+	}
+	
+	public function check_password($pass, $email) {
+		$this->db->select('password');
+		$this->db->from('organizer');
+		$this->db->where('email_address', $email);
+		$query = $this->db->get();
+		
+		$result = $query->result_array();
+		
+		if ($result[0]['password'] == $pass) {
+			return TRUE;
+		} else {
+			$this->form_validation->set_message('check_password', 'Current Password not correct');
+			return FALSE;
+		}
+	}
+	
 	public function log_out() {
 		$this->session->sess_destroy();
 		redirect("/evex");
 	}
 	
-	public function sign_up_view() {
+	public function sign_up() {
 		$this->load->view('header');
 		$this->load->view('signup');
 		$this->load->view('footer');
@@ -59,7 +119,7 @@ class Evex extends CI_Controller {
 		$this->form_validation->set_rules('email', 'Email Address', 'required|valid_email|is_unique[organizer.email_address]');
 		$this->form_validation->set_rules('org_name', 'Organization Name', 'required');
 		$this->form_validation->set_rules('org_address', 'Organization Address', 'required');
-		$this->form_validation->set_rules('pass', 'Password', 'required|min_length[5]|max_length[12]|matches[rpass]');
+		$this->form_validation->set_rules('pass', 'Password', 'required|min_length[6]|max_length[12]|matches[rpass]');
 		$this->form_validation->set_rules('rpass', 'Confirm Password', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
@@ -69,7 +129,7 @@ class Evex extends CI_Controller {
 		}
 	}
 	
-	public function sign_up() {
+	public function sign_up_f() {
 		$username = $this->input->post("username");
 		$fname = $this->input->post("fname");
 		$lname = $this->input->post("lname");
@@ -94,29 +154,47 @@ class Evex extends CI_Controller {
 			);
 		
 		$query = $this->db->insert('organizer', $data);
+		
+		array_pop($data);
+		
 		$this->session->set_userdata('userdata', $data);
 		
-		$encrypted = $this->encrypt->encode($email);
+		$this->send_encrypted_email($email, "sign_up");
+	}
+	
+	public function send_encrypted_email($email, $method) {
+		$encryptedEmail = $this->encrypt->encode($email);
+		$encryptedMethod = $this->encrypt->encode($method);
 
 		$this->email->from('accdum71@gmail.com', 'Evex');
 		$this->email->to($email);
 
 		$this->email->subject('Confirm Email Address');
-		$this->email->message('Please go to localhost/index.php/evex/validate_email/?email='.$encrypted.' to validate your email.');	
+		$this->email->message('Please go to localhost/index.php/evex/validate_email/?email='.urlencode($encryptedEmail).'&method='.urlencode($encryptedMethod).' to validate your email.');	
 
 		$this->email->send();
 	}
 	
 	public function validate_email() {
 		$encryptedEmail = $this->input->get("email");
+		$encryptedMethod = $this->input->get("method");
 		
 		$email = $this->encrypt->decode($encryptedEmail);
+		$method = $this->encrypt->decode($encryptedMethod);
 		
-		if(isset($_SESSION['userdata']) && $_SESSION['userdata']['email'] == $email) {
-			$this->db->where('email_address', $email);
-			$this->db->update('organizer', array('valid_user' => True));
-			redirect("/evex");
-		}
+		if($method == "sign_up") {
+			if(isset($_SESSION['userdata']) && $_SESSION['userdata']['email_address'] == $email) {
+				$this->db->where('email_address', $email);
+				$this->db->update('organizer', array('valid_user' => True));
+				redirect("/evex");
+			}
+		} else if ($method == "forgot_password") {
+			if(isset($_SESSION['forgotPasswordEmail']) && $_SESSION['forgotPasswordEmail'] == $email) {
+				$data = array('email_address' => $_SESSION['forgotPasswordEmail']);
+				$this->session->set_userdata('userdata', $data);
+				redirect("/evex/change_password");
+			}
+		} else {}
 	}
 	
 	public function event() {
@@ -139,7 +217,7 @@ class Evex extends CI_Controller {
 		$this->load->view('footer');
 	}
 	
-	public function create_event_view() {
+	public function create_event() {
 		$this->load->view('header');
 		$this->load->view('createEvent');
 		$this->load->view('footer');
@@ -161,7 +239,7 @@ class Evex extends CI_Controller {
 		}
 	}
 	
-	public function create_event() {
+	public function create_event_f() {
 		$this->load->helper('string');
 	
 		$event_name = $this->input->post("event_name");
@@ -198,7 +276,7 @@ class Evex extends CI_Controller {
 		$query = $this->db->insert('event', $data);
 	}
 	
-	public function search_event() {
+	public function search_event_f() {
 		$event_name = $this->input->post("event_name");
 		
 		$this->db->select('*');
@@ -221,19 +299,32 @@ class Evex extends CI_Controller {
 		$this->load->view('event_list', $data);
 	}
 	
-	public function feedback_view() {
+	public function profile() {
+		$this->db->select('event_name');
+		$this->db->from('event');
+		$this->db->where('username', $_SESSION['userdata']['username']);
+		$query = $this->db->get();
+	
+		$data['events'] = $query->result_array();
+	
+		$this->load->view('header');
+		$this->load->view('profile', $data);
+		$this->load->view('footer');
+	}
+	
+	public function feedback() {
 		$this->load->view('header');
 		$this->load->view('feedback');
 		$this->load->view('footer');
 	}
 	
-	public function results_view() {
+	public function results() {
 		$this->load->view('header');
 		$this->load->view('results');
 		$this->load->view('footer');
 	}
 	
-	public function register_view() {
+	public function register() {
 		$this->load->view('header');
 		$this->load->view('register');
 		$this->load->view('footer');
