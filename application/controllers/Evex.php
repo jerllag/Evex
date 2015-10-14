@@ -21,7 +21,7 @@ class Evex extends CI_Controller {
 		
 		$result = $query->result_array();
 		
-		$this->session->sess_destroy();
+		//$this->session->sess_destroy();
 		$this->session->set_userdata('userdata', $result[0]);
 		
 		echo count($result);
