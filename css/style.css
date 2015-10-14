@@ -81,4 +81,14 @@ a:hover {
 	color: #123456;
 }
 
+.result_description {
+	width: 100%;
+	z-index: 10;
+	position: absolute;
+	top: 45%;
+}
 
+.circle {
+	z-index: 1;
+	position: relative;
+}
