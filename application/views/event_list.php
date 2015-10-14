@@ -1,5 +1,4 @@
 	<section class="no-margin" id="eventList">	
-		<!--begin-->
 		<?php foreach($events as $event) { ?>
 		<div class="row">
 			<div class="col-lg-2"></div>
@@ -7,8 +6,7 @@
 				<table class="table table-condensed">
 					<thead>
 						<tr>
-							<th class="col-lg-7"><h3><?=$event[2]?></span></h3></th>
-							<!--img src="/images/Senpai.jpg" class="img-responsive" size="5%"-->
+							<th class="col-lg-7"><h3><a href="<?=base_url("/evex/register")?>"<?=$event[2]?></a></span></h3></th>
 							<th class="col-lg-5"><h4><small><b>Date:</b>
 							<i><?php $date= strtotime($event[4]);
 							echo date("F d, Y (l)", $date); ?></i></small></h4></th>
@@ -58,5 +56,4 @@
 			<div class="col-lg-2"></div>
 		</div>
 		<?php } ?>
-		<!--end-->
 	</section>
