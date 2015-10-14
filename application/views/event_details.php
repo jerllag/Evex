@@ -1,4 +1,11 @@
 	<section class="no-margin" id="section">
+		<?php if(isset($_SESSION['register_success'])) { ?>
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				Succesfully registered!!
+			</div>
+		</div>
+		<?php } ?>
 		<div class="row">
 			<div class="col-lg-12" align="center">
 				<img src="/images/Senpai.jpg" class="img-responsive" width="500px" height="500px">
@@ -108,7 +115,7 @@
 					$('.error_msg').html(data);
 				} else {
 					$.post("<?=base_url("/evex/register")?>", {'fname': fname, 'lname': lname, 'birthday': birthday, 'contactNo': contactNo, 'email': email, csrf_token_name: Cookies.get("csrf")}, function(data) {
-						alert("Register Successful");
+						alert("Register Successful!! A confirmation email has been sent to your email address.");
 						location.reload(true);
 					});
 				}

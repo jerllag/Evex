@@ -21,6 +21,7 @@ class Evex extends CI_Controller {
 		
 		$result = $query->result_array();
 		
+		$this->session->sess_destroy();
 		$this->session->set_userdata('userdata', $result[0]);
 		
 		echo count($result);
@@ -56,7 +57,7 @@ class Evex extends CI_Controller {
 			
 			$this->session->set_userdata('forgotPasswordEmail', $email);
 			
-			$this->send_encrypted_email($email, "forgot_password");
+			$this->send_encrypted_email($email, "forgot_password", "");
 		} else {
 			$npass = $this->input->post('npass');
 			
@@ -159,18 +160,22 @@ class Evex extends CI_Controller {
 		
 		$this->session->set_userdata('userdata', $data);
 		
-		$this->send_encrypted_email($email, "sign_up");
+		$this->send_encrypted_email($email, "sign_up", "");
 	}
 	
-	public function send_encrypted_email($email, $method) {
+	public function send_encrypted_email($email, $method, $event_num) {
 		$encryptedEmail = $this->encrypt->encode($email);
 		$encryptedMethod = $this->encrypt->encode($method);
+		$encryptedEventNum = "";
+		if ($event_num != "") {
+			$encryptedEventNum = "&event_num=".urlencode($this->encrypt->encode($event_num));
+		}
 
 		$this->email->from('accdum71@gmail.com', 'Evex');
 		$this->email->to($email);
 
 		$this->email->subject('Confirm Email Address');
-		$this->email->message('Please go to localhost/index.php/evex/validate_email/?email='.urlencode($encryptedEmail).'&method='.urlencode($encryptedMethod).' to validate your email.');	
+		$this->email->message('Please go to localhost/index.php/evex/validate_email/?email='.urlencode($encryptedEmail).'&method='.urlencode($encryptedMethod).$encryptedEventNum.' to validate your email.');	
 
 		$this->email->send();
 	}
@@ -178,9 +183,13 @@ class Evex extends CI_Controller {
 	public function validate_email() {
 		$encryptedEmail = $this->input->get("email");
 		$encryptedMethod = $this->input->get("method");
+		$encryptedEventNum = $this->input->get("event_num");
 		
 		$email = $this->encrypt->decode($encryptedEmail);
 		$method = $this->encrypt->decode($encryptedMethod);
+		$event_num = $this->encrypt->decode($encryptedEventNum);
+		
+		echo $method;
 		
 		if($method == "sign_up") {
 			if(isset($_SESSION['userdata']) && $_SESSION['userdata']['email_address'] == $email) {
@@ -193,6 +202,26 @@ class Evex extends CI_Controller {
 				$data = array('email_address' => $_SESSION['forgotPasswordEmail']);
 				$this->session->set_userdata('userdata', $data);
 				redirect("/evex/change_password");
+			}
+		} else if ($method == "register") {
+			if(isset($_SESSION['register_email']) && $_SESSION['register_email'] == $email) {
+				$this->db->where('email_address', $email);
+				$this->db->where('event_num', $event_num);
+				$this->db->update('event_attendee', array('valid_user' => True));
+				
+				$this->db->select('username, event_name');
+				$this->db->from('event');
+				$this->db->where('event_num', $event_num);
+				$query = $this->db->get();
+				
+				$result = $query->result_array();
+				
+				$this->session->unset_userdata('register_email');
+				$this->session->set_userdata('register_success', 1);
+				
+				redirect("/evex/event_details/".$result[0]['username'].'/'.$result[0]['event_name']);
+				
+				$this->session->unset_userdata('register_success');
 			}
 		} else {}
 	}
@@ -391,6 +420,9 @@ class Evex extends CI_Controller {
 			);
 		
 		$query = $this->db->insert('event_attendee', $data);
+		$this->session->set_userdata('register_email', $email);
+		
+		$this->send_encrypted_email($email, "register", $_SESSION['event_num']);
 		
 	}
 	
@@ -399,12 +431,27 @@ class Evex extends CI_Controller {
 		$this->form_validation->set_rules('lname', 'Last Name', 'required');
 		$this->form_validation->set_rules('birthday', 'Birthday', 'required');
 		$this->form_validation->set_rules('contactNo', 'Contact Number', 'required');
-		$this->form_validation->set_rules('email', 'Email Address', 'required');
+		$this->form_validation->set_rules('email', 'Email Address', 'required|callback_register_check['.$_SESSION['event_num'].']');
 
 		if ($this->form_validation->run() == FALSE) {
 			echo validation_errors();
 		} else {
 			echo "1";
+		}
+	}
+	
+	public function register_check($email, $event_num) {
+		$this->db->select('email_address');
+		$this->db->from('event_attendee');
+		$this->db->where('email_address', $email);
+		$this->db->where('event_num', $event_num);
+		$query = $this->db->get();
+		
+		if ($query->num_rows() == 1) {
+			$this->form_validation->set_message('register_check', 'Email Address already registered');
+			return FALSE;
+		} else {
+			return TRUE;
 		}
 	}
 }
