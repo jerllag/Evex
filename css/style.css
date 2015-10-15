@@ -40,7 +40,9 @@ footer {
 }
 
 #logInForm, #signUpForm, #changePassword{
-	background-image: url(/images/res/bg.jpg); 
+	background-image: url(/images/res/bg.png); 
+	background-repeat: no-repeat;
+	
 	padding: 20px;
 	border-style: dashed;
 	border-color: #ffffff;

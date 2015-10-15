@@ -7,7 +7,7 @@
 					<div class="col-lg-12 error_msg"></div>
 				</div>
 				
-				<form role="form" id="signUpForm">
+				<form class="form" id="signUpForm">
 					<div class="form-group">
 						<label for="username"> Username: </label>
 						<input type="text" class="form-control" id="username">
@@ -25,7 +25,6 @@
 							</div>
 						</div>
 					</div>
-				
 					<div class="form-group">
 						<label for="birthday"> Birthday: </label>
 						<input type="date" class="form-control" id="birthday">
