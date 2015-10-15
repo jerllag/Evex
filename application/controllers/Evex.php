@@ -40,7 +40,7 @@ class Evex extends CI_Controller {
 			if(!isset($_SESSION['forgotPasswordEmail'])) {
 				$this->form_validation->set_rules('curpass', 'Current Password', 'required|callback_check_password['.$_SESSION['userdata']['email_address'].']');
 			}
-			$this->form_validation->set_rules('npass', 'New Password', 'required|min_length[6]|max_length[12]|matches[rpass]');
+			$this->form_validation->set_rules('npass', 'New Password', 'required|min_length[6]|max_length[20]|matches[rpass]');
 			$this->form_validation->set_rules('rpass', 'Confirm Password', 'required');
 		}
 		
@@ -120,7 +120,7 @@ class Evex extends CI_Controller {
 		$this->form_validation->set_rules('email', 'Email Address', 'required|valid_email|is_unique[organizer.email_address]');
 		$this->form_validation->set_rules('org_name', 'Organization Name', 'required');
 		$this->form_validation->set_rules('org_address', 'Organization Address', 'required');
-		$this->form_validation->set_rules('pass', 'Password', 'required|min_length[6]|max_length[12]|matches[rpass]');
+		$this->form_validation->set_rules('pass', 'Password', 'required|min_length[6]|max_length[20]|matches[rpass]');
 		$this->form_validation->set_rules('rpass', 'Confirm Password', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
