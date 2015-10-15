@@ -106,6 +106,7 @@
 				if(data > 0) {
 					window.location = "<?=base_url("/evex/event")?>";
 				} else {
+					$('.error_msg').attr("class", "col-lg-12 error_msg alert alert-danger" );
 					$('.error_msg').html("Invalid username or password");
 				}
 			});
