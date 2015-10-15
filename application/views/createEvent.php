@@ -103,7 +103,7 @@
 						<div class="col-lg-11" id="content">
 							<form id="criteriasForm">
 								<div class="default_criterias"></div>
-								<div class="added_criterias"></div>
+								<div id="added_criterias"></div>
 								<div class="row form-group">
 									<div class="col-lg-12">
 									<a href="#" onclick="addCriteriaFields()" style="color: blue">Add Custom Criteria</a>
@@ -125,13 +125,20 @@
 
 <script>
 	var criterias_array = [];
+	var ctr = 0;
 	
 	$(window).load(function() {
 		getCriterias();
 	});
 	
 	function addCriteriaFields() {
-		$('.added_criterias').append('<div class="row form-group"><div class="col-lg-11"><input type="text" class="criteria form-control" /></div><div class="col-lg-1"><a onclick="removeCriteria()" class="close"> &times; </a></div></div>')
+		$('#added_criterias').append('<div class="row form-group"><div class="col-lg-11"><input type="text" class="criteria form-control" /></div><div class="col-lg-1"><a onclick="removeCriteriaFields('+ctr+')" class="close"> &times; </a></div></div>')
+		ctr++;
+	}
+	
+	function removeCriteriaFields(index) {
+		var list = document.getElementById("added_criterias");
+		list.removeChild(list.childNodes[index]);
 	}
 	
 	function submitCriterias() {
