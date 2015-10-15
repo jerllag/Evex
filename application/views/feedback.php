@@ -4,15 +4,15 @@
 		<h2 align="center">Feedback</h2>
 		<div class="col-lg-3"></div>
 		<div class="col-lg-6">
-			<form role="form">
+			<form role="form" id="feedbackForm">
 				<?php foreach($criterias as $i=>$criteria) { 
 					$ctr = $i%5;
 				?>
 				<div class="form-group">
 					<label for="criteria1"> <?=$criteria['criteria']?> </label>
 					<div class="range range<?=$color[$ctr]?>">
-						<input type="range" name="relevance" min="1" max="10" value="1" onchange="rangeSuccess.value=value" id="orderliness" required>
-						<output id="rangeSuccess">1</output>
+						<input type="range" name="input<?=$i?>" min="1" max="10" value="1" onchange="range<?=$i?>.value=value" id="orderliness" required>
+						<output id="range<?=$i?>">1</output>
 					</div>
 				</div>
 				<?php } ?>
@@ -60,7 +60,7 @@
 				
 				<div class="form-group">
 					<label for="criteria4"> Comments / Suggestions </label>
-					<textarea rows="3" class="form-control"></textarea>
+					<textarea rows="3" class="form-control" name="comments"></textarea>
 				</div>
 			</form>
 		</div>
@@ -70,7 +70,19 @@
 <section class="no-margin" id="section">
 	<div class="row">
 		<div class="col-lg-12" align="center">
-			<button onclick="testing()" class="btn btn-primary btn-lg">Send Feedback</button>
+			<button onclick="javascript: $('#feedbackForm').submit()" class="btn btn-primary btn-lg">Send Feedback</button>
 		</div>
 	</div>
 </section>
+
+<script>
+	$('#feedbackForm').submit(function(e) {
+		e.preventDefault();
+		$.post("<?=base_url('/evex/user_feedback')?>", {data: JSON.stringify($('#feedbackForm').serializeArray()), criteria: (<?=json_encode($criterias)?>), csrf_token_name: Cookies.get("csrf")},function(data) {
+			if(data == "1") {
+				alert("Your feedback has been sent!! Thank you!!!");
+				window.location = "<?=base_url('/evex/event')?>";
+			}
+		});
+	});
+</script>

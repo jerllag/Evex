@@ -31,8 +31,7 @@
 										</a>
 									</div>
 									<div class="col-lg-4">
-										<!--<a onclick="giveFeedback(<?=$event['0']?>)" data-toggle="modal" data-target="#eventCode">-->
-										<a data-toggle="modal" data-target="#eventCode">
+										<a onclick="giveFeedback(<?=$event['0']?>)" data-toggle="modal" data-target="#eventCode">
 											<button type="submit" class="btn btn-warning">
 												<span class="glyphicon glyphicon-comment"></span> Feedback
 											</button>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2015 at 05:14 PM
+-- Generation Time: Oct 15, 2015 at 06:55 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.5.28
 
@@ -58,24 +58,8 @@ CREATE TABLE IF NOT EXISTS `event` (
 --
 
 INSERT INTO `event` (`event_num`, `username`, `event_code`, `event_name`, `venue`, `date`, `start_time`, `end_time`, `description`, `category`) VALUES
-(1, 'jeromellaguno', 'c2j7oj', 'Programming Clinic', 'New Era University', '2015-10-15', '07:00:00', '10:00:00', 'Programming Clinic', 'Academic'),
-(1, 'jeromellaguno', '3lio6x', 'Programming Clinic', 'New Era University', '2015-10-15', '08:00:00', '11:00:00', 'Programming Clinic', 'Academic'),
-(1, 'jeromellaguno', 'bc19rp', 'Programming Clinic', 'New Era University', '2015-10-15', '09:00:00', '00:00:00', 'Programming Clinic', 'Academic'),
-(1, 'jeromellaguno', 'g37iir', 'Programming Clinic', 'New Era University', '2015-10-15', '09:00:00', '12:00:00', 'Programming Clinic', 'Academic'),
-(3, 'jeromellaguno', 'xq8cth', 'Quizzardry', 'New Era University', '2015-10-15', '07:00:00', '10:00:00', 'Quizzardy', 'Academic'),
-(3, 'jeromellaguno', 'ouidkh', 'Quizzardry', 'New Era University', '2015-10-15', '08:00:00', '11:00:00', 'Quizzardy', 'Academic'),
-(3, 'jeromellaguno', 'inbkd4', 'Quizzardry', 'New Era University', '2015-10-15', '09:00:00', '12:00:00', 'Quizzardy', 'Academic'),
-(3, 'jeromellaguno', 'uderer', 'Quizzardry', 'New Era University', '2015-10-15', '10:00:00', '13:00:00', 'Quizzardy', 'Academic'),
-(3, 'jeromellaguno', 'ke0dwv', 'Quizzardry', 'New Era University', '2015-10-15', '11:00:00', '14:00:00', 'Quizzardy', 'Academic'),
-(3, 'jeromellaguno', 'dfhvwo', 'Quizzardry', 'New Era University', '2015-10-15', '12:00:00', '15:00:00', 'Quizzardy', 'Academic'),
-(3, 'jeromellaguno', 'w3g9rh', 'Quizzardry', 'New Era University', '2015-10-15', '13:00:00', '16:00:00', 'Quizzardy', 'Academic'),
-(3, 'jeromellaguno', 'w6nhtf', 'Quizzardry', 'New Era University', '2015-10-15', '14:00:00', '17:00:00', 'Quizzardy', 'Academic'),
-(3, 'jeromellaguno', 'kc8nxh', 'Quizzardry', 'New Era University', '2015-10-16', '14:00:00', '17:00:00', 'Quizzardy', 'Academic'),
-(3, 'jeromellaguno', 'ecqjpw', 'Quizzardry', 'New Era University', '2015-10-17', '14:00:00', '17:00:00', 'Quizzardy', 'Academic'),
-(3, 'jeromellaguno', 'oqbmkd', 'Quizzardry', 'New Era University', '2015-10-18', '14:00:00', '17:00:00', 'Quizzardy', 'Academic'),
-(2, 'jeromellaguno', 'mqbcng', 'Senpai', 'New Era University', '2015-10-15', '07:00:00', '22:00:00', 'Programming Clinic', 'Academic'),
-(2, 'jeromellaguno', 'xj06ly', 'Senpai', 'New Era University', '2015-10-15', '08:00:00', '11:00:00', 'Programming Clinic', 'Academic'),
-(2, 'jeromellaguno', 'ezmrgh', 'Senpai', 'New Era University', '2015-10-16', '08:00:00', '11:00:00', 'Programming Clinic', 'Academic');
+(1, 'jeromellaguno', 'ubisoq', 'Programming Clinic', 'New Era University', '2015-10-10', '07:00:00', '10:00:00', 'Programming Clinic', 'Academic'),
+(1, 'jeromellaguno', 'ku4wbb', 'Programming Clinic', 'New Era University', '2015-10-16', '07:00:00', '10:00:00', 'Programming Clinic', 'Academic');
 
 -- --------------------------------------------------------
 
@@ -99,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `event_attendee` (
 --
 
 INSERT INTO `event_attendee` (`event_code`, `fname`, `lname`, `birthday`, `contact_num`, `email_address`, `valid_user`, `given_feedback`) VALUES
-('c2j7oj', 'Jerome', 'Llaguno', '2015-10-10', 123465789, 'jicllaguno@yahoo.com', 1, 0);
+('ubisoq', 'Jerome', 'Llaguno', '2015-10-10', 123456, 'jicllaguno@yahoo.com', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -118,43 +102,13 @@ CREATE TABLE IF NOT EXISTS `event_criteria` (
 --
 
 INSERT INTO `event_criteria` (`event_num`, `criteria`, `score`) VALUES
-(0, 'asd', '0.00'),
-(0, 'qwe', '0.00'),
-(1, 'Interaction or Audience Rapport', '0.00'),
-(1, 'Organization', '0.00'),
-(1, 'Reasonable Time Allotment', '0.00'),
-(1, 'Relevance to the Theme', '0.00'),
-(1, 'Utilization of Devices or Visual Aids', '0.00'),
-(1, 'Venue', '0.00'),
-(2, 'Interaction or Audience Rapport', '0.00'),
-(2, 'Organization', '0.00'),
-(2, 'Reasonable Time Allotment', '0.00'),
-(2, 'Relevance to the Theme', '0.00'),
-(2, 'Utilization of Devices or Visual Aids', '0.00'),
-(2, 'Venue', '0.00'),
-(3, 'Interaction or Audience Rapport', '0.00'),
-(3, 'Organization', '0.00'),
-(3, 'Reasonable Time Allotment', '0.00'),
-(3, 'Relevance to the Theme', '0.00'),
-(3, 'testing', '0.00'),
-(3, 'Utilization of Devices or Visual Aids', '0.00'),
-(3, 'Venue', '0.00'),
-(14, 'asd', '0.00'),
-(14, 'Interaction or Audie', '0.00'),
-(14, 'Organization', '0.00'),
-(14, 'qwe', '0.00'),
-(14, 'Reasonable Time Allo', '0.00'),
-(14, 'Relevance to the The', '0.00'),
-(14, 'Utilization of Devic', '0.00'),
-(14, 'Venue', '0.00'),
-(15, 'asd', '0.00'),
-(15, 'Interaction or Audie', '0.00'),
-(15, 'Organization', '0.00'),
-(15, 'qwe', '0.00'),
-(15, 'Reasonable Time Allo', '0.00'),
-(15, 'Relevance to the The', '0.00'),
-(15, 'Utilization of Devic', '0.00'),
-(15, 'Venue', '0.00');
+(1, 'Interaction or Audience Rapport', '0.77'),
+(1, 'Organization', '0.77'),
+(1, 'Reasonable Time Allotment', '0.77'),
+(1, 'Relevance to the Theme', '0.77'),
+(1, 'testing', '0.77'),
+(1, 'Utilization of Devices or Visual Aids', '0.77'),
+(1, 'Venue', '0.77');
 
 -- --------------------------------------------------------
 
