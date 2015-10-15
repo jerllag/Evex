@@ -25,21 +25,21 @@
 								</div>
 								<div class="row">
 									<?php if(!isset($_SESSION['userdata'])) { ?>
-									<div class="col-lg-3">
-										<a href="<?=base_url("/evex/event_details/".$event[3]."/".$event[1])?>" type="submit" class="btn btn-danger btn-block">
+									<div class="col-lg-3, col-sm-3">
+										<a href="<?=base_url("/evex/event_details/".$event[3]."/".$event[1])?>" type="submit" class="btn btn-danger">
 											<span class="glyphicon glyphicon-calendar"></span> RSVP
 										</a>
 									</div>
-									<div class="col-lg-4">
+									<div class="col-lg-4, col-sm-4">
 										<!--<a onclick="giveFeedback(<?=$event['0']?>)" data-toggle="modal" data-target="#eventCode">-->
 										<a data-toggle="modal" data-target="#eventCode">
-											<button type="submit" class="btn btn-warning btn-block">
+											<button type="submit" class="btn btn-warning">
 												<span class="glyphicon glyphicon-comment"></span> Feedback
 											</button>
 										</a>
 									</div>
 									<?php } else { ?>	
-									<div class="col-lg-5">
+									<div class="col-lg-5, col-sm-5">
 										<button type="submit" class="btn btn-success" disabled>
 											<a href="<?=base_url("/evex/results")?>">
 												<span class="glyphicon glyphicon-stats"></span> View Results
