@@ -131,7 +131,7 @@
 	});
 	
 	function addCriteriaFields() {
-		$('#added_criterias').append('<div class="row form-group"><div class="col-lg-11"><input type="text" class="criteria form-control" /></div><div class="col-lg-1"><a onclick="removeCriteriaFields('+ctr+')" class="close"> &times; </a></div></div>')
+		$('#added_criterias').append('<div class="row form-group"><div class="col-lg-11"><input name="criteria'+ctr+'" type="text" class="criteria form-control" /></div><div class="col-lg-1"><a onclick="removeCriteriaFields('+ctr+')" class="close"> &times; </a></div></div>')
 		ctr++;
 	}
 	
