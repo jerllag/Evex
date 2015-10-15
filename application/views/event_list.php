@@ -39,11 +39,11 @@
 									</div>
 									<?php } else { ?>	
 									<div class="col-lg-5">
-										<button type="submit" class="btn btn-success" disabled>
-											<a href="<?=base_url("/evex/results")?>">
+										<a href="<?=base_url("/evex/results/".$event[3]."/".$event[1])?>">
+											<button type="submit" class="btn btn-success">
 												<span class="glyphicon glyphicon-stats"></span> View Results
-											</a>
-										</button>
+											</button>
+										</a>
 									</div>
 									<?php } ?>
 								</div>

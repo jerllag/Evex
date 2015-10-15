@@ -516,9 +516,19 @@ class Evex extends CI_Controller {
 		$this->session->unset_userdata('feedback_success');
 	}
 	
-	public function results() {
+	public function results($username, $event_name) {
+		$this->db->distinct();
+		$this->db->select('criteria, score');
+		$this->db->from('event a, event_criteria b');
+		$this->db->where('a.event_num = b.event_num');
+		$this->db->where('a.username',  urldecode($username));
+		$this->db->where('a.event_name', urldecode($event_name));
+		$query = $this->db->get();
+	
+		$data['criterias'] = $query->result_array();
+	
 		$this->load->view('header');
-		$this->load->view('results');
+		$this->load->view('results', $data);
 		$this->load->view('footer');
 	}
 	
