@@ -97,7 +97,7 @@
 					<button type="button" class="close" data-dismiss="modal"> &times; </button>
 					<h4 align="center"> Event Criteria</h4>
 				</div>
-				<div class="modal-body">
+				<div class="modal-body" id="criteria_modal">
 					<div class="container-fluid">
 					<div class="row" id="content">
 						<div class="col-lg-11" id="content">

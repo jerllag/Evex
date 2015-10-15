@@ -61,6 +61,11 @@ a:hover {
 	color: #123456;
 }
 
+#criteria_modal{
+	max-height: calc(100vh - 210px);
+	overflow-y: auto;
+}
+
 .error_msg {
 	font-style: italic;
 	font-weight: bold;
