@@ -30,14 +30,8 @@
 											<span class="glyphicon glyphicon-calendar"></span> RSVP
 										</a>
 									</div>
-<<<<<<< HEAD
-									<div class="col-lg-4, col-sm-4">
-										<!--<a onclick="giveFeedback(<?=$event['0']?>)" data-toggle="modal" data-target="#eventCode">-->
-										<a data-toggle="modal" data-target="#eventCode">
-=======
 									<div class="col-lg-4">
 										<a onclick="giveFeedback(<?=$event['0']?>)" data-toggle="modal" data-target="#eventCode">
->>>>>>> origin/editing-branch
 											<button type="submit" class="btn btn-warning">
 												<span class="glyphicon glyphicon-comment"></span> Feedback
 											</button>
