@@ -166,24 +166,38 @@
 	$("#createEventForm").submit(function(e) {
 		e.preventDefault();
 	
-		var event_name = $("#event_name").val();
+		/*var event_name = $("#event_name").val();
 		var date = $("#date").val();
 		var venue = $("#venue").val();
 		var start_time = $("#start_time").val();
 		var end_time = $("#end_time").val();
 		var description = $("#description").val();
-		var category = $("#category").val();
+		var category = $("#category").val();*/
 		
-		/*$.post("<?=base_url("/evex/validate_create_event")?>", {'event_name': event_name, 'date': date, 'venue': venue, 'start_time': start_time, 'end_time': end_time, 'description': description, 'category': category, csrf_token_name: Cookies.get("csrf")}, function(data) {
+		var datas = {
+			'event_name': $("#event_name").val(),
+			'date': $("#date").val(),
+			'venue': $("#venue").val(),
+			'start_time': $("#start_time").val(),
+			'end_time': $("#end_time").val(),
+			'description': $("#description").val(),
+			'category': $("#category").val(),
+			csrf_token_name: Cookies.get("csrf")
+		};
+		
+		//$.post("<?=base_url("/evex/validate_create_event")?>", {'event_name': event_name, 'date': date, 'venue': venue, 'start_time': start_time, 'end_time': end_time, 'description': description, 'category': category, csrf_token_name: Cookies.get("csrf")}, function(data) {
+		$.post("<?=base_url("/evex/validate_create_event")?>", datas, function(data) {
 			if(data != "1") {
 				$('.error_msg').html(data);
-			} else {*/
-				//$.post("<?=base_url("/evex/create_event_f")?>", {'event_name': event_name, 'date': date, 'venue': venue, 'start_time': start_time, 'end_time': end_time, 'description': description, 'category': category, csrf_token_name: Cookies.get("csrf")}, function(data) {
-					$.post("<?=base_url("/evex/event_criteria")?>", {'criterias': "a", 'event_name': event_name, csrf_token_name: Cookies.get("csrf")}, function(data) {
+			} else {
+				$.post("<?=base_url("/evex/create_event_f")?>", datas, function(data) {
+					var criterias = $('#criteriasForm').serializeArray();
+					datas = {'event_name': $("#event_name").val(), 'criterias': JSON.stringify(criterias), csrf_token_name: Cookies.get("csrf")};
+					$.post("<?=base_url("/evex/event_criteria")?>", datas, function(data) {
 						alert("Created an Event");
 					});
-				//});
-			/*}
-		});*/
+				});
+			}
+		});
 	});
 </script>

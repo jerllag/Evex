@@ -91,8 +91,8 @@
 			getDateDetails();
 		});
 		
-		function registerAttendee($event_num) {
-			$.post("<?=base_url("/evex/add_event_num/")?>", {'event_num': $event_num, csrf_token_name: Cookies.get("csrf")}, function() {});
+		function registerAttendee($event_code) {
+			$.post("<?=base_url("/evex/add_event_code/")?>", {'event_code': $event_code, csrf_token_name: Cookies.get("csrf")}, function() {});
 		}
 	
 		function getDateDetails() {

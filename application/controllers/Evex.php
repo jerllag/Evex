@@ -168,7 +168,7 @@ class Evex extends CI_Controller {
 		$encryptedMethod = $this->encrypt->encode($method);
 		$encryptedEventNum = "";
 		if ($event_num != "") {
-			$encryptedEventNum = "&event_num=".urlencode($this->encrypt->encode($event_num));
+			$encryptedEventNum = "&event_code=".urlencode($this->encrypt->encode($event_num));
 		}
 
 		$this->email->from('accdum71@gmail.com', 'Evex');
@@ -183,11 +183,11 @@ class Evex extends CI_Controller {
 	public function validate_email() {
 		$encryptedEmail = $this->input->get("email");
 		$encryptedMethod = $this->input->get("method");
-		$encryptedEventNum = $this->input->get("event_num");
+		$encryptedEventNum = $this->input->get("event_code");
 		
 		$email = $this->encrypt->decode($encryptedEmail);
 		$method = $this->encrypt->decode($encryptedMethod);
-		$event_num = $this->encrypt->decode($encryptedEventNum);
+		$event_code = $this->encrypt->decode($encryptedEventNum);
 		
 		echo $method;
 		
@@ -206,12 +206,12 @@ class Evex extends CI_Controller {
 		} else if ($method == "register") {
 			if(isset($_SESSION['register_email']) && $_SESSION['register_email'] == $email) {
 				$this->db->where('email_address', $email);
-				$this->db->where('event_num', $event_num);
+				$this->db->where('event_code', $event_code);
 				$this->db->update('event_attendee', array('valid_user' => True));
 				
 				$this->db->select('username, event_name');
 				$this->db->from('event');
-				$this->db->where('event_num', $event_num);
+				$this->db->where('event_code', $event_code);
 				$query = $this->db->get();
 				
 				$result = $query->result_array();
@@ -249,8 +249,8 @@ class Evex extends CI_Controller {
 	}
 	
 	public function validate_event_code() {		
-		$this->form_validation->set_rules('event_code', 'Event Code', 'required|callback_check_event_code');
-		$this->form_validation->set_rules('email', 'Email Address', 'required|callback_check_email');
+		$this->form_validation->set_rules('event_code', 'Event Code', 'required|callback_check_event_code['.$this->input->post('email').']');
+		$this->form_validation->set_rules('email', 'Email Address', 'required|valid_email');
 		
 		if ($this->form_validation->run() == FALSE) {
 			echo validation_errors();
@@ -259,17 +259,17 @@ class Evex extends CI_Controller {
 		}
 	}
 	
-	public function check_event_code($event_code) {
+	public function check_event_code($event_code, $email) {
 		$this->db->select('event_code');
-		$this->db->from('event');
+		$this->db->from('event_attendee');
 		$this->db->where('event_code', $event_code);
-		$this->db->where('event_num', $_SESSION['event_num']);
+		$this->db->where('email_address', $email);
 		$query = $this->db->get();
 		
 		if ($query->num_rows() == 1) {
 			return TRUE;
 		} else {
-			$this->form_validation->set_message('check_event_code', 'Invalid event code');
+			$this->form_validation->set_message('check_event_code', 'Invalid email or event code');
 			return FALSE;
 		}
 	}
@@ -297,10 +297,41 @@ class Evex extends CI_Controller {
 	}
 	
 	public function event_criteria() {
-		$criterias = $this->input->post('criterias');
+		$criterias = json_decode($this->input->post('criterias'), true);
 		$event_name = $this->input->post('event_name');
 		
-		var_dump($criterias);
+		$this->db->select('event_num');
+		$this->db->from('event');
+		$this->db->where('username', $_SESSION['userdata']['username']);
+		$this->db->where('event_name', $event_name);
+		$query = $this->db->get();
+		
+		$event_num = $query->result_array()[0]['event_num'];
+		
+		foreach($_SESSION['criterias'] as $criteria) {
+			$this->db->select('event_num');
+			$this->db->from('event_criteria');
+			$this->db->where('event_num', $event_num);
+			$this->db->where('criteria', $criteria);
+			$query = $this->db->get();
+			$has_event_num = $query->num_rows();
+			if(!$has_event_num) {
+				$query = $this->db->insert('event_criteria', array('event_num' => $event_num, 'criteria' => $criteria));
+			}
+		}
+		
+		foreach($criterias as $criteria) {
+			$this->db->select('event_num');
+			$this->db->from('event_criteria');
+			$this->db->where('event_num', $event_num);
+			$this->db->where('criteria', $criteria['value']);
+			$query = $this->db->get();
+			$has_event_num = $query->num_rows();
+			
+			if(!$has_event_num) {
+				$query = $this->db->insert('event_criteria', array('event_num' => $event_num, 'criteria' => $criteria['value']));
+			}
+		}
 	}
 	
 	public function validate_create_event() {
@@ -330,6 +361,22 @@ class Evex extends CI_Controller {
 		$description = $this->input->post("description");
 		$category = $this->input->post("category");
 		
+		$this->db->distinct();
+		$this->db->select('event_num');
+		$this->db->from('event');
+		$this->db->where('event_name', $event_name);
+		$this->db->where('username', $_SESSION['userdata']['username']);
+		$query = $this->db->get();
+		
+		if ($query->num_rows() > 0) {
+			$event_num = $query->result_array()[0]['event_num'];
+		} else {
+			$this->db->select_max('event_num');
+			$this->db->from('event');
+			$query = $this->db->get();
+			$event_num = $query->result_array()[0]['event_num'] + 1;
+		}
+		
 		do {
 			$event_code = strtolower(random_string('alnum', 6));
 			
@@ -342,6 +389,7 @@ class Evex extends CI_Controller {
 		} while($result > 0);
 		
 		$data = array(
+			'event_num' => $event_num,
 			'username' => $_SESSION['userdata']["username"],
 			'event_code' => $event_code,
 			'event_name' => $event_name,
@@ -394,8 +442,16 @@ class Evex extends CI_Controller {
 	}
 	
 	public function feedback() {
+		$this->db->select('criteria');
+		$this->db->from('event_criteria');
+		$this->db->where('event_num', $_SESSION['event_num']);
+		$query = $this->db->get();
+	
+		$data['criterias'] = $query->result_array();
+		$data['color'] = array("-success", "-info", "-warning", "-danger", "-primary");
+	
 		$this->load->view('header');
-		$this->load->view('feedback');
+		$this->load->view('feedback', $data);
 		$this->load->view('footer');
 	}
 	
@@ -448,20 +504,20 @@ class Evex extends CI_Controller {
 		$this->load->view('date_details', $data);
 	}
 	
-	public function add_event_num() {
-		$event_num = $this->input->post('event_num');
-		$this->session->set_userdata('event_num', $event_num);
+	public function add_event_code() {
+		$event_code = $this->input->post('event_code');
+		$this->session->set_userdata('event_code', $event_code);
 	}
 	
 	public function register() {
 		$fname = $this->input->post('fname');
-		$lname = $this->input->post('fname');
+		$lname = $this->input->post('lname');
 		$birthday = $this->input->post('birthday');
 		$contactno = $this->input->post('contactNo');
 		$email = $this->input->post('email');
 		
 		$data = array(
-			'event_num' => $_SESSION['event_num'],
+			'event_code' => $_SESSION['event_code'],
 			'fname' => $fname,
 			'lname' => $lname,
 			'birthday' => $birthday,
@@ -472,7 +528,7 @@ class Evex extends CI_Controller {
 		$query = $this->db->insert('event_attendee', $data);
 		$this->session->set_userdata('register_email', $email);
 		
-		$this->send_encrypted_email($email, "register", $_SESSION['event_num']);
+		$this->send_encrypted_email($email, "register", $_SESSION['event_code']);
 		
 	}
 	
@@ -481,7 +537,7 @@ class Evex extends CI_Controller {
 		$this->form_validation->set_rules('lname', 'Last Name', 'required');
 		$this->form_validation->set_rules('birthday', 'Birthday', 'required');
 		$this->form_validation->set_rules('contactNo', 'Contact Number', 'required');
-		$this->form_validation->set_rules('email', 'Email Address', 'required|callback_register_check['.$_SESSION['event_num'].']');
+		$this->form_validation->set_rules('email', 'Email Address', 'required|valid_email|callback_register_check['.$_SESSION['event_code'].']');
 
 		if ($this->form_validation->run() == FALSE) {
 			echo validation_errors();
@@ -490,11 +546,11 @@ class Evex extends CI_Controller {
 		}
 	}
 	
-	public function register_check($email, $event_num) {
+	public function register_check($email, $event_code) {
 		$this->db->select('email_address');
 		$this->db->from('event_attendee');
 		$this->db->where('email_address', $email);
-		$this->db->where('event_num', $event_num);
+		$this->db->where('event_code', $event_code);
 		$query = $this->db->get();
 		
 		if ($query->num_rows() == 1) {

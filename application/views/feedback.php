@@ -5,15 +5,19 @@
 		<div class="col-lg-3"></div>
 		<div class="col-lg-6">
 			<form role="form">
+				<?php foreach($criterias as $i=>$criteria) { 
+					$ctr = $i%5;
+				?>
 				<div class="form-group">
-					<label for="criteria1"> Relevance to the Theme </label>
-					<div class="range range-success">
+					<label for="criteria1"> <?=$criteria['criteria']?> </label>
+					<div class="range range<?=$color[$ctr]?>">
 						<input type="range" name="relevance" min="1" max="10" value="1" onchange="rangeSuccess.value=value" id="orderliness" required>
 						<output id="rangeSuccess">1</output>
 					</div>
 				</div>
+				<?php } ?>
 				
-				<div class="form-group">
+				<!--<div class="form-group">
 					<label for="criteria2"> Organization </label>
 					<div class="range range-info">
 						<input type="range" name="organization" min="1" max="10" value="1" onchange="rangeInfo.value=value" id="organization">
@@ -52,7 +56,7 @@
 						<input type="range" name="venue" min="1" max="10" value="1" onchange="range.value=value" id="venue">
 						<output id="range">1</output>
 					</div>
-				</div>
+				</div>-->
 				
 				<div class="form-group">
 					<label for="criteria4"> Comments / Suggestions </label>

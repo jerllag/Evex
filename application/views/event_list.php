@@ -26,12 +26,13 @@
 								<div class="row">
 									<?php if(!isset($_SESSION['userdata'])) { ?>
 									<div class="col-lg-3">
-										<a href="<?=base_url("/evex/event_details/".$event[3]."/".$event[4])?>" type="submit" class="btn btn-danger">
+										<a href="<?=base_url("/evex/event_details/".$event[3]."/".$event[1])?>" type="submit" class="btn btn-danger">
 											<span class="glyphicon glyphicon-calendar"></span> RSVP
 										</a>
 									</div>
 									<div class="col-lg-4">
-										<a onclick="giveFeedback(<?=$event['0']?>)" data-toggle="modal" data-target="#eventCode">
+										<!--<a onclick="giveFeedback(<?=$event['0']?>)" data-toggle="modal" data-target="#eventCode">-->
+										<a data-toggle="modal" data-target="#eventCode">
 											<button type="submit" class="btn btn-warning">
 												<span class="glyphicon glyphicon-comment"></span> Feedback
 											</button>
