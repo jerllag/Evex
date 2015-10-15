@@ -6,8 +6,9 @@ html{
 body {
 	font-family: Arial, Verdana, Helvetica;
 	margin-bottom: 60px;
-	padding:0;
-	height:100%;
+	padding: 0;
+	height: 100%;
+	scrollbar-face-color: #0098DA;
 }
 
 footer {
@@ -20,13 +21,28 @@ footer {
 	padding: 20px 20px;
 }
 
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2); 
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px; 
+	background-color: #0098DA;
+}
+
 #section {
 	padding: 20px;
 	height: 50%;
 }
 
 #logInForm, #signUpForm, #changePassword{
-	background-image: url(/images/res/bg.jpg); 
+	background-image: url(/images/res/bg.png); 
+	background-repeat: no-repeat;
+	
 	padding: 20px;
 	border-style: dashed;
 	border-color: #ffffff;

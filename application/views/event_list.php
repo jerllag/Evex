@@ -26,7 +26,7 @@
 								<div class="row">
 									<?php if(!isset($_SESSION['userdata'])) { ?>
 									<div class="col-lg-3">
-										<a href="<?=base_url("/evex/event_details/".$event[3]."/".$event[1])?>" type="submit" class="btn btn-danger">
+										<a href="<?=base_url("/evex/event_details/".$event[3]."/".$event[1])?>" type="submit" class="btn btn-danger btn-block">
 											<span class="glyphicon glyphicon-calendar"></span> RSVP
 										</a>
 									</div>

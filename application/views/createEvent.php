@@ -76,12 +76,13 @@
 		</form>
 					
 		<div class="row" id="content" align="right">
-			<div class="col-lg-6"></div>
+			<div class="col-lg-2"></div>
 			<div class="col-lg-4, col-md-4, col-sm-4, col-xs-4">
 				<button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#criteriaModal">
 					<h4><span class="glyphicon glyphicon-pencil"></span> Create Criteria</h4>
 				</button>
-			
+			</div>
+			<div class="col-lg-4, col-md-4, col-sm-4, col-xs-4">
 				<button onclick="formSubmit()" type="submit" class="btn btn-success btn-block">
 					<h4><span class="glyphicon glyphicon-save"></span> Save</h4>
 				</button>

@@ -271,7 +271,7 @@ class Evex extends CI_Controller {
 		if ($query->num_rows() == 1) {
 			return TRUE;
 		} else {
-			$this->form_validation->set_message('check_event_code', 'Invalid email or event code');
+			$this->form_validation->set_message('check_event_code', 'Invalid email or event code.');
 			return FALSE;
 		}
 	}
@@ -639,6 +639,5 @@ class Evex extends CI_Controller {
 	
 	public function error() {
 		$this->load->view('error');
-	
 	}
 }
