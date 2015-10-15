@@ -2,6 +2,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Evex extends CI_Controller {
+	/*public function __construct() {
+		parent::__construct();
+		if($this->uri->segment(1) == 'evex' && ($this->uri->segment(2) == false));
+		else {
+			redirect('evex');
+		}
+	}*/
+
 	public function index() {
 		$this->load->view('header');
 		$this->load->view('home');
