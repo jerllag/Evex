@@ -250,11 +250,13 @@ class Evex extends CI_Controller {
 	
 	public function validate_event_code() {		
 		$this->form_validation->set_rules('event_code', 'Event Code', 'required|callback_check_event_code['.$this->input->post('email').']');
-		$this->form_validation->set_rules('email', 'Email Address', 'required|valid_email');
+		$this->form_validation->set_rules('email', 'Email Address', 'required|valid_email|callback_check_given_feedback['.$this->input->post('event_code').']');
 		
 		if ($this->form_validation->run() == FALSE) {
 			echo validation_errors();
 		} else {
+			$this->session->set_userdata('event_code', $this->input->post('event_code'));
+			$this->session->set_userdata('email', $this->input->post('email'));
 			echo "1";
 		}
 	}
@@ -271,6 +273,21 @@ class Evex extends CI_Controller {
 		} else {
 			$this->form_validation->set_message('check_event_code', 'Invalid email or event code.');
 			return FALSE;
+		}
+	}
+	
+	public function check_given_feedback($email, $event_code) {
+		$this->db->select('given_feedback');
+		$this->db->from('event_attendee');
+		$this->db->where('event_code', $event_code);
+		$this->db->where('email_address', $email);
+		$query = $this->db->get();
+		
+		if ($query->result_array()[0]['given_feedback'] == 1) {
+			$this->form_validation->set_message('check_given_feedback', 'You have already given your feedback for this event');
+			return FALSE;
+		} else {
+			return TRUE;
 		}
 	}
 	
@@ -315,6 +332,7 @@ class Evex extends CI_Controller {
 			$this->db->where('criteria', $criteria);
 			$query = $this->db->get();
 			$has_event_num = $query->num_rows();
+			
 			if(!$has_event_num) {
 				$query = $this->db->insert('event_criteria', array('event_num' => $event_num, 'criteria' => $criteria));
 			}
@@ -455,9 +473,62 @@ class Evex extends CI_Controller {
 		$this->load->view('footer');
 	}
 	
-	public function results() {
+	public function user_feedback() {
+		$data = json_decode($this->input->post('data'), true);
+		$criteria = $this->input->post('criteria');
+		$event_num = $_SESSION['event_num'];
+		$event_code = $_SESSION['event_code'];
+		$email = $_SESSION['email'];
+		
+		$this->session->unset_userdata('event_num');
+		$this->session->unset_userdata('event_code');
+		$this->session->unset_userdata('email');
+		
+		foreach($data as $i=>$score) {
+			if ($i < count($data)-1) {
+				$this->db->select('score');
+				$this->db->from('event_criteria');
+				$this->db->where('event_num', $event_num);
+				$this->db->where('criteria', $criteria[$i]['criteria']);
+				$query = $this->db->get();
+				
+				$result = $query->result_array()[0]['score'];
+				$average = 0;
+				
+				if ($result > 0) {
+					$average = ($result+($score['value']/10))/2;
+				} else {
+					$average = ($result+($score['value']/10));
+				}
+				
+				$this->db->where('event_num', $event_num);
+				$this->db->where('criteria', $criteria[$i]['criteria']);
+				$this->db->update('event_criteria', array('score' => $average));
+			}
+		}
+		
+		$this->db->where('event_code', $event_code);
+		$this->db->where('email_address', $email);
+		$this->db->update('event_attendee', array('given_feedback' => 1));
+		
+		$this->session->set_userdata('feedback_success', 1);
+		echo "1";
+		$this->session->unset_userdata('feedback_success');
+	}
+	
+	public function results($username, $event_name) {
+		$this->db->distinct();
+		$this->db->select('criteria, score');
+		$this->db->from('event a, event_criteria b');
+		$this->db->where('a.event_num = b.event_num');
+		$this->db->where('a.username',  urldecode($username));
+		$this->db->where('a.event_name', urldecode($event_name));
+		$query = $this->db->get();
+	
+		$data['criterias'] = $query->result_array();
+	
 		$this->load->view('header');
-		$this->load->view('results');
+		$this->load->view('results', $data);
 		$this->load->view('footer');
 	}
 	
@@ -507,6 +578,11 @@ class Evex extends CI_Controller {
 	public function add_event_code() {
 		$event_code = $this->input->post('event_code');
 		$this->session->set_userdata('event_code', $event_code);
+	}
+	
+	public function add_event_num() {
+		$event_num = $this->input->post('event_num');
+		$this->session->set_userdata('event_num', $event_num);
 	}
 	
 	public function register() {

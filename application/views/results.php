@@ -4,33 +4,33 @@
 			<h2 align="center"> Results </h2>
 		</div>
 	</div>
-
 	<div class="row" align="center" id="content">
+		<?php foreach($criterias as $criteria) { ?>
 		<div class="col-lg-4, col-sm-4">
-			<div class="third circle"  data-value="0.3" data-size="250" data-thickness="10" data-animation-start-value="0.0" data-reverse="false">
+			<div class="third circle"  data-value="<?=$criteria['score']?>" data-size="250" data-thickness="10" data-animation-start-value="0.0" data-reverse="false">
 				<div class="result_description">
-					<span>Creativity </span><strong></strong>	
+					<span><?=$criteria['criteria']?> </span><strong></strong>	
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-4, col-sm-4">
-			<div class="third circle"  data-value="0.5" data-size="250" data-thickness="10" data-animation-start-value="0.0" data-reverse="false">
+		<?php } ?>
+		<!--<div class="col-lg-4, col-sm-4">
+			<div class="third circle"  data-value="<?=$criteria['score']?>" data-size="250" data-thickness="10" data-animation-start-value="0.0" data-reverse="false">
 				<div class="result_description">
 					<span>Orderliness </span><strong></strong>
 				</div>
 			</div>
 		</div>
 		<div class="col-lg-4, col-sm-4">
-			<div class="third circle"  data-value="0.7" data-size="250" data-thickness="10" data-animation-start-value="0.0" data-reverse="false">
+			<div class="third circle"  data-value="<?=$criteria['score']?>" data-size="250" data-thickness="10" data-animation-start-value="0.0" data-reverse="false">
 				<div class="result_description">
 					<span>Timeliness </span><strong></strong>
 				</div>
 			</div>
-		</div>
-	
+		</div>-->
 	</div>
 		
-	<div class="table table-condensed" id="content">
+	<!--<div class="table table-condensed" id="content">
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -62,9 +62,9 @@
 						</div>
 					</div>
 				</td>
-			</tr>
+			</tr>-->
 			<!---remove, replace with loop from retrieving from db, LAYOUT PURPOSES ONLY-->
-			<tr>
+			<!--<tr>
 				<td class="col-lg-3" align="center">
 					<img src="/images/users/karen.png" class="img-circle img-responsive" width="120px" height="120px">
 				</td>
@@ -98,9 +98,9 @@
 				</td>
 			</tr>
 			<!---end here-->
-			</tbody>
+			<!--</tbody>
 		</table>
-	</div>
+	</div>-->
 </section>
 
 <!--permanent here, do not remove -->
