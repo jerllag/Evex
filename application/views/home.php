@@ -40,7 +40,9 @@
 				<?php if(!isset($_SESSION['userdata'])) { ?>
 				<div class="col-lg-3" align="left">
 						<h2 align="center"><strong>Login<strong></h2>
-						<form role="form" id="logInForm">
+						<div class="error_msg"></div>
+						<form role="form" id="logInForm" style="background-image: url(/images/res/bg.jpg); repeat: no-repeat; width=100%;">
+
 							<div class="form-group">
 								<label for="studno"> Username: </label>
 								<input type="text" class="form-control" id="studno">
@@ -103,6 +105,8 @@
 			$.post("<?=base_url("/evex/log_in")?>", {'username': $("#studno").val(), 'password': $("#pwd").val(), csrf_token_name: Cookies.get("csrf")}, function(data) {
 				if(data > 0) {
 					window.location = "<?=base_url("/evex/event")?>";
+				} else {
+					$('.error_msg').html("Invalid username or password");
 				}
 			});
 		});

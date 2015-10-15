@@ -383,6 +383,7 @@ class Evex extends CI_Controller {
 		$this->db->select('event_name');
 		$this->db->from('event');
 		$this->db->where('username', $_SESSION['userdata']['username']);
+		$this->db->group_by('username, event_name');
 		$query = $this->db->get();
 	
 		$data['events'] = $query->result_array();
