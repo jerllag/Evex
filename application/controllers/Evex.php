@@ -504,4 +504,9 @@ class Evex extends CI_Controller {
 			return TRUE;
 		}
 	}
+	
+	public function error() {
+		$this->load->view('error');
+	
+	}
 }
