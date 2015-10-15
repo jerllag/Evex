@@ -26,9 +26,15 @@ footer {
 }
 
 #logInForm, #signUpForm, #changePassword{
+	background-image: url(/images/res/bg.jpg); 
 	padding: 20px;
 	border-style: dashed;
 	border-color: #ffffff;
+}
+
+.modal-header {
+	background: #1da9d3; 
+	color:white; 
 }
 
 #content{
@@ -53,6 +59,11 @@ a:hover {
 #colorHover:hover {
 	background-color: #ffffff;
 	color: #123456;
+}
+
+.error_msg {
+	font-style: italic;
+	font-weight: bold;
 }
 
 .result_description {

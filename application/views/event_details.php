@@ -40,7 +40,7 @@
 	<div id="registerForm" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<div class="modal-header" style="background: #1da9d3; color:white; width="">
+				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"> &times; </button>
 					<h4 align="center"> Register for this Event</h4>
 				</div>
@@ -112,6 +112,7 @@
 			
 			$.post("<?=base_url("/evex/validate_register")?>", {'fname': fname, 'lname': lname, 'birthday': birthday, 'contactNo': contactNo, 'email': email, csrf_token_name: Cookies.get("csrf")}, function(data) {
 				if(data != "1") {
+					$('.error_msg').attr("class", "col-lg-12 error_msg alert alert-danger" );
 					$('.error_msg').html(data);
 				} else {
 					$.post("<?=base_url("/evex/register")?>", {'fname': fname, 'lname': lname, 'birthday': birthday, 'contactNo': contactNo, 'email': email, csrf_token_name: Cookies.get("csrf")}, function(data) {

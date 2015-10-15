@@ -6,7 +6,8 @@
 				<div class="row">
 					<div class="col-lg-12 error_msg"></div>
 				</div>
-				<form role="form" id="signUpForm" style="background-image: url(/images/res/bg.jpg); repeat: no-repeat; width=100%;">
+				
+				<form role="form" id="signUpForm">
 					<div class="form-group">
 						<label for="username"> Username: </label>
 						<input type="text" class="form-control" id="username">
@@ -95,6 +96,7 @@
 			
 			$.post("<?=base_url("/evex/validate_sign_up")?>", {'username': username, 'fname': fname, 'lname': lname, 'birthday': birthday, 'contact_no': contactNo, 'email': email, 'org_name': org_name, 'org_address': org_address, 'pass': pass, 'rpass': rpass, csrf_token_name: Cookies.get("csrf")}, function(data) {
 				if(data != "1") {
+					$('.error_msg').attr("class", "col-lg-12 error_msg alert alert-danger" );
 					$('.error_msg').html(data);
 				} else {
 					$.post("<?=base_url("/evex/sign_up_f")?>", {'username': username, 'fname': fname, 'lname': lname, 'birthday': birthday, 'contact_no': contactNo, 'email': email, 'org_name': org_name, 'org_address': org_address, 'pass': pass, 'rpass': rpass, csrf_token_name: Cookies.get("csrf")}, function(data) {

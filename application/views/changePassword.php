@@ -10,7 +10,7 @@
 				<div class="row">
 					<div class="col-lg-12 error_msg"></div>
 				</div>
-				<form role="form" id="changePassword" style="background-image: url(/images/res/bg.jpg); repeat: no-repeat; width=100%;">
+				<form role="form" id="changePassword">
 					<?php if(!isset($_SESSION['userdata'])) {?>
 					<div class="form-group">
 						<label for="email">Email: </label>
@@ -71,13 +71,14 @@
 			
 			$.post("<?=base_url("/evex/validate_change_password")?>", formdata, function(data) {
 				if(data != "1") {
+					$('.error_msg').attr("class", "col-lg-12 error_msg alert alert-danger" );
 					$('.error_msg').html(data);
 				} else {
 					$.post("<?=base_url("/evex/change_password_f")?>", formdata, function(data) {
 						<?php if(!isset($_SESSION['userdata'])) {?>
 						alert("An email has been sent to your email address");
 						<?php } else { ?>
-						alert("Password Change successfully");
+						alert("Password changed successfully");
 						<?php if(!isset($_SESSION['forgotPasswordEmail'])) {?>
 							window.location = "<?=base_url("/evex/profile")?>";
 						<?php } else { ?>

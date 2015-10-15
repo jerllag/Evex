@@ -93,7 +93,7 @@
 	<div id="criteriaModal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<div class="modal-header" style="background: #1da9d3; color:white;">
+				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"> &times; </button>
 					<h4 align="center"> Event Criteria</h4>
 				</div>
@@ -109,7 +109,6 @@
 									<a href="#" onclick="addCriteriaFields()" style="color: blue">Add Custom Criteria</a>
 									</div>
 								</div>
-								<!---add custom criteria <input type="text" class="form-control" id="criteria1"-->
 							</form>
 						</div>
 					</div>
