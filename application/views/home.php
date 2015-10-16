@@ -15,19 +15,19 @@
 
 						<div class="carousel-inner" role="listbox">
 						  <div class="item active">
-							<img src="/images/banner.png" class="img-responsive" style="width:1000px; height:320px">
+							<img src="/images/banner.png" class="img-responsive">
 						  </div>
 
 						  <div class="item">
-							<img src="/images/res/bg_1.jpg" class="img-responsive" style="width:1000px; height:320px">
+							<img src="/images/res/bg_1.jpg" class="img-responsive">
 						  </div>
 						
 						  <div class="item">
-							<img src="/images/res/bg_2.jpg" class="img-responsive" style="width:1000px; height:320px">
+							<img src="/images/res/bg_2.jpg" class="img-responsive">
 						  </div>
 
 						  <div class="item">
-							<img src="/images/res/bg_3.jpg" class="img-responsive" style="width:1000px; height:320px">
+							<img src="/images/res/bg_3.jpg" class="img-responsive">
 						  </div>
 						</div>
 					</div>

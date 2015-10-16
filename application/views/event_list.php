@@ -30,7 +30,7 @@
 											<span class="glyphicon glyphicon-calendar"></span> RSVP
 										</a>
 									</div>
-									<div class="col-lg-4">
+									<div class="col-lg-4, col-sm-4">
 										<a onclick="giveFeedback(<?=$event['0']?>)" data-toggle="modal" data-target="#eventCode">
 											<button type="submit" class="btn btn-warning">
 												<span class="glyphicon glyphicon-comment"></span> Feedback
@@ -38,15 +38,10 @@
 										</a>
 									</div>
 									<?php } else { ?>	
-<<<<<<< HEAD
+
 									<div class="col-lg-5, col-sm-5">
-										<button type="submit" class="btn btn-success" disabled>
-											<a href="<?=base_url("/evex/results")?>">
-=======
-									<div class="col-lg-5">
 										<a href="<?=base_url("/evex/results/".$event[3]."/".$event[1])?>">
 											<button type="submit" class="btn btn-success">
->>>>>>> origin/editing-branch
 												<span class="glyphicon glyphicon-stats"></span> View Results
 											</button>
 										</a>

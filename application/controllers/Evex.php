@@ -291,11 +291,13 @@ class Evex extends CI_Controller {
 		$this->db->where('email_address', $email);
 		$query = $this->db->get();
 		
-		if ($query->result_array()[0]['given_feedback'] == 1) {
-			$this->form_validation->set_message('check_given_feedback', 'You have already given your feedback for this event');
-			return FALSE;
-		} else {
-			return TRUE;
+		if($query->num_rows() > 0) {
+			if ($query->result_array()[0]['given_feedback'] == 1) {
+				$this->form_validation->set_message('check_given_feedback', 'You have already given your feedback for this event');
+				return FALSE;
+			} else {
+				return TRUE;
+			}
 		}
 	}
 	

@@ -79,6 +79,7 @@
 			e.preventDefault();
 			$.post("<?=base_url("/evex/validate_event_code")?>", {'event_code': $('#event_code').val(), 'email': $('#email').val(), csrf_token_name: Cookies.get("csrf")}, function(data) {
 				if(data != "1") {
+					$('.error_msg').attr("class", "col-lg-12 error_msg alert alert-danger" );
 					$('#eventCode .error_msg').html(data);
 				} else {
 					window.location = "<?=base_url("/evex/feedback")?>";
