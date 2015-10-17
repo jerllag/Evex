@@ -129,6 +129,10 @@
 		
 		function myEvents() {
 			$.post("<?=base_url("/evex/my_events")?>",{}, function(data) {
+				$('#sortParticipant').removeClass('glyphicon-arrow-up');
+				$('#sortParticipant').addClass('glyphicon-arrow-down');
+				$('#sortCategory').removeClass('glyphicon-arrow-up');
+				$('#sortCategory').addClass('glyphicon-arrow-down');
 				$('#eventList').html(data);
 			});
 		}
@@ -138,6 +142,10 @@
 				if(data) {
 					ctr = 0;
 					$('#sortCategory').parent().click();
+					$('#sortParticipant').removeClass('glyphicon-arrow-up');
+					$('#sortParticipant').addClass('glyphicon-arrow-down');
+					$('#sortCategory').removeClass('glyphicon-arrow-up');
+					$('#sortCategory').addClass('glyphicon-arrow-down');
 				}
 			});
 		}
