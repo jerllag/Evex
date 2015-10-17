@@ -1,4 +1,7 @@
 	<section class="no-margin" id="eventList">	
+		<?php if (count($events) == 0) { ?>
+		<h3>Event not found</h3>
+		<?php } ?>
 		<?php foreach($events as $event) { ?>
 		<div class="row">
 			<div class="col-lg-12">
@@ -20,8 +23,9 @@
 								<div class="row" id="content">
 									<!--<h4><b>Venue:</b> <?=$event[4]?>
 									<br><b>Time:</b> <?=date("g:i a", strtotime($event[6]))?> - <?=date("g:i a", strtotime($event[7]))?> -->
-									<h4><b>Created by:</b> <?=$event[4]?> <?=$event[5]?> from <?=$event[6]?>
-									<br><b>Description:</b> <?=$event[2]?></h4>
+									<h4><strong>Created by:</strong> <?=$event[4]?> <?=$event[5]?> from <?=$event[6]?></h4>
+									<h4><strong>Description:</strong> <?=$event[2]?></h4>
+									<h4><strong>Number of Attendees:</strong> <?=$event[7]?></h4>
 								</div>
 								<div class="row">
 									<?php if(!isset($_SESSION['userdata'])) { ?>

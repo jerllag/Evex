@@ -235,11 +235,11 @@ class Evex extends CI_Controller {
 	}
 	
 	public function event() {
-		$this->db->select('event_num, event_name, description, a.username, fname, lname, org_name');
+		$this->db->select('event_num, event_name, description, a.username, fname, lname, org_name, (SELECT count(event_code) from event_attendee WHERE event_code = a.event_code)');
 		$this->db->from('event as a, organizer as b');
-		if(isset($_SESSION['userdata'])) {
+		/*if(isset($_SESSION['userdata'])) {
 			$this->db->where('a.username', $_SESSION['userdata']['username']);
-		}
+		}*/
 		$this->db->where('a.username=b.username');
 		$this->db->group_by(array("event_name", "description")); 
 		$query = $this->db->get();
@@ -435,12 +435,36 @@ class Evex extends CI_Controller {
 		
 		$this->db->select('*');
 		$this->db->from('event');
-		if(isset($_SESSION['userdata'])) {
-			$this->db->where('username', $_SESSION['userdata']['username']);
-		}
-		
 		if($event_name != "") {
 			$this->db->like('event_name', $event_name); 
+		}
+		$query = $this->db->get();
+		
+		$data['events'] = array();
+		
+		foreach($query->result_array() as $i=>$line) {
+			$data['events'][$i] = array_values($line);
+		}
+		
+		$this->load->view('event_list', $data);
+	}
+	
+	public function sort_event_f() {
+		$sort_by = $this->input->post("sortBy");
+		$ctr = $this->input->post("ctr");
+		$order = 'asc';
+		if ($ctr%2 == 1) {
+			$order = 'asc';
+		} else {
+			$order = 'desc';
+		}
+		
+		$this->db->select('event_num, event_name, description, a.username, fname, lname, org_name, (SELECT count(event_code) from event_attendee WHERE event_code = a.event_code)');
+		$this->db->from('event as a, organizer as b');
+		$this->db->where('a.username=b.username');
+		$this->db->group_by(array("event_name", "description")); 
+		if($sort_by != "") {
+			$this->db->order_by($sort_by, $order); 
 		}
 		$query = $this->db->get();
 		

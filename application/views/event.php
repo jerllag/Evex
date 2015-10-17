@@ -28,8 +28,8 @@
 				</div>
 				<div class="row">
 					<div class="button-group">
-						<button class="btn btn-default"><span class="glyphicon glyphicon-sort-by-alphabet"></span> Sort by Category</button>
-						<button class="btn btn-default"><span class="glyphicon glyphicon-sort-by-order"></span> Sort by No. of Participants</button>
+						<button onclick="sortEventList('category')" class="btn btn-default"><span id="sortCategory" class="glyphicon glyphicon-sort-by-alphabet"></span> Sort by Category</button>
+						<button onclick="sortEventList('8')" class="btn btn-default"><span id="sortParticipant" class="glyphicon glyphicon-sort-by-order"></span> Sort by No. of Participants</button>
 					</div>
 				</div>
 			</div>
@@ -69,6 +69,10 @@
 	</div>
 		
 	<script>
+		var ctr = 0;
+		var ctr1 = 0;
+		var temp;
+	
 		$("#search").keyup(function(){
 			$.post("<?=base_url("/evex/search_event_f")?>",{'event_name': $('#search').val(), csrf_token_name: Cookies.get("csrf")}, function(data) {
 				$('#eventList').html(data);
@@ -86,7 +90,30 @@
 			});
 		});
 		
-		function giveFeedback($event_num) {
-			$.post("<?=base_url("/evex/add_event_num/")?>", {'event_num': $event_num, csrf_token_name: Cookies.get("csrf")}, function() {});
+		function giveFeedback(event_num) {
+			$.post("<?=base_url("/evex/add_event_num/")?>", {'event_num': event_num, csrf_token_name: Cookies.get("csrf")}, function() {});
+		}
+		
+		function sortEventList(sortBy) {
+			if (sortBy == "category") {
+				ctr++;
+				ctr1 = 0;
+				$('#sortParticipant').removeClass('glyphicon-sort-by-order-alt');
+				$('#sortParticipant').addClass('glyphicon-sort-by-order');
+				$('#sortCategory').toggleClass('glyphicon-sort-by-alphabet-alt');
+				$('#sortCategory').toggleClass('glyphicon-sort-by-alphabet');
+				temp = ctr;
+			} else {
+				ctr = 0;
+				$('#sortCategory').removeClass('glyphicon-sort-by-alphabet-alt');
+				$('#sortCategory').addClass('glyphicon-sort-by-alphabet');
+				$('#sortParticipant').toggleClass('glyphicon-sort-by-order-alt');
+				$('#sortParticipant').toggleClass('glyphicon-sort-by-order');
+				ctr1++;
+				temp = ctr1;
+			}
+			$.post("<?=base_url("/evex/sort_event_f")?>",{'sortBy': sortBy, 'ctr': temp, csrf_token_name: Cookies.get("csrf")}, function(data) {
+				$('#eventList').html(data);
+			});
 		}
 	</script>
