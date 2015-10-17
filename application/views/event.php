@@ -28,8 +28,10 @@
 				</div>
 				<div class="row form-group">
 					<div class="button-group">
-						<button onclick="sortEventList('category')" class="btn btn-default"><span id="sortCategory" class="glyphicon glyphicon-sort-by-alphabet"></span> Sort by Category</button>
-						<button onclick="sortEventList('8')" class="btn btn-default"><span id="sortParticipant" class="glyphicon glyphicon-sort-by-order"></span> Sort by No. of Participants</button>
+						<!--<button onclick="sortEventList('category')" class="btn btn-default"><span id="sortCategory" class="glyphicon glyphicon-sort-by-alphabet"></span> Sort by Category</button>
+						<button onclick="sortEventList('8')" class="btn btn-default"><span id="sortParticipant" class="glyphicon glyphicon-sort-by-order"></span> Sort by No. of Participants</button>-->
+						<button onclick="sortEventList('category')" class="btn btn-default"><span id="sortCategory" class="glyphicon glyphicon-arrow-down"></span> Sort by Category</button>
+						<button onclick="sortEventList('8')" class="btn btn-default"><span id="sortParticipant" class="glyphicon glyphicon-arrow-down"></span> Sort by No. of Participants</button>
 					</div>
 				</div>
 				<?php if(isset($_SESSION['userdata'])) { ?>
@@ -106,17 +108,17 @@
 			if (sortBy == "category") {
 				ctr++;
 				ctr1 = 0;
-				$('#sortParticipant').removeClass('glyphicon-sort-by-order-alt');
-				$('#sortParticipant').addClass('glyphicon-sort-by-order');
-				$('#sortCategory').toggleClass('glyphicon-sort-by-alphabet-alt');
-				$('#sortCategory').toggleClass('glyphicon-sort-by-alphabet');
+				$('#sortParticipant').removeClass('glyphicon-arrow-up');
+				$('#sortParticipant').addClass('glyphicon-arrow-down');
+				$('#sortCategory').toggleClass('glyphicon-arrow-up');
+				$('#sortCategory').toggleClass('glyphicon-arrow-down');
 				temp = ctr;
 			} else {
 				ctr = 0;
-				$('#sortCategory').removeClass('glyphicon-sort-by-alphabet-alt');
-				$('#sortCategory').addClass('glyphicon-sort-by-alphabet');
-				$('#sortParticipant').toggleClass('glyphicon-sort-by-order-alt');
-				$('#sortParticipant').toggleClass('glyphicon-sort-by-order');
+				$('#sortCategory').removeClass('glyphicon-arrow-up');
+				$('#sortCategory').addClass('glyphicon-arrow-down');
+				$('#sortParticipant').toggleClass('glyphicon-arrow-up');
+				$('#sortParticipant').toggleClass('glyphicon-arrow-down');
 				ctr1++;
 				temp = ctr1;
 			}
