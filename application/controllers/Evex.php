@@ -435,6 +435,9 @@ class Evex extends CI_Controller {
 		
 		$this->db->select('*');
 		$this->db->from('event');
+		if(isset($_SESSION['my_events'])) {
+			$this->db->where('a.username', $_SESSION['userdata']['username']);
+		}
 		if($event_name != "") {
 			$this->db->like('event_name', $event_name); 
 		}
@@ -462,6 +465,9 @@ class Evex extends CI_Controller {
 		$this->db->select('event_num, event_name, description, a.username, fname, lname, org_name, (SELECT count(event_code) from event_attendee WHERE event_code = a.event_code)');
 		$this->db->from('event as a, organizer as b');
 		$this->db->where('a.username=b.username');
+		if(isset($_SESSION['my_events'])) {
+			$this->db->where('a.username', $_SESSION['userdata']['username']);
+		}
 		$this->db->group_by(array("event_name", "description")); 
 		if($sort_by != "") {
 			$this->db->order_by($sort_by, $order); 
@@ -475,6 +481,32 @@ class Evex extends CI_Controller {
 		}
 		
 		$this->load->view('event_list', $data);
+	}
+	
+	public function my_events() {
+		$this->session->set_userdata('my_events', 1);
+	
+		$this->db->select('event_num, event_name, description, a.username, fname, lname, org_name, (SELECT count(event_code) from event_attendee WHERE event_code = a.event_code)');
+		$this->db->from('event as a, organizer as b');
+		$this->db->where('a.username', $_SESSION['userdata']['username']);
+		$this->db->where('a.username=b.username');
+		$this->db->group_by(array("event_name", "description")); 
+		$query = $this->db->get();
+		
+		$data['events'] = array();
+		
+		foreach($query->result_array() as $i=>$line) {
+			$data['events'][$i] = array_values($line);
+		}
+		
+		$this->load->view('event_list', $data);
+	}
+	
+	public function view_all_events() {
+		if(isset($_SESSION['my_events'])) {
+			$this->session->unset_userdata('my_events');
+			echo "1";
+		}
 	}
 	
 	public function profile() {
