@@ -49,7 +49,7 @@
 			<div class="col-lg-2"></div>
 		</div>
 
-		<div class="row">
+		<div class="row" id="content">
 			<div class="col-lg-offset-2 col-lg-8">
 				<div class="form-group">
 					<label for="topic">Topic / Theme</label>
@@ -76,8 +76,8 @@
 		</form>
 					
 		<div class="row" align="right">
-			<div class="col-lg-2"></div>
-			<div class="col-lg-8">
+			
+			<div class="col-lg-offset-2 col-lg-8">
 				<button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#criteriaModal">
 					<h4><span class="glyphicon glyphicon-pencil"></span> Create Criteria</h4>
 				</button>
