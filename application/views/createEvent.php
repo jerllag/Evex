@@ -10,11 +10,10 @@
 		</div>
 		<form class="form" id="createEventForm">
 		<div class="row" id="content">
-			<div class="col-lg-2"></div>
-			<div class="col-lg-4">	
+			<div class="col-lg-offset-2 col-lg-4">	
 				<div class="form group">
 					<center><button class="btn btn-default">
-					<img src="/images/upload.png" class="img-responsive" size="50%	"></button></center>
+					<img src="/images/upload.png" class="img-responsive" size="100%"></button></center>
 					<br>				
 				</div>
 			</div>
@@ -41,35 +40,36 @@
 						</div>
 					</div>
 					<div class="col-lg-6">
-						<form class="form">
-							<div class="form-group">
-								<input type="time" class="form-control" name="end_time" id="end_time">						
-							</div>
-						</form>
+						<div class="form-group">
+							<input type="time" class="form-control" name="end_time" id="end_time">						
+						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-2"></div>
 		</div>
 
-		<div class="row" id="content">
-			<div class="col-lg-2"></div>
-			<div class="col-lg-8">
-					<div class="form-group">
-						<label for="category">Category</label>
-						<select class="form-control" id="category">
-							<option id="category">
-							Academic
-							</option>
-							<option id="category">
-							Health
-							</option>
-						</select>
-					</div>
-					<div class="form group">
-						<label for="desc">Description</label>
-						<textarea class="form-control" rows="3" id="description"></textarea>					
-					</div>
+		<div class="row">
+			<div class="col-lg-offset-2 col-lg-8">
+				<div class="form-group">
+					<label for="topic">Topic / Theme</label>
+					<input type="topic" class="form-control" name="topic" id="topic">						
+				</div>
+				<div class="form-group">
+					<label for="category">Category</label>
+					<select class="form-control" id="category">
+						<option id="category">
+						Academic
+						</option>
+						<option id="category">
+						Health
+						</option>
+					</select>
+				</div>
+				<div class="form group">
+					<label for="desc">Description</label>
+					<textarea class="form-control" rows="3" id="description"></textarea>					
+				</div>
 			</div>
 			<div class="col-lg-2"></div>
 		</div>
