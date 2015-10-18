@@ -41,7 +41,7 @@
 											</button>
 										</a>
 									</div>
-									<?php } else { ?>	
+									<?php } else { ?>
 									<div class="col-lg-5 col-sm-5">
 										<a href="<?=base_url("/evex/results/".$event[3]."/".$event[1])?>">
 											<button type="submit" class="btn btn-success">
