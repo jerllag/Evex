@@ -51,8 +51,8 @@
 							<li><a href="">Organized</a></li></center>
 						</ul></li>
 					<?php } else { ?>
-							<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="<?=base_url("/evex/event")?>" id="colorHover"><span class="glyphicon glyphicon-calendar"></span> Browse Events</a></li>
-							<?php } ?>
+						<li class="dropdown"><a href="<?=base_url("/evex/event")?>" id="colorHover"><span class="glyphicon glyphicon-calendar"></span> Browse Events</a></li>
+						<?php } ?>
 					<?php if(!isset($_SESSION['userdata'])) {?><li><a href="<?=base_url("/evex/sign_up")?>" id="colorHover"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li><?php } else { ?>
 					<li><a href="<?=base_url("/evex/log_out")?>" id="colorHover"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li><?php } ?>
 				</ul>
