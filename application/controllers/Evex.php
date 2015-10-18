@@ -360,8 +360,8 @@ class Evex extends CI_Controller {
 		}
 	}
 	
-	public function validate_create_event() {
-		$this->form_validation->set_rules('event_name', 'Event Name', 'required');
+	public function validate_create_event() {	
+		$this->form_validation->set_rules('event_name', 'Event Name', 'required|callback_check_event_name|callback_check_event_details');
 		$this->form_validation->set_rules('date', 'Date', 'required');
 		$this->form_validation->set_rules('venue', 'Venue', 'required');
 		$this->form_validation->set_rules('start_time', 'Start Time', 'required');
@@ -373,6 +373,45 @@ class Evex extends CI_Controller {
 			echo validation_errors();
 		} else {
 			echo "1";
+		}
+	}
+	
+	public function check_event_name($event_name) {
+		$this->db->select('event_name');
+		$this->db->from('event');
+		$this->db->where('event_name', $event_name);
+		$this->db->where('username', $_SESSION['userdata']['username']);
+		$query = $this->db->get();
+		
+		if($query->num_rows() > 0) {
+			return TRUE;
+		} else {
+			$this->form_validation->set_message('check_event_name', 'Event Name already taken');
+			return FALSE;
+		}
+	}
+	
+	public function check_event_details($event_name) {
+		$date = $this->input->post('date');
+		$venue = $this->input->post('venue');
+		$start_time = $this->input->post('start_time');
+		$end_time = $this->input->post('end_time');
+	
+		$this->db->select('*');
+		$this->db->from('event');
+		$this->db->where('event_name', $event_name);
+		$this->db->where('date', $date);
+		$this->db->where('venue', $venue);
+		$this->db->where('start_time', $start_time);
+		$this->db->where('end_time', $end_time);
+		$this->db->where('username', $_SESSION['userdata']['username']);
+		$query = $this->db->get();
+		
+		if($query->num_rows() > 0) {
+			$this->form_validation->set_message('check_event_details', 'Event already created');
+			return FALSE;
+		} else {
+			return TRUE;
 		}
 	}
 	
