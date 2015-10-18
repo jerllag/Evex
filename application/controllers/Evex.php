@@ -250,6 +250,8 @@ class Evex extends CI_Controller {
 			$data['events'][$i] = array_values($line);
 		}
 	
+		//print json_encode($data);
+	
 		$this->load->view('header');
 		$this->load->view('event');
 		$this->load->view('event_list', $data);

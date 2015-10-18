@@ -42,12 +42,7 @@
 										</a>
 									</div>
 									<?php } else { ?>	
-<<<<<<< HEAD
-
-									<div class="col-lg-5, col-sm-5">
-=======
-									<div class="col-lg-5">
->>>>>>> origin/editing-branch
+									<div class="col-lg-5 col-sm-5">
 										<a href="<?=base_url("/evex/results/".$event[3]."/".$event[1])?>">
 											<button type="submit" class="btn btn-success">
 												<span class="glyphicon glyphicon-stats"></span> View Results
