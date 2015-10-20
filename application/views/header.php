@@ -43,19 +43,19 @@
 			<div class="collapse navbar-collapse" id="homeNavbar">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="<?=base_url("/evex/index")?>" id="colorHover"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-					<?php if(isset($_SESSION['userdata'])) {?><li><a href="<?=base_url("/evex/profile")?>" id="colorHover"><span class="glyphicon glyphicon-user"></span> My Profile</a></li><?php } ?>
-					<?php if(isset($_SESSION['userdata'])) {?><li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="colorHover"><span class="glyphicon glyphicon-calendar"></span> Events
+					<?php if(isset($_SESSION['userdata'])) {?><li><a href="<?=base_url("/evex/profile")?>" id="colorHover"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="colorHover"><span class="glyphicon glyphicon-calendar"></span> Events
 						<span class="caret"></span></a>
-						<ul class="dropdown-menu pull-right">
+						<ul class="dropdown-menu dropdown-menu-left">
 							<li><a href="">Attended Events</a></li>
 							<li><a href="">Organized Events</a></li>
 							<li><a href="">All Events</a></li>
 						</ul></li>
+					<li><a href="<?=base_url("/evex/log_out")?>" id="colorHover"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
 					<?php } else { ?>
-						<li><a href="<?=base_url("/evex/event")?>" id="colorHover"><span class="glyphicon glyphicon-calendar"></span> Browse Events</a></li>
-						<?php } ?>
-					<?php if(!isset($_SESSION['userdata'])) {?><li><a href="<?=base_url("/evex/sign_up")?>" id="colorHover"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li><?php } else { ?>
-					<li><a href="<?=base_url("/evex/log_out")?>" id="colorHover"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li><?php } ?>
+					<li><a href="<?=base_url("/evex/event")?>" id="colorHover"><span class="glyphicon glyphicon-calendar"></span> Browse Events</a></li>
+					<li><a href="<?=base_url("/evex/sign_up")?>" id="colorHover"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					<?php } ?>
 				</ul>
 			</div>
 		</div>
