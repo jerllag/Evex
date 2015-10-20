@@ -11,6 +11,10 @@ body {
 	scrollbar-face-color: #0098DA;
 }
 
+.navbar {
+	margin-bottom: 0 !important;
+}
+
 footer {
 	position: absolute;
 	bottom: 0;
@@ -36,14 +40,15 @@ footer {
 
 #section {
 	padding: 20px;
-	height: 50%;
 }
+
 
 #logInForm, #changePassword, #signUpForm{
 	background-image: url(/images/res/bg.png); 
 	padding: 20px;
 	border-style: dashed;
 	border-color: #ffffff;
+	margin: 0;
 }
 
 .modal-header {

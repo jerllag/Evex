@@ -28,7 +28,7 @@
 	<script src="/js/js.cookie.js"></script>
 	
 <header id="header">
-	<nav class ="navbar navbar-default" id="navBar" style="background-image: url(/images/res/bg_4.jpg); repeat: no-repeat; width=100%;">
+	<nav class ="navbar navbar-default" id="navBar" style="background-image: url(/images/res/nav.png); width=100%;">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#homeNavbar">

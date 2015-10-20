@@ -1,10 +1,12 @@
-	<section class="no-margin" id="section">
+
+	<section class="page-header no-margin container">
 		<div class="row">
 				<?php if(!isset($_SESSION['userdata'])) { ?>
-				<div class="col-lg-9" align="center" id="spanExtend">
+				<div class="col-lg-9" align="center">
 				<?php } else { ?>
-				<div class="col-lg-12" align="center" id="spanExtend">
+				<div class="col-lg-12" align="center">
 				<?php } ?>
+					<!--img src="/images/res/banner.png" class="img-responsive"-->
 					  <div id="evexSlide" class="carousel slide" data-ride="carousel">
 						<ol class="carousel-indicators">
 						  <li data-target="#evexSlide" data-slide-to="0" class="active"></li>
@@ -15,19 +17,19 @@
 
 						<div class="carousel-inner" role="listbox">
 						  <div class="item active">
-							<img src="/images/banner.png" class="img-responsive">
+							<img src="/images/res/info1.png" class="img-responsive">
 						  </div>
 
 						  <div class="item">
-							<img src="/images/res/bg_1.jpg" class="img-responsive">
+							<img src="/images/res/info2.png" class="img-responsive">
 						  </div>
 						
 						  <div class="item">
-							<img src="/images/res/bg_2.jpg" class="img-responsive">
+							<img src="/images/res/info3.png" class="img-responsive">
 						  </div>
 
 						  <div class="item">
-							<img src="/images/res/bg_3.jpg" class="img-responsive">
+							<img src="/images/res/info4.png" class="img-responsive">
 						  </div>
 						</div>
 					</div>
@@ -39,7 +41,6 @@
 						<h2 align="center"><strong>Login<strong></h2>
 						<div class="error_msg"></div>
 						<form role="form" id="logInForm">
-
 							<div class="form-group">
 								<label for="studno"> Username: </label>
 								<input type="text" class="form-control" id="studno">
@@ -55,9 +56,22 @@
 				</div>
 				<?php } ?>
 			</div>
+		</div>	
+	</section>
+		
+	<!--section class="no-margin container" id="section">	
+		<center><img src="/images/res/info2.png" class="img-responsive"></center>
 	</section>
 	
-	<section class="no-margin" id="section">	
+	<section class="no-margin container" id="section">	
+		<center><img src="/images/res/info3.png" class="img-responsive"></center>
+	</section>
+	
+	<section class="no-margin container" id="section">	
+		<center><img src="/images/res/info4.png" class="img-responsive"></center>
+	</section-->
+		
+	<section class="no-margin container" id="section">	
 		<div class="row">
 				<div class="col-lg-4" align="center">
 					<img src="/images/gang_of_four.png" class="img-responsive">
@@ -70,7 +84,7 @@
 					<div class="row" align="center">
 						<div class="col-lg-3">
 							<img src="/images/users/jerome.png" class="img-circle" width="90%"> 
-							<br><h4 id="jerome">Jerome Ian C. Llaguno</h4>
+							<br><h5 id="jerome">Jerome Ian C. Llaguno</h5>
 							Leader | Lord of Backend 										
 						</div>
 						<div class="col-lg-3">
@@ -92,8 +106,8 @@
 				</div>
 			</div>
 		</section>
-	</div>
-	<!--end-->
+		
+	
 	
 	<script>
 		
