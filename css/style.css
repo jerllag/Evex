@@ -11,6 +11,10 @@ body {
 	scrollbar-face-color: #0098DA;
 }
 
+.carousel-control {
+	background-color: #207dba;
+}
+
 .navbar {
 	margin-bottom: 0 !important;
 }

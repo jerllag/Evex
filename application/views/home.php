@@ -31,6 +31,16 @@
 						  <div class="item">
 							<img src="/images/res/info4.png" class="img-responsive">
 						  </div>
+						  
+						  <!-- Left and right controls -->
+							<a class="left carousel-control" href="#evexSlide" role="button" data-slide="prev">
+							<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+							</a>
+							<a class="right carousel-control" href="#evexSlide" role="button" data-slide="next">
+							<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+							</a>
 						</div>
 					</div>
 					<br>
@@ -38,21 +48,21 @@
 				
 				<?php if(!isset($_SESSION['userdata'])) { ?>
 				<div class="col-lg-3" align="left">
-						<h2 align="center"><strong>Login<strong></h2>
-						<div class="error_msg"></div>
-						<form role="form" id="logInForm">
-							<div class="form-group">
-								<label for="studno"> Username: </label>
-								<input type="text" class="form-control" id="studno">
-								<label for="pwd">Password:</label>
-								<input type="password" class="form-control" id="pwd">
-								<a href="<?=base_url("/evex/change_password")?>" style="color: #207dba">Forgot your password? </a>
-							</div>
-							<div class="checkbox">
-								<label><input type="checkbox"> Remember me</lable>
-							</div>
-							<button id="button" type="submit" class="btn btn-primary">Login</button>
-						</form>
+					<h2 align="center"><strong>Login<strong></h2>
+					<div class="error_msg"></div>
+					<form role="form" id="logInForm">
+						<div class="form-group">
+							<label for="studno"> Username: </label>
+							<input type="text" class="form-control" id="studno">
+							<label for="pwd">Password:</label>
+							<input type="password" class="form-control" id="pwd">
+							<a href="<?=base_url("/evex/change_password")?>" style="color: #207dba">Forgot your password? </a>
+						</div>
+						<div class="checkbox">
+							<label><input type="checkbox"> Remember me</lable>
+						</div>
+						<button id="button" type="submit" class="btn btn-primary">Login</button>
+					</form>
 				</div>
 				<?php } ?>
 			</div>

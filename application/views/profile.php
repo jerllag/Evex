@@ -17,57 +17,55 @@
 		</div>
 		
 		<div class="col-lg-offset-1 col-lg-9 col-lg-offset-2">
-			<table class="table table-default">
-				<thead align="left">
-					<tr class="row">
-						<th class="col-lg-4"><h3><span class="glyphicon glyphicon-user"></span> Personal Information</h3></th>
-						<th class="col-lg-8"></th>
-					</tr> 
-				</thead>
-				<tbody align="left">
-					<tr class="row">
-						<td class="col-lg-3"><b>Full Name:</b></td>
-						<td class="col-lg-4 text-left"><?=$_SESSION['userdata']['fname']." ".$_SESSION['userdata']['lname']?></td>
-					</tr>
-					<tr class="row">
-						<td class="col-lg-3"><b>Birthday</b></td>
-						<td class="col-lg-4 text-left"><?=$_SESSION['userdata']['birthday']?></td>
-					</tr>
-					<tr class="row">
-						<td class="col-lg-3"><b>Contact no.:</b></td>
-						<td class="col-lg-4 text-left"><?=$_SESSION['userdata']['contact_num']?></td>
-					</tr>
-					<tr class="row">
-						<td class="col-lg-3"><b>Email Address:</b></td>
-						<td class="col-lg-4 text-left"><?=$_SESSION['userdata']['email_address']?></td>
-					</tr>
-					<tr class="row">
-						<td class="col-lg-3"><b>Organization Name:</b></td>
-						<td class="col-lg-4 text-left"><?=$_SESSION['userdata']['org_name']?></td>
-					</tr>
-					<tr class="row">
-						<td class="col-lg-3"><b>Organization Address:</b></td>
-						<td class="col-lg-4 text-left"><?=$_SESSION['userdata']['org_address']?></td>
-					</tr>
-				</tbody>
-			</table>
+			<div class="row">
+				<div class="col-lg-4">
+					<h3><span class="glyphicon glyphicon-user"></span> Personal Information</h3>
+				</div>
+				<div class="col-lg-8"></div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3"><b>Full Name:</b></div>
+				<div class="col-lg-4 text-left">
+					<?=$_SESSION['userdata']['fname']." ".$_SESSION['userdata']['lname']?>
+				</div>
+			</div> 
+			<div class="row">
+				<div class="col-lg-3"><b>Birthday</b></div>
+				<div class="col-lg-4 text-left"><?=$_SESSION['userdata']['birthday']?></div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3"><b>Contact no.:</b></div>
+				<div class="col-lg-4 text-left"><?=$_SESSION['userdata']['contact_num']?></div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3"><b>Email Address:</b></div>
+				<div class="col-lg-4 text-left"><?=$_SESSION['userdata']['email_address']?></div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3"><b>Organization Name:</b></div>
+				<div class="col-lg-4 text-left"><?=$_SESSION['userdata']['org_name']?></div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3"><b>Organization Address:</b></div>
+				<div class="col-lg-4 text-left"><?=$_SESSION['userdata']['org_address']?></div>
+			</div>
 			
-			<table class="table table-default">
-				<thead align="left">
-					<tr class="row">
-						<th class="col-lg-4"><h3><span class="glyphicon glyphicon-calendar"></span> Events Created</h3></th>
-						<th class="col-lg-8"></th>
-					</tr> 
-				</thead>
-				<tbody align="left">
-					<?php foreach($events as $event) { ?>
-					<tr class="row">
-						<td class="col-lg-4"><?=$event['event_name']?></td>
-						<td class="col-lg-8"></td>
-					</tr>
-					<?php } ?>
-				</tbody>
-			</table>
+			</div>
+			
+			<div class="col-lg-offset-1 col-lg-9 col-lg-offset-2">
+				<div class="row">
+					<div class="col-lg-4"><h3><span class="glyphicon glyphicon-calendar"></span> Events Created</h3></div>
+					<div class="col-lg-8"></div>
+				</div> 
+	
+				<?php foreach($events as $event) { ?>
+				<div class="row">
+					<div class="col-lg-4"><?=$event['event_name']?></div>
+					<div class="col-lg-8"></div>
+				</div>
+				<?php } ?>
+		
+			</div>
 			
 		</div>
 	</div>
