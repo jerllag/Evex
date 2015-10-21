@@ -14,10 +14,12 @@
 	<div class="col-lg-3">
 		<?=date("g:i a", strtotime($detail['start_time']))?> to <?=date("g:i a", strtotime($detail['end_time']))?>
 	</div>
+	<?php if(!isset($_SESSION['userdata']) || $username != $_SESSION['userdata']['username']) { ?>
 	<div class="col-lg-3">
 		<button onclick="registerAttendee('<?=$detail['event_code']?>')" class="btn btn-danger" data-toggle="modal" data-target="#registerForm">
 			<span class="glyphicon glyphicon-calendar"></span> RSVP
 		</button>
 	</div>
+	<?php } ?>
 </div>
 <?php } ?>

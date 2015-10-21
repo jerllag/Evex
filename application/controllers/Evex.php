@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Evex extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
-		if($this->uri->segment(1) == 'evex' && ($this->uri->segment(2) == false || $this->uri->segment(2) == 'change_password' || $this->uri->segment(2) == 'sign_up' || $this->uri->segment(2) == 'profile' || $this->uri->segment(2) == 'organized_events' || $this->uri->segment(2) == 'all_events' || $this->uri->segment(2) == 'log_out' || $this->uri->segment(2) == 'validate_change_password'  || $this->uri->segment(2) == 'change_password_f' || $this->uri->segment(2) == 'check_email' || $this->uri->segment(2) == 'check_password' || $this->uri->segment(2) == 'validate_sign_up' || $this->uri->segment(2) == 'sign_up_f' || $this->uri->segment(2) == 'send_encrypted_email' || $this->uri->segment(2) == 'validate_email' || $this->uri->segment(2) == 'validate_event_code' || $this->uri->segment(2) == 'check_event_code' || $this->uri->segment(2) == 'check_given_feedback' || $this->uri->segment(2) == 'create_event' || $this->uri->segment(2) == 'default_criterias' || $this->uri->segment(2) == 'remove_criteria' || $this->uri->segment(2) == 'event_criteria' || $this->uri->segment(2) == 'validate_create_event' || $this->uri->segment(2) == 'check_name_event' || $this->uri->segment(2) == 'check_event_details' || $this->uri->segment(2) == 'create_event_f' || $this->uri->segment(2) == 'search_event_f' || $this->uri->segment(2) == 'sort_event_f' || $this->uri->segment(2) == 'feedback' || $this->uri->segment(2) == 'user_feedback' || $this->uri->segment(2) == 'results' || $this->uri->segment(2) == 'event_details' || $this->uri->segment(2) == 'get_details_f' || $this->uri->segment(2) == 'add_event_code' || $this->uri->segment(2) == 'add_register_num' || $this->uri->segment(2) == 'register' || $this->uri->segment(2) == 'validate_register' || $this->uri->segment(2) == 'register_check' || $this->uri->segment(2) == 'log_in'));
+		if($this->uri->segment(1) == 'evex' && ($this->uri->segment(2) == false || $this->uri->segment(2) == 'change_password' || $this->uri->segment(2) == 'sign_up' || $this->uri->segment(2) == 'profile' || $this->uri->segment(2) == 'organized_events' || $this->uri->segment(2) == 'all_events' || $this->uri->segment(2) == 'log_out' || $this->uri->segment(2) == 'validate_change_password'  || $this->uri->segment(2) == 'change_password_f' || $this->uri->segment(2) == 'check_email' || $this->uri->segment(2) == 'check_password' || $this->uri->segment(2) == 'validate_sign_up' || $this->uri->segment(2) == 'sign_up_f' || $this->uri->segment(2) == 'send_encrypted_email' || $this->uri->segment(2) == 'validate_email' || $this->uri->segment(2) == 'validate_event_code' || $this->uri->segment(2) == 'check_event_code' || $this->uri->segment(2) == 'check_given_feedback' || $this->uri->segment(2) == 'create_event' || $this->uri->segment(2) == 'default_criterias' || $this->uri->segment(2) == 'remove_criteria' || $this->uri->segment(2) == 'event_criteria' || $this->uri->segment(2) == 'validate_create_event' || $this->uri->segment(2) == 'check_name_event' || $this->uri->segment(2) == 'check_event_details' || $this->uri->segment(2) == 'create_event_f' || $this->uri->segment(2) == 'search_event_f' || $this->uri->segment(2) == 'sort_event_f' || $this->uri->segment(2) == 'feedback' || $this->uri->segment(2) == 'user_feedback' || $this->uri->segment(2) == 'results' || $this->uri->segment(2) == 'event_details' || $this->uri->segment(2) == 'get_details_f' || $this->uri->segment(2) == 'add_event_code' || $this->uri->segment(2) == 'add_register_num' || $this->uri->segment(2) == 'register' || $this->uri->segment(2) == 'validate_register' || $this->uri->segment(2) == 'register_check' || $this->uri->segment(2) == 'log_in' || $this->uri->segment(2) == 'get_date_details_f'));
 		else {
 			redirect('evex');
 		}
@@ -644,7 +644,7 @@ class Evex extends CI_Controller {
 		$this->db->where('event_name', urldecode($event_name));
 		$query = $this->db->get();
 		
-		$data['description'] = $query->result_array();	
+		$data['description'] = $query->result_array();
 	
 		$this->load->view('header');
 		$this->load->view('event_details', $data);
@@ -664,6 +664,7 @@ class Evex extends CI_Controller {
 		$query = $this->db->get();
 		
 		$data['details'] = $query->result_array();
+		$data['username'] = $username;
 		
 		$this->load->view('date_details', $data);
 	}
