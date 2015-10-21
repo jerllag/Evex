@@ -34,14 +34,6 @@
 						<button onclick="sortEventList('8')" class="btn btn-default"><span id="sortParticipant" class="glyphicon glyphicon-arrow-down"></span> Sort by No. of Participants</button>
 					</div>
 				</div>
-				<?php if(isset($_SESSION['userdata'])) { ?>
-				<div class="row">
-					<div class="button-group">
-						<button onclick="myEvents()" class="btn btn-default">View My Events</button>
-						<button onclick="allEvents()" class="btn btn-default">View All Events</button>
-					</div>
-				</div>
-				<?php } ?>
 			</div>
 		</div>
 		<!--end -->
@@ -125,29 +117,6 @@
 			}
 			$.post("<?=base_url("/evex/sort_event_f")?>",{'sortBy': sortBy, 'ctr': temp, csrf_token_name: Cookies.get("csrf")}, function(data) {
 				$('#eventList').html(data);
-			});
-		}
-		
-		function myEvents() {
-			$.post("<?=base_url("/evex/my_events")?>",{}, function(data) {
-				$('#sortParticipant').removeClass('glyphicon-arrow-up');
-				$('#sortParticipant').addClass('glyphicon-arrow-down');
-				$('#sortCategory').removeClass('glyphicon-arrow-up');
-				$('#sortCategory').addClass('glyphicon-arrow-down');
-				$('#eventList').html(data);
-			});
-		}
-		
-		function allEvents() {
-			$.post("<?=base_url("/evex/view_all_events")?>",{}, function(data) {
-				if(data) {
-					ctr = 0;
-					$('#sortCategory').parent().click();
-					$('#sortParticipant').removeClass('glyphicon-arrow-up');
-					$('#sortParticipant').addClass('glyphicon-arrow-down');
-					$('#sortCategory').removeClass('glyphicon-arrow-up');
-					$('#sortCategory').addClass('glyphicon-arrow-down');
-				}
 			});
 		}
 	</script>

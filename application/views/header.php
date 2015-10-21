@@ -46,12 +46,12 @@
 						<span class="caret"></span></a>
 						<ul class="dropdown-menu dropdown-menu-left">
 							<li><a href="">Attended Events</a></li>
-							<li><a href="">Organized Events</a></li>
-							<li><a href="<?=base_url("/evex/event")?>">All Events</a></li>
+							<li><a href="<?=base_url('/evex/organized_events')?>">Organized Events</a></li>
+							<li><a href="<?=base_url("/evex/all_events")?>">All Events</a></li>
 						</ul></li>
 					<li><a href="<?=base_url("/evex/log_out")?>" id="colorHover"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
 					<?php } else { ?>
-					<li><a href="<?=base_url("/evex/event")?>" id="colorHover"><span class="glyphicon glyphicon-calendar"></span> Browse Events</a></li>
+					<li><a href="<?=base_url("/evex/all_events")?>" id="colorHover"><span class="glyphicon glyphicon-calendar"></span> Browse Events</a></li>
 					<li><a href="<?=base_url("/evex/sign_up")?>" id="colorHover"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 					<?php } ?>
 				</ul>

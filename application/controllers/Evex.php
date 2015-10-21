@@ -2,13 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Evex extends CI_Controller {
-	/*public function __construct() {
+	public function __construct() {
 		parent::__construct();
-		if($this->uri->segment(1) == 'evex' && ($this->uri->segment(2) == false));
+		if($this->uri->segment(1) == 'evex' && ($this->uri->segment(2) == false || $this->uri->segment(2) == 'change_password' || $this->uri->segment(2) == 'sign_up' || $this->uri->segment(2) == 'profile' || $this->uri->segment(2) == 'organized_events' || $this->uri->segment(2) == 'all_events' || $this->uri->segment(2) == 'log_out' || $this->uri->segment(2) == 'validate_change_password'  || $this->uri->segment(2) == 'change_password_f' || $this->uri->segment(2) == 'check_email' || $this->uri->segment(2) == 'check_password' || $this->uri->segment(2) == 'validate_sign_up' || $this->uri->segment(2) == 'sign_up_f' || $this->uri->segment(2) == 'send_encrypted_email' || $this->uri->segment(2) == 'validate_email' || $this->uri->segment(2) == 'validate_event_code' || $this->uri->segment(2) == 'check_event_code' || $this->uri->segment(2) == 'check_given_feedback' || $this->uri->segment(2) == 'create_event' || $this->uri->segment(2) == 'default_criterias' || $this->uri->segment(2) == 'remove_criteria' || $this->uri->segment(2) == 'event_criteria' || $this->uri->segment(2) == 'validate_create_event' || $this->uri->segment(2) == 'check_name_event' || $this->uri->segment(2) == 'check_event_details' || $this->uri->segment(2) == 'create_event_f' || $this->uri->segment(2) == 'search_event_f' || $this->uri->segment(2) == 'sort_event_f' || $this->uri->segment(2) == 'feedback' || $this->uri->segment(2) == 'user_feedback' || $this->uri->segment(2) == 'results' || $this->uri->segment(2) == 'event_details' || $this->uri->segment(2) == 'get_details_f' || $this->uri->segment(2) == 'add_event_code' || $this->uri->segment(2) == 'add_register_num' || $this->uri->segment(2) == 'register' || $this->uri->segment(2) == 'validate_register' || $this->uri->segment(2) == 'register_check' || $this->uri->segment(2) == 'error'));
 		else {
 			redirect('evex');
 		}
-	}*/
+	}
 
 	public function index() {
 		$this->load->view('header');
@@ -234,12 +234,24 @@ class Evex extends CI_Controller {
 		} else {}
 	}
 	
-	public function event() {
+	public function organized_events() {
+		if(isset($_SESSION['userdata'])) {
+			$this->event('organized');
+		} else {
+			show_404('my404');
+		}
+	}
+	
+	public function all_events() {
+		$this->event('all');
+	}
+	
+	public function event($type) {
 		$this->db->select('event_num, event_name, description, a.username, fname, lname, org_name, (SELECT count(event_code) from event_attendee WHERE event_code = a.event_code)');
 		$this->db->from('event as a, organizer as b');
-		/*if(isset($_SESSION['userdata'])) {
+		if(isset($type) && $type == 'organized') {
 			$this->db->where('a.username', $_SESSION['userdata']['username']);
-		}*/
+		}
 		$this->db->where('a.username=b.username');
 		$this->db->group_by(array("event_name", "description")); 
 		$query = $this->db->get();
@@ -524,32 +536,6 @@ class Evex extends CI_Controller {
 		}
 		
 		$this->load->view('event_list', $data);
-	}
-	
-	public function my_events() {
-		$this->session->set_userdata('my_events', 1);
-	
-		$this->db->select('event_num, event_name, description, a.username, fname, lname, org_name, (SELECT count(event_code) from event_attendee WHERE event_code = a.event_code)');
-		$this->db->from('event as a, organizer as b');
-		$this->db->where('a.username', $_SESSION['userdata']['username']);
-		$this->db->where('a.username=b.username');
-		$this->db->group_by(array("event_name", "description")); 
-		$query = $this->db->get();
-		
-		$data['events'] = array();
-		
-		foreach($query->result_array() as $i=>$line) {
-			$data['events'][$i] = array_values($line);
-		}
-		
-		$this->load->view('event_list', $data);
-	}
-	
-	public function view_all_events() {
-		if(isset($_SESSION['my_events'])) {
-			$this->session->unset_userdata('my_events');
-			echo "1";
-		}
 	}
 	
 	public function profile() {
