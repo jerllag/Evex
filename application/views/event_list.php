@@ -23,7 +23,7 @@
 				<h4><strong>Number of Attendees:</strong> <?=$event[7]?></h4>
 			
 				<div class="row">
-					<?php if(!isset($_SESSION['userdata'])) { ?>
+					<?php if(!isset($_SESSION['userdata']) || $_SESSION['userdata']['username'] != $event[3]) { ?>
 					<div class="col-lg-3, col-sm-3">
 						<a href="<?=base_url("/evex/event_details/".$event[3]."/".$event[1])?>" type="submit" class="btn btn-danger btn-block">
 							<span class="glyphicon glyphicon-calendar"></span> RSVP
@@ -37,6 +37,7 @@
 						</a>
 					</div>
 					<?php } else { ?>
+					<?php if (isset($_SESSION['userdata']) && $_SESSION['userdata']['username'] == $event[3]) { ?>
 					<div class="col-lg-5 col-sm-5">
 						<a href="<?=base_url("/evex/results/".$event[3]."/".$event[1])?>">
 							<button type="submit" class="btn btn-success btn-block">
@@ -44,6 +45,7 @@
 							</button>
 						</a>
 					</div>
+					<?php } ?>
 					<?php } ?>
 				</div>
 			</div>
