@@ -1,6 +1,6 @@
 	<section class="no-margin" id="eventList">	
 		<?php if (count($events) == 0) { ?>
-		<h3>Event not found</h3>
+		<h3>No event found.</h3>
 		<?php } ?>
 		<?php foreach($events as $event) { ?>
 		<div class="row">

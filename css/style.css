@@ -20,8 +20,16 @@ body {
 	border-bottom-color: black;
 }
 
+.profile_header {
+	border-bottom: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: black;
+}
+
 .prof_pic {
 	border: 0px;
+	border-radius: 500px;
+	background-color: #207dba;
 }
 
 .event {
