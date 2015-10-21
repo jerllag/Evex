@@ -24,6 +24,8 @@ body {
 	border-bottom: 1px;
 	border-bottom-style: solid;
 	border-bottom-color: black;
+	color: #fff;
+	background-color: #207dba;
 }
 
 .prof_pic {
@@ -32,8 +34,16 @@ body {
 
 .event {
 	font-size: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size: 15px;
 }
 
+.modal-header{
+	background: #1da9d3; 
+	color:white;
+	font-weight: bold;
+}
 .carousel-control {
 	background-color: #207dba;
 }
