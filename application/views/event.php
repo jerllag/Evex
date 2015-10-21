@@ -28,6 +28,8 @@
 				</div>
 				<div class="row form-group">
 					<div class="button-group">
+						<!--<button onclick="sortEventList('category')" class="btn btn-default"><span id="sortCategory" class="glyphicon glyphicon-sort-by-alphabet"></span> Sort by Category</button>
+						<button onclick="sortEventList('8')" class="btn btn-default"><span id="sortParticipant" class="glyphicon glyphicon-sort-by-order"></span> Sort by No. of Participants</button>-->
 						<button onclick="sortEventList('category')" class="btn btn-default"><span id="sortCategory" class="glyphicon glyphicon-arrow-down"></span> Sort by Category</button>
 						<button onclick="sortEventList('8')" class="btn btn-default"><span id="sortParticipant" class="glyphicon glyphicon-arrow-down"></span> Sort by No. of Participants</button>
 					</div>
@@ -42,7 +44,7 @@
 	<div id="eventCode" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<div class="modal-header">
+				<div class="modal-header" style="background: #1da9d3; color:white; width="">
 					<button type="button" class="close" data-dismiss="modal"> &times; </button>
 					<h4 align="center">Feedback</h4>
 				</div>
