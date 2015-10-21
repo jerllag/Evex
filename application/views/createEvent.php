@@ -58,11 +58,29 @@
 				<div class="form-group">
 					<label for="category">Category</label>
 					<select class="form-control" id="category">
-						<option id="category">
-						Academic
+						<option>
+						Arts
 						</option>
-						<option id="category">
-						Health
+						<option>
+						Culture
+						</option>
+						<option>
+						Education
+						</option>
+						<option>
+						Entertainment
+						</option>
+						<option>
+						Food
+						</option>
+						<option>
+						Health & Lifestyle
+						</option>
+						<option>
+						Photography
+						</option>
+						<option>
+						Sports
 						</option>
 					</select>
 				</div>

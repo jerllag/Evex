@@ -53,12 +53,16 @@ footer {
 	background-color: #0098DA;
 }
 
-#section {
-	padding: 20px;
-}
-
 #logInForm, #changePassword, #signUpForm{
 	background-image: url(/images/res/bg.png); 
+	padding: 20px;
+	border-style: dashed;
+	border-color: #ffffff;
+	margin: 0;
+}
+
+#signUpForm{
+	background-image: url(/images/res/bg1.png); 
 	padding: 20px;
 	border-style: dashed;
 	border-color: #ffffff;
@@ -70,7 +74,7 @@ footer {
 	color:white; 
 }
 
-#content{
+#section, #content{
 	padding: 20px;
 }
 
