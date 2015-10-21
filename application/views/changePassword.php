@@ -1,7 +1,7 @@
 	<section class="no-margin" id="section">
 		<div class="row">
 			<?php if(!isset($_SESSION['userdata'])) {?>
-				<h2 align="center"> Forgot Password </h2>
+				<h2 align="center"> Recover Password </h2>
 			<?php } else { ?>
 				<h2 align="center"> Change Password </h2>
 			<?php } ?>

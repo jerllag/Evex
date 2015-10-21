@@ -13,7 +13,7 @@
 		</div>
 		<div class="row" id="content">
 			<div class="col-lg-7">
-				<center><img src="/images/Senpai.jpg" class="img-responsive" style="width:600px; height:300px"></center>
+				<center><img src="/images/Senpai.jpg" class="img-responsive" style="width:50%; height:50%"></center>
 			</div>			
 			<div class="col-lg-5" id="content">
 				<!--<h4><b>Venue:</b> <?=$event[4]?>

@@ -1,5 +1,4 @@
-<section class="no-margin">	
-<div class="container">
+<section class="no-margin container">
 	<div class="row">
 		<div class="col-lg-12">
 			<h2 align="center">My Profile</h2>
@@ -8,7 +7,7 @@
 	<div class="row">
 		<div class="col-lg-2" align="center">
 			<div class="row">
-				<button class="btn btn-default circle"><img class="img-circle" src="/images/users/jerome.png"></button>
+				<button class="btn btn-default circle"><img class="img-circle" width="90%" src="/images/users/brian.jpg"></button>
 			</div>
 			<div class="row">
 				<h3><button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit Profile </h3></button>
@@ -25,29 +24,29 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-3"><b>Full Name:</b></div>
-				<div class="col-lg-4 text-left">
+				<div class="col-lg-4 text-center">
 					<?=$_SESSION['userdata']['fname']." ".$_SESSION['userdata']['lname']?>
 				</div>
 			</div> 
 			<div class="row">
 				<div class="col-lg-3"><b>Birthday</b></div>
-				<div class="col-lg-4 text-left"><?=$_SESSION['userdata']['birthday']?></div>
+				<div class="col-lg-4 text-center"><?=$_SESSION['userdata']['birthday']?></div>
 			</div>
 			<div class="row">
 				<div class="col-lg-3"><b>Contact no.:</b></div>
-				<div class="col-lg-4 text-left"><?=$_SESSION['userdata']['contact_num']?></div>
+				<div class="col-lg-4 text-center"><?=$_SESSION['userdata']['contact_num']?></div>
 			</div>
 			<div class="row">
 				<div class="col-lg-3"><b>Email Address:</b></div>
-				<div class="col-lg-4 text-left"><?=$_SESSION['userdata']['email_address']?></div>
+				<div class="col-lg-4 text-center"><?=$_SESSION['userdata']['email_address']?></div>
 			</div>
 			<div class="row">
 				<div class="col-lg-3"><b>Organization Name:</b></div>
-				<div class="col-lg-4 text-left"><?=$_SESSION['userdata']['org_name']?></div>
+				<div class="col-lg-4 text-center"><?=$_SESSION['userdata']['org_name']?></div>
 			</div>
 			<div class="row">
 				<div class="col-lg-3"><b>Organization Address:</b></div>
-				<div class="col-lg-4 text-left"><?=$_SESSION['userdata']['org_address']?></div>
+				<div class="col-lg-4 text-center"><?=$_SESSION['userdata']['org_address']?></div>
 			</div>
 			
 			</div>
@@ -64,11 +63,8 @@
 					<div class="col-lg-8"></div>
 				</div>
 				<?php } ?>
-		
 			</div>
-			
 		</div>
 	</div>
-</div>
 </section>
 

@@ -51,8 +51,8 @@
 					<div class="error_msg"></div>
 					<form role="form" id="logInForm">
 						<div class="form-group">
-							<label for="studno"> Username: </label>
-							<input type="text" class="form-control" id="studno">
+							<label for="username"> Username: </label>
+							<input type="text" class="form-control" id="username">
 							<label for="pwd">Password:</label>
 							<input type="password" class="form-control" id="pwd">
 							<a href="<?=base_url("/evex/change_password")?>" style="color: #207dba">Forgot your password? </a>
@@ -104,13 +104,10 @@
 			</div>
 		</section>
 		
-	
-	
 	<script>
-		
 		$("#logInForm").submit(function(e) {
 			e.preventDefault();
-			$.post("<?=base_url("/evex/log_in")?>", {'username': $("#studno").val(), 'password': $("#pwd").val(), csrf_token_name: Cookies.get("csrf")}, function(data) {
+			$.post("<?=base_url("/evex/log_in")?>", {'username': $("#username").val(), 'password': $("#pwd").val(), csrf_token_name: Cookies.get("csrf")}, function(data) {
 				if(data > 0) {
 					window.location = "<?=base_url("/evex/event")?>";
 				} else {
