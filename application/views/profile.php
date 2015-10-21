@@ -7,7 +7,9 @@
 	<div class="row">
 		<div class="col-lg-2" align="center">
 			<div class="row">
-				<button class="btn btn-default prof_pic"><img class="img-circle img-responsive" width="90%" src="/images/users/brian.jpg"></button>
+				<button class="btn btn-default prof_pic">
+				<center><img class="img-responsive" width="90%" src="/images/users/brian.jpg"></center></button>
+				
 			</div>
 			<div class="row">
 				<h3><button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit Profile </h3></button>
