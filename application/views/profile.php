@@ -8,10 +8,10 @@
 	<div class="row">
 		<div class="col-lg-2" align="center">
 			<div class="row">
-				<img class="img-circle" src="/images/users/jerome.png">
+				<button class="btn btn-default circle"><img class="img-circle" src="/images/users/jerome.png"></button>
 			</div>
 			<div class="row">
-				<h3><button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-edit"></span> Edit Profile </h3></button>
+				<h3><button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit Profile </h3></button>
 				<h3><a type="submit" href="<?=base_url("/evex/change_password")?>" class="btn btn-danger"><span class="glyphicon glyphicon-lock"></span> Change Password</h3></a><br><br>
 			</div>
 		</div>

@@ -1,5 +1,4 @@
-
-	<section class="page-header no-margin container">
+	<section class="page-header">
 		<div class="row">
 				<?php if(!isset($_SESSION['userdata'])) { ?>
 				<div class="col-lg-9" align="center">
@@ -68,23 +67,11 @@
 			</div>
 		</div>	
 	</section>
-		
-	<!--section class="no-margin container" id="section">	
-		<center><img src="/images/res/info2.png" class="img-responsive"></center>
-	</section>
-	
-	<section class="no-margin container" id="section">	
-		<center><img src="/images/res/info3.png" class="img-responsive"></center>
-	</section>
-	
-	<section class="no-margin container" id="section">	
-		<center><img src="/images/res/info4.png" class="img-responsive"></center>
-	</section-->
-		
+
 	<section class="no-margin container" id="section">	
 		<div class="row">
-				<div class="col-lg-4" align="center">
-					<img src="/images/gang_of_four.png" class="img-responsive">
+				<div class="col-lg-4, col-sm-3" align="center">
+					<img src="/images/gang_of_four.png" class="img-responsive" width="90%">
 				</div>
 				<div class="col-lg-8">
 					<p class="lead" align="justify"><strong>An Event Evaluator Expert System</strong>
@@ -92,22 +79,22 @@
 					and Advanced Mobile Application Development (CS CS 422A4 and CS 422A4L) created by the the developer team, The Gang of Four, composed of: 				
 					
 					<div class="row" align="center">
-						<div class="col-lg-3">
+						<div class="col-lg-3, col-sm-3">
 							<img src="/images/users/jerome.png" class="img-circle" width="90%"> 
 							<br><h5 id="jerome">Jerome Ian C. Llaguno</h5>
 							Leader | Lord of Backend 										
 						</div>
-						<div class="col-lg-3">
+						<div class="col-lg-3, col-sm-3">
 							<img src="/images/users/brian.jpg" class="img-circle" width="90%"> 
 							<br><h4>Brian B. Caldona</h4>
 							Master of Documentation
 						</div>
-						<div class="col-lg-3">
+						<div class="col-lg-3, col-sm-3">
 							<img src="/images/users/mikkle.png" class="img-circle" width="90%">
 							<br><h4>Mikkle P. Bondoc</h4>
 							App Front-end Developer
 						</div>
-						<div class="col-lg-3">
+						<div class="col-lg-3, col-sm-3">
 							<img src="/images/users/marnie.jpg" class="img-circle" width="90%">  
 							<br><h5>Marnie Bright R. Palapar</h5>
 							Web Front-end Developer

@@ -21,9 +21,7 @@
 </head>
 <body>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="/js/jquery.min.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="/js/bootstrap.min.js"></script>
 	<script src="/js/js.cookie.js"></script>
 	
@@ -49,7 +47,7 @@
 						<ul class="dropdown-menu dropdown-menu-left">
 							<li><a href="">Attended Events</a></li>
 							<li><a href="">Organized Events</a></li>
-							<li><a href="">All Events</a></li>
+							<li><a href="<?=base_url("/evex/event")?>">All Events</a></li>
 						</ul></li>
 					<li><a href="<?=base_url("/evex/log_out")?>" id="colorHover"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
 					<?php } else { ?>

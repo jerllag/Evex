@@ -17,7 +17,7 @@
 			</div>			
 			<div class="col-lg-5" id="content">
 				<!--<h4><b>Venue:</b> <?=$event[4]?>
-				<br><b>Time:</b> <?=date("g:i a", strtotime($event[6]))?> - <?=date("g:i a", strtotime($event[7]))?> -->
+				<br><b>Time:</b><?=date("g:i a", strtotime($event[6]))?> - <?=date("g:i a", strtotime($event[7]))?> -->
 				<h4><strong>Created by:</strong> <?=$event[4]?> <?=$event[5]?> from <?=$event[6]?></h4>
 				<h4><strong>Description:</strong> <?=$event[2]?></h4>
 				<h4><strong>Number of Attendees:</strong> <?=$event[7]?></h4>
@@ -39,7 +39,7 @@
 					<?php } else { ?>
 					<div class="col-lg-5 col-sm-5">
 						<a href="<?=base_url("/evex/results/".$event[3]."/".$event[1])?>">
-							<button type="submit" class="btn btn-success">
+							<button type="submit" class="btn btn-success btn-block">
 								<span class="glyphicon glyphicon-stats"></span> View Results
 							</button>
 						</a>
