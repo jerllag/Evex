@@ -4,8 +4,8 @@
 		<?php } ?>
 		<?php foreach($events as $event) { ?>
 		<div class="row">
-			<div class="col-lg-7 col-offset-lg-5">
-				<h3><a style="color:black;" href="<?=base_url("/evex/event_details/".$event[3]."/".$event[1])?>"> <?=$event[1]?></a></span></h3>
+			<div class="col-lg-7">
+				<h3><a style="color:black;" href="<?=base_url("/evex/event_details/".$event[3]."/".$event[1])?>"><?=$event[1]?></a></h3>
 			</div>
 			<!--<th class="col-lg-5"><h4><small><b>Date:</b>
 			<i><?php $date= strtotime($event[5]);
@@ -46,6 +46,8 @@
 					</div>
 					<?php } ?>
 				</div>
-				<?php } ?>
-	</section>
+			</div>
+		</div>
+		<?php } ?>
 	</div>
+	</section>
