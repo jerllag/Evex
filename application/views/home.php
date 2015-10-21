@@ -68,9 +68,9 @@
 		</div>	
 	</section>
 
-	<section class="no-margin container" id="section">	
+	<section class="no-margin" id="section">	
 		<div class="row">
-				<div class="col-lg-4, col-sm-3" align="center">
+				<div class="col-lg-4" align="center">
 					<img src="/images/gang_of_four.png" class="img-responsive" width="90%">
 				</div>
 				<div class="col-lg-8">
@@ -79,22 +79,22 @@
 					and Advanced Mobile Application Development (CS CS 422A4 and CS 422A4L) created by the the developer team, The Gang of Four, composed of: 				
 					
 					<div class="row" align="center">
-						<div class="col-lg-3, col-sm-3">
+						<div class="col-lg-3">
 							<img src="/images/users/jerome.png" class="img-circle" width="90%"> 
-							<br><h5 id="jerome">Jerome Ian C. Llaguno</h5>
+							<br><h5>Jerome Ian C. Llaguno</h5>
 							Leader | Lord of Backend 										
 						</div>
-						<div class="col-lg-3, col-sm-3">
+						<div class="col-lg-3">
 							<img src="/images/users/brian.jpg" class="img-circle" width="90%"> 
 							<br><h4>Brian B. Caldona</h4>
 							Master of Documentation
 						</div>
-						<div class="col-lg-3, col-sm-3">
+						<div class="col-lg-3">
 							<img src="/images/users/mikkle.png" class="img-circle" width="90%">
 							<br><h4>Mikkle P. Bondoc</h4>
 							App Front-end Developer
 						</div>
-						<div class="col-lg-3, col-sm-3">
+						<div class="col-lg-3">
 							<img src="/images/users/marnie.jpg" class="img-circle" width="90%">  
 							<br><h5>Marnie Bright R. Palapar</h5>
 							Web Front-end Developer
