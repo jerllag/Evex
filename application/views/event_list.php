@@ -7,9 +7,7 @@
 			<div class="col-lg-7">
 				<h3><a style="color:black;" href="<?=base_url("/evex/event_details/".$event[3]."/".$event[1])?>"><?=$event[1]?></a></h3>
 			</div>
-			<!--<th class="col-lg-5"><h4><small><b>Date:</b>
-			<i><?php $date= strtotime($event[5]);
-			echo date("F d, Y (l)", $date); ?></i></small></h4></th>-->
+			
 		</div>
 		<div class="row" id="content">
 			<div class="col-lg-7">
