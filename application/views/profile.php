@@ -58,10 +58,10 @@
 				<div class="col-lg-7 text-center">
 				<input type="text" class="form-control" id="org_address" placeholder="old value">
 				<?//=$_SESSION['userdata']['org_address']?></div>
-			</div>	
+			</div><br>
 		</div>
 
-		<div class="col-lg-9" id="content">
+		<div class="col-lg-9">
 			<div class="row profile_header">
 				<div class="col-lg-8"><h3><span class="glyphicon glyphicon-calendar"></span> Events Involved</h3></div>
 			</div> 
