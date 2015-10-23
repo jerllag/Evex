@@ -93,8 +93,7 @@
 		</div>
 		</form>
 					
-		<div class="row" align="right">
-			
+		<div class="row">
 			<div class="col-lg-offset-2 col-lg-8">
 				<button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#criteriaModal">
 					<h4><span class="glyphicon glyphicon-pencil"></span> Create Criteria</h4>
