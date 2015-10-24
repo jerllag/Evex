@@ -1,20 +1,23 @@
 	<section class="no-margin" id="section">
 		<div class="row">
 			<div class="col-lg-12">
-				<h2 align="center">Create Your Event
+				<h2 align="center">Create Your Event</h2>
 			</div>
 		</div>
 		
 		<div class="row">
 			<div class="col-lg-offset-2 col-lg-4 error_msg"></div>
 		</div>
-		<form class="form" id="createEventForm">
+		<form class="form" id="createEventForm" enctype="multipart/form-data" accept-charset="utf-8">
 		<div class="row" id="content">
 			<div class="col-lg-offset-2 col-lg-4">	
 				<div class="form group">
-					<center><button class="btn btn-default">
-					<img src="/images/upload.png" class="img-responsive" size="100%"></button></center>
-					<br>				
+					<center>
+						<input type="file" id="eventPhoto" name="userfile" />
+						<a onclick="openEventPhoto()" class="btn btn-default">
+							<img src="/images/upload.png" class="img-responsive" size="100%">
+						</a>
+					</center>
 				</div>
 			</div>
 			
@@ -58,30 +61,14 @@
 				<div class="form-group">
 					<label for="category">Category</label>
 					<select class="form-control" id="category">
-						<option>
-						Arts
-						</option>
-						<option>
-						Culture
-						</option>
-						<option>
-						Education
-						</option>
-						<option>
-						Entertainment
-						</option>
-						<option>
-						Food
-						</option>
-						<option>
-						Health & Lifestyle
-						</option>
-						<option>
-						Photography
-						</option>
-						<option>
-						Sports
-						</option>
+						<option>Arts</option>
+						<option>Culture</option>
+						<option>Education</option>
+						<option>Entertainment</option>
+						<option>Food</option>
+						<option>Health & Lifestyle</option>
+						<option>Photography</option>
+						<option>Sports</option>
 					</select>
 				</div>
 				<div class="form group">
@@ -147,6 +134,10 @@
 		getCriterias();
 	});
 	
+	function openEventPhoto() {
+		$('#eventPhoto').click();
+	}
+	
 	function addCriteriaFields() {
 		$('#added_criterias').append('<div class="row form-group"><div class="col-lg-11"><input name="criteria'+ctr+'" type="text" class="criteria form-control" /></div><div class="col-lg-1"><a onclick="removeCriteriaFields('+ctr+')" class="close"> &times; </a></div></div>')
 		ctr++;
@@ -182,14 +173,6 @@
 	
 	$("#createEventForm").submit(function(e) {
 		e.preventDefault();
-	
-		/*var event_name = $("#event_name").val();
-		var date = $("#date").val();
-		var venue = $("#venue").val();
-		var start_time = $("#start_time").val();
-		var end_time = $("#end_time").val();
-		var description = $("#description").val();
-		var category = $("#category").val();*/
 		
 		var datas = {
 			'event_name': $("#event_name").val(),
