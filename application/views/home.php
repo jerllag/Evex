@@ -67,7 +67,7 @@
 				</div>
 				<div class="modal-footer">
 					<center>
-					<button onclick="javascript: $('#logInForm').submit();" class="btn btn-info btn-lg">Save</button>
+					<button onclick="javascript: $('#logInForm').submit();" class="btn btn-info btn-lg">Login</button>
 					</center>
 				</div>
 			</div>
