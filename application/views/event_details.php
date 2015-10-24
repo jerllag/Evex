@@ -2,7 +2,7 @@
 		<?php if(isset($_SESSION['register_success'])) { ?>
 		<div class="row">
 			<div class="col-lg-12 text-center">
-				Succesfully registered!!
+				Successfully registered!!
 			</div>
 		</div>
 		<?php } ?>
@@ -37,12 +37,12 @@
 	</section>
 	
 	<!---modal for register-->
-	<div id="registerForm" class="modal fade" role="dialog">
+	<div id="registerFormModal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"> &times; </button>
-					<h4 align="center"> Register for this Event</h4>
+					<h2 align="center"> Register for this Event</h2>
 				</div>
 				<div class="modal-body" id="content">
 					<div class="error_msg"></div>

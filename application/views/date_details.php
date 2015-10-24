@@ -16,7 +16,7 @@
 	</div>
 	<?php if(!isset($_SESSION['userdata']) || $username != $_SESSION['userdata']['username']) { ?>
 	<div class="col-lg-3">
-		<button onclick="registerAttendee('<?=$detail['event_code']?>')" class="btn btn-danger" data-toggle="modal" data-target="#registerForm">
+		<button onclick="registerAttendee('<?=$detail['event_code']?>')" class="btn btn-danger" data-toggle="modal" data-target="#registerFormModal">
 			<span class="glyphicon glyphicon-calendar"></span> RSVP
 		</button>
 	</div>

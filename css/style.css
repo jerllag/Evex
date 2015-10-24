@@ -86,7 +86,7 @@ footer {
 	background-color: #0098DA;
 }
 
-#logInForm, #changePassword, #eventCodeForm {
+#logInForm, #changePassword, #eventCodeForm, #registerForm {
 	background-image: url(/images/res/bg.png); 
 	padding: 20px;
 	border-style: dashed;
