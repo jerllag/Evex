@@ -46,14 +46,14 @@
 					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="colorHover"><span class="glyphicon glyphicon-calendar"></span> Events
 						<span class="caret"></span></a>
 						<ul class="dropdown-menu dropdown-menu-left">
-							<li><a href="<?=base_url("/evex/create_event")?>"> Create Event </a><li>
-							<li><a href="">Attended Events</a></li>
+							<li><a href="<?=base_url("/evex/create_event")?>"> Create An Event </a><li>
 							<li><a href="<?=base_url('/evex/organized_events')?>">Organized Events</a></li>
 							<li><a href="<?=base_url("/evex/all_events")?>">View All Events</a></li>
 						</ul></li>
 					<li><a href="<?=base_url("/evex/log_out")?>" id="colorHover"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
 					<?php } else { ?>
 					<li><a href="<?=base_url("/evex/all_events")?>" id="colorHover"><span class="glyphicon glyphicon-calendar"></span> Browse Events</a></li>
+					<li><a href="<?=base_url("/evex/home")?>" id="colorHover" data-toggle="modal" data-target="#logInFormModal"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
 					<li><a href="<?=base_url("/evex/sign_up")?>" id="colorHover"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 					<?php } ?>
 				</ul>

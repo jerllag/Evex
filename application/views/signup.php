@@ -9,10 +9,10 @@
 				
 				<form class="form" id="signUpForm">
 					<div class="form-group">
-						<label for="username"> Username: </label>
+						<label for="username"> Username </label>
 						<input type="text" class="form-control" id="username">
 					</div>
-					<label for="start_date">Full Name: </label>
+					<label for="start_date">Full Name </label>
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="form-group">
@@ -26,38 +26,38 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="birthday"> Birthday: </label>
+						<label for="birthday"> Birthday </label>
 						<input type="date" class="form-control" id="birthday">
 					</div>
 					<div class="form-group">
-						<label for="contactno"> Contact No.: </label>
+						<label for="contactno"> Contact No. </label>
 						<input type="number" class="form-control" id="contactno">
 					</div>
 					<div class="form-group">
-						<label for="email"> Email Address: </label>
+						<label for="email"> Email Address </label>
 						<input type="email" class="form-control" id="email">
 					</div>
 					
 					<div class="form-group">
-						<label for="company_name"> Organization Name: </label>
+						<label for="company_name"> Organization Name </label>
 						<input type="text" class="form-control" id="org_name">
 					</div>
 					<div class="form-group">
-						<label for="company_address"> Organization Address: </label>
+						<label for="company_address"> Organization Address </label>
 						<input type="text" class="form-control" id="org_address">
 					</div>
 					
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="form-group">	
-								<label for="password">Password: </label>
+								<label for="password">Password </label>
 								<input type="password"  class="form-control" id="pwd">
 							</div>
 						</div>
 						<div class="col-lg-2"></div>	
 						<div class="col-lg-6">
 							<div class="form-group">
-								<label for="password">Confirm Password: </label>
+								<label for="password">Confirm Password </label>
 								<input type="password"  class="form-control" id="rpwd">
 							</div>
 						</div>

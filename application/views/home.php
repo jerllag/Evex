@@ -1,10 +1,6 @@
 	<section class="page-header">
 		<div class="row">
-				<?php if(!isset($_SESSION['userdata'])) { ?>
-				<div class="col-lg-9" align="center">
-				<?php } else { ?>
 				<div class="col-lg-12" align="center">
-				<?php } ?>
 					<!--img src="/images/res/banner.png" class="img-responsive"-->
 					  <div id="evexSlide" class="carousel slide" data-ride="carousel">
 						<ol class="carousel-indicators">
@@ -45,8 +41,39 @@
 					<br>
 				</div>
 				
-				<?php if(!isset($_SESSION['userdata'])) { ?>
-				<div class="col-lg-3" align="left">
+				<?php //if(!isset($_SESSION['userdata'])) { ?>
+				<!---modal for login-->
+		<div id="logInFormModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"> &times; </button>
+					<h2 align="center">Login</h2>
+				</div>
+				<div class="modal-body" id="content">
+					<div class="error_msg"></div>
+					
+					<form role="form" id="logInForm">
+						<div class="form-group">
+							<label for="username"> Username </label>
+							<input type="text" class="form-control" id="username">
+							<label for="pwd">Password</label>
+							<input type="password" class="form-control" id="pwd">
+							<a href="<?=base_url("/evex/change_password")?>" style="color: #207dba">Forgot your password? </a>
+						</div>
+						<div class="checkbox">
+							<label><input type="checkbox"> Remember me</lable>
+						</div>
+				</div>
+				<div class="modal-footer">
+					<center>
+					<button onclick="javascript: $('#logInForm').submit();" class="btn btn-info btn-lg">Save</button>
+					</center>
+				</div>
+			</div>
+		</div>
+	</div>
+				<!--div class="col-lg-3" align="left">
 					<h2 align="center"><strong>Login<strong></h2>
 					<div class="error_msg"></div>
 					<form role="form" id="logInForm">
@@ -62,8 +89,8 @@
 						</div>
 						<button id="button" type="submit" class="btn btn-primary">Login</button>
 					</form>
-				</div>
-				<?php } ?>
+				</div-->
+				<?php //} ?>
 			</div>
 		</div>	
 	</section>

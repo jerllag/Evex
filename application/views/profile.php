@@ -10,17 +10,17 @@
 				<h4 class="well">Username</h4>
 			
 				<div class="row" align="center">
-					<div class="col-lg-3">
-						<a href= ""><img class="img-responsive" src="/images/res/fb.png"></a>
+					<div class="col-lg-3 col-md-3 col-sm-3">
+						<a href= ""><img width="95%" class="img-responsive" src="/images/res/fb.png"></a>
 					</div>
-					<div class="col-lg-3">
-						<a href= ""><img class="img-responsive" src="/images/res/twitter.png"></a>
+					<div class="col-lg-3 col-md-3 col-sm-3">
+						<a href= ""><img width="95%" class="img-responsive" src="/images/res/twitter.png"></a>
 					</div>
-					<div class="col-lg-3">
-						<a href= ""><img class="img-responsive" src="/images/res/linkedin.png"></a>
+					<div class="col-lg-3 col-md-3 col-sm-3">
+						<a href= ""><img width="95%"  class="img-responsive" src="/images/res/linkedin.png"></a>
 					</div>
-					<div class="col-lg-3">
-						<a href= ""><img class="img-responsive" src="/images/res/google+.png"></a>
+					<div class="col-lg-3 col-md-3 col-sm-3">
+						<a href= ""><img width="95%"  class="img-responsive" src="/images/res/google+.png"></a>
 					</div>
 				</div>
 				<br>

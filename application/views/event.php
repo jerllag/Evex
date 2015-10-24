@@ -44,7 +44,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"> &times; </button>
-					<h4 align="center">Feedback</h4>
+					<h2 align="center">Feedback</h2>
 				</div>
 				<div class="modal-body" id="content">
 					<div class="error_msg"></div>

@@ -13,24 +13,24 @@
 				<form role="form" id="changePassword">
 					<?php if(!isset($_SESSION['userdata'])) {?>
 					<div class="form-group">
-						<label for="email">Email: </label>
+						<label for="email">Email </label>
 						<input type="email" class="form-control" id="email">
 					</div>
 					<?php } else {?>
 					<?php if(!isset($_SESSION['forgotPasswordEmail'])) { ?>
 					<div class="form-group">
-						<label for="current_password">Current Password: </label>
+						<label for="current_password">Current Password </label>
 						<input type="password" class="form-control" id="cpwd">
 					</div>
 					<?php } ?>
 					
 					<div class="form-group">	
-						<label for="new_password">New Password: </label>
+						<label for="new_password">New Password </label>
 						<input type="password"  class="form-control" id="npwd">
 					</div>
 				
 					<div class="form-group">
-						<label for="re_password">Confirm New Password: </label>
+						<label for="re_password">Confirm New Password </label>
 						<input type="password"  class="form-control" id="rpwd">
 					</div>
 					<?php } ?>
